@@ -1,67 +1,34 @@
-![Build Status](https://gitlab.com/pages/plain-html/badges/master/build.svg)
 
----
+#Free Coming Soon Page HTML Template 
+created by https://comingsoonpage.com
 
-Example plain HTML site using GitLab Pages.
+Get your free download at https://www.seedprod.com/free-coming-soon-page/
 
-Learn more about GitLab Pages at https://pages.gitlab.io and the official
-documentation https://docs.gitlab.com/ce/user/project/pages/.
+View Demo https://seedprod.github.io/free-coming-soon-page/
 
----
+This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+http://creativecommons.org/licenses/by-nc-nd/4.0/
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+=================================================
 
-- [GitLab CI](#gitlab-ci)
-- [GitLab User or Group Pages](#gitlab-user-or-group-pages)
-- [Did you fork this project?](#did-you-fork-this-project)
-- [Troubleshooting](#troubleshooting)
+To get started follow this checklist:
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+	1. Replace the *Page Title* on lines 23, 31 & 296
+	2. Set the *Page Description* on lines 26, 32 & 298
+	3. Set an optional *Logo* on lines 294 using the src attribute.
+	4. Set your *Facebook Profile* URL on line 312 using the href attribute.
+	5. Set your *Twitter Profile* URL on line 313 using the href attribute.
+	6. Set your *Email* on line 314 using the href attribute.
+	7. Set your background image on line 63, see file README.mb for additional background images.
+	8. Set your MailChimp email post URL on line 300 See video: https://youtu.be/YUdP1qfMot8
+	9. FTP to your Website. 
 
-## GitLab CI
+Pre selected background images values:
+* Wave: https://images.unsplash.com/photo-1449168013943-3a15804bb41c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=1958d4bfb59a246c6092ff0daabd284b
+* Wood: https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=46a85a1451e47aea5152ade8299f2894
+* Mountain: https://images.unsplash.com/34/BA1yLjNnQCI1yisIZGEi_2013-07-16_1922_IMG_9873.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=bb861c990a141e90c492fe79f7ff4307
+* Sunset: https://images.unsplash.com/uploads/1412276054206cd55c23b/e04e888a?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=f847427a77aaeb2f779366fc80446628
+* Ballons: https://images.unsplash.com/reserve/L55hYy77SLqb6zeTMlWr_IMG_9035.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=be8f13a3ec5d152f60ede73809372c97
+* Bridge: https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=4a065bd135cef62a0425f00234a43b08
 
-This project's static Pages are built by [GitLab CI][ci], following the steps
-defined in [`.gitlab-ci.yml`](.gitlab-ci.yml):
-
-```
-image: alpine:latest
-
-pages:
-  stage: deploy
-  script:
-  - echo 'Nothing to do...'
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
-```
-
-The above example expects to put all your HTML files in the `public/` directory.
-
-## GitLab User or Group Pages
-
-To use this project as your user/group website, you will need one additional
-step: just rename your project to `namespace.gitlab.io`, where `namespace` is
-your `username` or `groupname`. This can be done by navigating to your
-project's **Settings**.
-
-Read more about [user/group Pages][userpages] and [project Pages][projpages].
-
-## Did you fork this project?
-
-If you forked this project for your own use, please go to your project's
-**Settings** and remove the forking relationship, which won't be necessary
-unless you want to contribute back to the upstream project.
-
-## Troubleshooting
-
-1. CSS is missing! That means that you have wrongly set up the CSS URL in your
-   HTML files. Have a look at the [index.html] for an example.
-
-[ci]: https://about.gitlab.com/gitlab-ci/
-[index.html]: https://gitlab.com/pages/plain-html/blob/master/public/index.html
-[userpages]: https://docs.gitlab.com/ce/user/project/pages/introduction.html#user-or-group-pages
-[projpages]: https://docs.gitlab.com/ce/user/project/pages/introduction.html#project-pages
+###### Background Images are from http://unsplash.com and are license under Creative Commons 0 (Public Domain)
