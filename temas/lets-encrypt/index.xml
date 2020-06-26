@@ -5,10 +5,19 @@
     <link>https://esaborit.github.io/temas/lets-encrypt/</link>
     <description>Recent content in Let&#39;s Encrypt on ESC</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 17 Jun 2020 05:59:39 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2020 05:59:39 +0200</lastBuildDate>
     
 	<atom:link href="https://esaborit.github.io/temas/lets-encrypt/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WordPress y linuxserver-letsencrypt</title>
+      <link>https://esaborit.github.io/2020/06/25/worpress-y-linuxserver-letsencrypt/</link>
+      <pubDate>Thu, 25 Jun 2020 05:59:39 +0200</pubDate>
+      
+      <guid>https://esaborit.github.io/2020/06/25/worpress-y-linuxserver-letsencrypt/</guid>
+      <description>&lt;p&gt;Después de instalar mi servidor web y el proxy inverso voy a crear un &lt;code&gt;Server Blocks&lt;/code&gt; (virtualhost en Apache) en el servidor web Ngnix. En el alojaré un sitio web creado con WordPress al que accederé desde internet con el subominio de pruebas &lt;code&gt;pruebas.misubdominio.duckdns.org&lt;/code&gt; que he creado.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Docker en un servidor casero</title>
