@@ -4,8 +4,43 @@
   
   <url>
     <loc>https://esaborit.github.io/</loc>
-    <lastmod>2020-08-14T05:59:39+02:00</lastmod>
+    <lastmod>2020-10-14T05:59:39+02:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esaborit.github.io/2020/10/14/compartiendo-recursos-con-samba-en-debian-10-buster/</loc>
+    <lastmod>2020-10-14T05:59:39+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://esaborit.github.io/temas/debian/</loc>
+    <lastmod>2020-10-14T05:59:39+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://esaborit.github.io/post/</loc>
+    <lastmod>2020-10-14T05:59:39+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://esaborit.github.io/proyectos/</loc>
+    <lastmod>2020-10-14T05:59:39+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://esaborit.github.io/temas/samba/</loc>
+    <lastmod>2020-10-14T05:59:39+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://esaborit.github.io/proyectos/servidor/</loc>
+    <lastmod>2020-10-14T05:59:39+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://esaborit.github.io/temas/</loc>
+    <lastmod>2020-10-14T05:59:39+02:00</lastmod>
   </url>
   
   <url>
@@ -14,27 +49,7 @@
   </url>
   
   <url>
-    <loc>https://esaborit.github.io/temas/debian/</loc>
-    <lastmod>2020-08-14T05:59:39+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://esaborit.github.io/2020/08/14/instalacion-de-autofirma-en-debian-10-buster/</loc>
-    <lastmod>2020-08-14T05:59:39+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/post/</loc>
-    <lastmod>2020-08-14T05:59:39+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/proyectos/</loc>
-    <lastmod>2020-08-14T05:59:39+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/temas/</loc>
     <lastmod>2020-08-14T05:59:39+02:00</lastmod>
   </url>
   
@@ -65,11 +80,6 @@
   
   <url>
     <loc>https://esaborit.github.io/2020/06/29/openvpn-as-en-mi-servidor-casero/</loc>
-    <lastmod>2020-06-29T05:59:39+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/proyectos/servidor/</loc>
     <lastmod>2020-06-29T05:59:39+02:00</lastmod>
   </url>
   

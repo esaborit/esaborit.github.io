@@ -5,7 +5,17 @@
     <link>https://esaborit.github.io/temas/debian/</link>
     <description>Recent content in Debian on ESC</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 14 Aug 2020 05:59:39 +0200</lastBuildDate><atom:link href="https://esaborit.github.io/temas/debian/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Oct 2020 05:59:39 +0200</lastBuildDate><atom:link href="https://esaborit.github.io/temas/debian/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Compartiendo recursos con Samba en Debian 10 Buster</title>
+      <link>https://esaborit.github.io/2020/10/14/compartiendo-recursos-con-samba-en-debian-10-buster/</link>
+      <pubDate>Wed, 14 Oct 2020 05:59:39 +0200</pubDate>
+      
+      <guid>https://esaborit.github.io/2020/10/14/compartiendo-recursos-con-samba-en-debian-10-buster/</guid>
+      <description>&lt;p&gt;Ya que tengo un pequeño servidor casero lo voy a aprovechar para conectar a el los discos duros donde guardamos copias simples de los datos de los ordenadores de casa y las copias de seguridad.&lt;/p&gt;
+&lt;p&gt;En un principios todos los ordenadores que tendrán acceso a los recursos compartidos utilizan como S.O. GNU/Linux pero no quiero cerrar el acceso a un posible uso por parte de usuarios con equipos Windows por lo que utilizaré Samba como implementación de código abierto del protocolo de red SMB/CIFS para montar un servidor Samba independiente.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Instalación de Autofirma en Debian 10 Buster</title>
       <link>https://esaborit.github.io/2020/08/14/instalacion-de-autofirma-en-debian-10-buster/</link>

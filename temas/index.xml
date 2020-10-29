@@ -5,22 +5,31 @@
     <link>https://esaborit.github.io/temas/</link>
     <description>Recent content in Temas on ESC</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 14 Aug 2020 05:59:39 +0200</lastBuildDate><atom:link href="https://esaborit.github.io/temas/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Oct 2020 05:59:39 +0200</lastBuildDate><atom:link href="https://esaborit.github.io/temas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Debian</title>
+      <link>https://esaborit.github.io/temas/debian/</link>
+      <pubDate>Wed, 14 Oct 2020 05:59:39 +0200</pubDate>
+      
+      <guid>https://esaborit.github.io/temas/debian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Samba</title>
+      <link>https://esaborit.github.io/temas/samba/</link>
+      <pubDate>Wed, 14 Oct 2020 05:59:39 +0200</pubDate>
+      
+      <guid>https://esaborit.github.io/temas/samba/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Autofirma</title>
       <link>https://esaborit.github.io/temas/autofirma/</link>
       <pubDate>Fri, 14 Aug 2020 05:59:39 +0200</pubDate>
       
       <guid>https://esaborit.github.io/temas/autofirma/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Debian</title>
-      <link>https://esaborit.github.io/temas/debian/</link>
-      <pubDate>Fri, 14 Aug 2020 05:59:39 +0200</pubDate>
-      
-      <guid>https://esaborit.github.io/temas/debian/</guid>
       <description></description>
     </item>
     
