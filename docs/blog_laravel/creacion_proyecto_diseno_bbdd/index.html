@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang='es' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Creacion del proyecto y diseño de la base de datos del blog|ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css"><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="crossorigin></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],});
+  });
+</script><link rel="icon" type="image/png" sizes="32x32" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png"><meta name="description"
+    content="Creación del proyecto La pieza fundamental para construir el proyecto es tener claro la estructura de la base de datos del blog.
+Diagrama EER
+  Una vez que tengo planificada la base de datos para crear el proyecto con laravel debo situarme en el directorio /var/www/laravel/ dentro del cual creo todos los proyectos.
+enrique@enrique-server:$ cd /var/www/laravel/  Creo un proyecto de nombre blog_laravel con jetstream y livewire.
+enrique@enrique-server:/var/www/laravel$ laravel new blog_laravel --jet | | | |,---.">
+
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+"@type": "ListItem",
+"position":  1 ,
+"name": "ESC",
+"item": "https://esaborit.github.io/"
+},{
+"@type": "ListItem",
+"position":  2 ,
+"name": "Documentos",
+"item": "https://esaborit.github.io/docs/"
+},{
+"@type": "ListItem",
+"position":  3 ,
+"name": "Blog diseñado con Laravel",
+"item": "https://esaborit.github.io/docs/blog_laravel/"
+},{
+"@type": "ListItem",
+"position":  4 ,
+"name": "Creacion del proyecto y diseño de la base de datos del blog",
+"item": "https://esaborit.github.io/docs/blog_laravel/creacion_proyecto_diseno_bbdd/"
+}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://esaborit.github.io/docs/blog_laravel/creacion_proyecto_diseno_bbdd/"
+    },
+    "headline": "Creacion del proyecto y diseño de la base de datos del blog | ESC","datePublished": "2021-01-28T23:09:52+01:00",
+    "dateModified": "2021-01-28T23:09:52+01:00",
+    "wordCount":  1622 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://esaborit.github.io/images/icon.png"
+        }
+        },
+    "description": "Creación del proyecto La pieza fundamental para construir el proyecto es tener claro la estructura de la base de datos del blog.\nDiagrama EER\n  Una vez que tengo planificada la base de datos para crear el proyecto con laravel debo situarme en el directorio \/var\/www\/laravel\/ dentro del cual creo todos los proyectos.\nenrique@enrique-server:$ cd \/var\/www\/laravel\/  Creo un proyecto de nombre blog_laravel con jetstream y livewire.\nenrique@enrique-server:\/var\/www\/laravel$ laravel new blog_laravel --jet | | | |,---."
+}
+</script>
+<meta property="og:title" content="Creacion del proyecto y diseño de la base de datos del blog | ESC" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://esaborit.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://esaborit.github.io/docs/blog_laravel/creacion_proyecto_diseno_bbdd/" />
+
+
+
+
+<meta property="og:description" content="Creación del proyecto La pieza fundamental para construir el proyecto es tener claro la estructura de la base de datos del blog.
+Diagrama EER
+  Una vez que tengo planificada la base de datos para crear el proyecto con laravel debo situarme en el directorio /var/www/laravel/ dentro del cual creo todos los proyectos.
+enrique@enrique-server:$ cd /var/www/laravel/  Creo un proyecto de nombre blog_laravel con jetstream y livewire.
+enrique@enrique-server:/var/www/laravel$ laravel new blog_laravel --jet | | | |,---." />
+
+
+
+
+<meta property="og:locale" content="es" />
+
+
+
+
+<meta property="og:site_name" content="ESC" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-01-28T23:09:52&#43;01:00" />
+
+
+<meta property="article:modified_time" content="2021-01-28T23:09:52&#43;01:00" />
+
+
+
+<meta property="article:section" content="docs" />
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="flex items-center fixed w-full min-h-16 z-50 bg-secondary-bg shadow-sm">
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    
+    if ((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    } else if (storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+    
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">ESC</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0" id="current-url"
+            currenturl="https://esaborit.github.io/docs/blog_laravel/creacion_proyecto_diseno_bbdd/">
+            
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Articulos</a>
+            
+            <a href="/docs/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Documentos</a>
+            
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    
+                    <i class="fas fa-adjust"></i>
+                    
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+        
+    });
+
+    let currenturl = document.getElementById('current-url').getAttribute('currenturl')
+        if (currenturl.length > 1) {
+            currenturl = currenturl.substr(0, currenturl.length - 1)
+        }
+
+        sessionStorage.setItem("mainKey", currenturl)
+
+        let elements = document.getElementsByClassName('main-a');
+        for (let i in elements) {
+            if (typeof elements[i] === "object") {
+                let elementurl = elements[i].getAttribute('href')
+                if (elementurl.length > 1 && elementurl.charAt(elementurl.length - 1) == '/') {
+                    elementurl = elementurl.substr(0, elementurl.length - 1)
+                }
+                if (elementurl == sessionStorage.getItem("mainKey")) {
+                    elements[i].classList.add('text-eureka')
+                } else {
+                    elements[i].classList.remove('text-eureka')
+                }
+            }
+        }
+</script></div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16">
+        
+        <div class="container mx-auto ">
+            <div class="max-w-screen-xl lg:px-4 xl:px-8">
+
+
+<div class="lg:pt-12">
+    <div class="flex flex-col md:flex-row bg-secondary-bg rounded">
+        <div class="md:w-1/4 lg:w-1/5 border-r">
+            <div class="sticky top-16 pt-6">
+                
+
+
+
+
+<div id="sidebar-title" class="md:hidden mx-4 px-2 pt-4 pb-2 md:border-b text-tertiary-text md:text-primary-text">
+    <span class="font-semibold">Tabla de contenidos</span>
+    <i class="fas fa-caret-right ml-1"></i>
+</div>
+
+<div id="sidebar-toc"
+    class="hidden md:block overflow-y-auto mx-6 md:mx-0 pr-6 pt-2 md:max-h-doc-sidebar bg-primary-bg md:bg-transparent">
+    <div class="flex flex-wrap ml-4 -mr-2 p-2 bg-secondary-bg md:bg-primary-bg rounded">
+        <a class=" hover:text-eureka"
+            href="https://esaborit.github.io/docs/blog_laravel/">Blog diseñado con Laravel</a>
+        
+        
+        
+
+
+    </div>
+    
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" text-eureka  hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/creacion_proyecto_diseno_bbdd/">Creacion del proyecto y diseño de la base de datos del blog</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/insertar_datos_de_prueba_con_seeders_y_factories/">Inserción de datos de prueba con seeders y factories</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crear_un_menu_responsive_con_tailwind_y_alpine/">Crear un menú responsive con Tailwind y Alpine</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/listado_de_posts_en_la_pagina_principal/">Crear un listado de post en la página principal</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/mostrando_y_filtrando_posts/">Mostrando y filtrando posts</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/adminlte_en_el_proyecto/">Creando el backend del blog </a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crud_categorias/">Creando el crud de categorías. </a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crud_etiquetas/">Creando el crud de etiquetas. </a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crud_post/">Creando el crud de posts. </a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+</div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
+            <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
+                <h1 class="font-bold text-3xl text-primary-text">Creacion del proyecto y diseño de la base de datos del blog</h1>
+                <div class="flex flex-wrap flex-row items-center my-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-01-28</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>8 min lectura</span>
+    </div>
+    
+    
+
+    
+</div>
+            </div>
+            <div class="flex">
+                <div class="w-full lg:w-3/4 px-6">
+                    
+                    
+                    <div class="content">
+                        <h2 id="creación-del-proyecto">Creación del proyecto</h2>
+<p>La pieza fundamental para construir el proyecto es tener claro la estructura de la base de datos del blog.</p>
+<p><em><strong>Diagrama EER</strong></em></p>
+<figure>
+    <img src="/img/documentos/blog_laravel/1.png"/> 
+</figure>
+
+<p>Una vez que tengo planificada la base de datos para crear el proyecto con laravel debo situarme en el directorio <code>/var/www/laravel/</code> dentro del cual creo todos los proyectos.</p>
+<pre><code>enrique@enrique-server:$ cd /var/www/laravel/
+</code></pre>
+<p>Creo un proyecto de nombre <code>blog_laravel</code> con jetstream y livewire.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel$ laravel new blog_laravel --jet
+
+
+    |     |         |
+    |,---.|--- ,---.|--- ,---.,---.,---.,-.-.
+    ||---'|    `---.|    |    |---',---|| | |
+`---'`---'`---'`---'`---'`    `---'`---^` ' '
+
+
+Which Jetstream stack do you prefer?
+  [0] livewire
+  [1] inertia
+ &gt; 0
+
+ Will your application use teams? (yes/no) [no]:
+ &gt; no
+</code></pre>
+<p>Sigue el proceso de instalación hasta el fin y cuando termina me pide que ejecute los comandos <code>npm install</code> y <code>npm run dev</code> desde dentro del proyecto.</p>
+<pre><code>Package manifest generated successfully.
+75 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+Copied Directory [/vendor/laravel/sanctum/database/migrations] To [/database/migrations]
+Copied File [/vendor/laravel/sanctum/config/sanctum.php] To [/config/sanctum.php]
+Publishing complete.
+
+Livewire scaffolding installed successfully.
+Please execute the &quot;npm install &amp;&amp; npm run dev&quot; command to build your assets.
+The [/var/www/laravel/blog_laravel/public/storage] link has been connected to [/var/www/laravel/blog_laravel/storage/app/public].
+The links have been created.
+
+Application ready! Build something amazing.
+</code></pre>
+<p>Desde la terminal me sitúo dentro del proyecto <code>blog_laravel</code> y ejecuto dichos comandos.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ npm install
+</code></pre>
+<p>Mientras se ejecuta el primero de ellos modifico los parámetros para la conexión con al base de datos en el archivo <code>.env</code></p>
+<pre><code>DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+# DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=blog_laravel
+DB_USERNAME=root
+DB_PASSWORD=esaborit
+</code></pre>
+<p>Vuelvo a la consola y ejecuto.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ npm run dev
+
+&gt; @ dev /var/www/laravel/blog_laravel
+&gt; npm run development
+
+
+&gt; @ development /var/www/laravel/blog_laravel
+&gt; cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js
+
+        Additional dependencies must be installed. This will only take a moment.
+ 
+        Running: npm install vue-template-compiler --save-dev --production=false
+ 
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;} (current: {&quot;os&quot;:&quot;linux&quot;,&quot;arch&quot;:&quot;x64&quot;})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.1.3 (node_modules/watchpack/node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.3: wanted {&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;} (current: {&quot;os&quot;:&quot;linux&quot;,&quot;arch&quot;:&quot;x64&quot;})
+
+        Okay, done. The following packages have been installed and saved to your package.json dependencies list:
+ 
+        - vue-template-compiler
+ 
+98% after emitting SizeLimitsPlugin
+
+ DONE  Compiled successfully in 50548ms                                                                                                                      10:58:34 PM
+
+       Asset      Size   Chunks             Chunk Names
+/css/app.css  4.38 MiB  /js/app  [emitted]  /js/app
+  /js/app.js   669 KiB  /js/app  [emitted]  /js/app
+enrique@enrique-server:/var/www/laravel/blog_laravel$ 
+</code></pre>
+<p>Una vez que termina la compilación creo la tabla <code>blog_laravel</code>en mi gestor de bases de datos para lo que utilizaré <code>phpmyadmin</code> y un <code>virtualhost</code> en Apache.</p>
+<pre><code>enrique@enrique-server:/etc/apache2/sites-available$ sudo cp livewire.conf blog_laravel.conf
+enrique@enrique-server:/etc/apache2/sites-available$ sudo nano blog_laravel.conf
+</code></pre>
+<p>Modifico su contenido y lo dejo como sigue;</p>
+<p><em><strong>blog_laravel.conf</strong></em></p>
+<pre><code>&lt;VirtualHost *:80&gt;
+    ServerName blog_laravel.test
+    ServerAdmin admin@blog_laravel.test
+    DocumentRoot /var/www/laravel/blog_laravel/public
+
+    &lt;Directory /var/www/laravel/blog_laravel/&gt;
+          Options Indexes FollowSymLinks MultiViews
+          AllowOverride All
+          Order Allow,Deny
+          Allow from all
+          Require all granted
+    &lt;/Directory&gt;
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;
+</code></pre>
+<p>Guardo el archivo y lo habilito.</p>
+<pre><code>enrique@enrique-server:/etc/apache2/sites-available$ sudo a2ensite blog_laravel.conf
+Enabling site blog_laravel.
+To activate the new configuration, you need to run:
+  systemctl reload apache2
+</code></pre>
+<p>Compruebo que sintácticamente no hay errores.</p>
+<pre><code>enrique@enrique-server:/etc/apache2/sites-available$ sudo apachectl configtest
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+Syntax OK
+</code></pre>
+<p>Reinicio Apache.</p>
+<pre><code>enrique@enrique-server:/etc/apache2/sites-available$ sudo systemctl restart apache2
+</code></pre>
+<p>Incluyo <code>blog_laravel.test</code> dentro del <code>hosts</code> de mi equipo anfitrión y ya podría acceder al proyecto desde mi navegador web, pero como he creado el proyecto laravel incluyendo jetstream si intento acceder al mismo sin hacer la migración de las tablas que necesita jetstream me devolvería un mensaje de error como el siguiente.</p>
+<figure>
+    <img src="/img/documentos/blog_laravel/2.png"/> 
+</figure>
+
+<p>Por lo que desde la terminal de vscode realizo la migración de las tablas.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan migrate
+Migration table created successfully.
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table (3,653.58ms)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table (3,246.81ms)
+Migrating: 2014_10_12_200000_add_two_factor_columns_to_users_table
+Migrated:  2014_10_12_200000_add_two_factor_columns_to_users_table (4,505.40ms)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated:  2019_08_19_000000_create_failed_jobs_table (3,372.28ms)
+Migrating: 2019_12_14_000001_create_personal_access_tokens_table
+Migrated:  2019_12_14_000001_create_personal_access_tokens_table (4,506.46ms)
+Migrating: 2020_12_09_223020_create_sessions_table
+Migrated:  2020_12_09_223020_create_sessions_table (11,528.22ms)
+</code></pre>
+<p>Ahora ya puedo acceder al proyecto desde mi navegador web</p>
+<figure>
+    <img src="/img/documentos/blog_laravel/3.png"/> 
+</figure>
+
+<h2 id="diseño-de-la-base-de-datos">Diseño de la base de datos</h2>
+<p>Comienzo a crear la tablas y los modelos dentro del proyecto. Para ello empiezo por aquellas que son entidades fuertes.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:model Category -m
+Model created successfully.
+Created Migration: 2020_12_10_151428_create_categories_table
+</code></pre>
+<p>Me ha creado dos archivos, <code>App\Models\Category.php</code> y  <code>database\migrations\2020_12_10_151428_create_categories_table.php</code> un modelo y una migración para la tabla <code>categories</code>.</p>
+<p>Comienzo por el archivo de la migración donde incluiré dentro del método <code>up</code> los campos que va a tener la tabla.</p>
+<p><em><strong>2020_12_10_151428_create_categories_table.php</strong></em></p>
+<pre><code class="language-php">&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateCategoriesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('categories', function (Blueprint $table) {
+            $table-&gt;id();
+
+            $table-&gt;string('name', 45);
+            $table-&gt;string('slug', 45);
+
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('categories');
+    }
+}
+</code></pre>
+<p>Hago lo mismo para crear la tabla <code>posts</code></p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:model Post -m
+Model created successfully.
+Created Migration: 2020_12_10_152625_create_posts_table
+</code></pre>
+<p>Dentro del archivo de la migración incluyo los campos de la tabla <code>posts</code>.</p>
+<p><em><strong>2020_12_10_152625_create_posts_table.php</strong></em></p>
+<pre><code class="language-php">&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreatePostsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table-&gt;id();
+
+            $table-&gt;string('name');
+            $table-&gt;string('slug');
+            $table-&gt;text('extract');
+            $table-&gt;longText('body');
+            $table-&gt;enum('status', [1,2])-&gt;default(1); //1 es borrador y 2 publicado
+            $table-&gt;unsignedBigInteger('category_id');
+            $table-&gt;unsignedBigInteger('user_id');
+
+            $table-&gt;foreign('category_id')-&gt;references('id')-&gt;on('categories')-&gt;onDelete('cascade');
+            $table-&gt;foreign('user_id')-&gt;references('id')-&gt;on('users')-&gt;onDelete('cascade');
+
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('posts');
+    }
+}
+</code></pre>
+<p>Repito este proceder con la tabla <code>tags</code>.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:model Tag -m
+Model created successfully.
+Created Migration: 2020_12_10_154814_create_tags_table
+</code></pre>
+<p><em><strong>2020_12_10_154814_create_tags_table.php</strong></em></p>
+<pre><code class="language-php">&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateTagsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('tags', function (Blueprint $table) {
+            $table-&gt;id();
+
+            $table-&gt;string('name');
+            $table-&gt;string('slug');
+            $table-&gt;string('color');
+
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('tags');
+    }
+}
+</code></pre>
+<p>Como la tabla <code>tags</code> y la tabla <code>posts</code> tiene una relación muchos a muchos debo crear una tabla que llamaré post_tag .</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:migration create_post_tag_table
+Created Migration: 2020_12_10_155345_create_post_tag_table
+</code></pre>
+<p>Creo en la migración los campos de la tabla dentro de su método <code>up</code>.</p>
+<p><em><strong>2020_12_10_155345_create_post_tag_table.php</strong></em></p>
+<pre><code class="language-php">&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreatePostTagTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('post_tag', function (Blueprint $table) {
+            $table-&gt;id();
+
+            $table-&gt;unsignedBigInteger('post_id');
+            $table-&gt;unsignedBigInteger('tag_id');
+
+            $table-&gt;foreign('post_id')-&gt;references('id')-&gt;on('posts')-&gt;onDelete('cascade');
+            $table-&gt;foreign('tag_id')-&gt;references('id')-&gt;on('tags')-&gt;onDelete('cascade');
+
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('post_tag');
+    }
+}
+</code></pre>
+<p>Por último creo la tabla <code>images</code> y su modelo.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:model Image -m
+Model created successfully.
+Created Migration: 2020_12_10_182248_create_images_table
+</code></pre>
+<p>Creo en la migración los campos de la tabla dentro de su método <code>up</code>.</p>
+<p><em><strong>2020_12_10_182248_create_images_table.php</strong></em></p>
+<pre><code class="language-php">&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateImagesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('images', function (Blueprint $table) {
+            $table-&gt;id();
+
+            $table-&gt;string('url');
+            $table-&gt;unsignedBigInteger('imageable_id');
+            $table-&gt;string('imageable_type');
+
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('images');
+    }
+}
+</code></pre>
+<p>Realizo las migraciones de las tablas.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan migrate
+Migrating: 2020_12_10_151428_create_categories_table
+Migrated:  2020_12_10_151428_create_categories_table (3,943.96ms)
+Migrating: 2020_12_10_152625_create_posts_table
+Migrated:  2020_12_10_152625_create_posts_table (14,776.35ms)
+Migrating: 2020_12_10_154814_create_tags_table
+Migrated:  2020_12_10_154814_create_tags_table (1,760.09ms)
+Migrating: 2020_12_10_155345_create_post_tag_table
+Migrated:  2020_12_10_155345_create_post_tag_table (12,294.46ms)
+Migrating: 2020_12_10_182248_create_images_table
+Migrated:  2020_12_10_182248_create_images_table (3,181.90ms)
+</code></pre>
+<p>Lo siguiente es realizar las relaciones a nivel de modelos. <code>Categorias</code> y <code>users</code> tienen una relación uno a muchos con <code>posts</code>.</p>
+<p>En el modelo <code>Category</code> creo el método <code>posts</code></p>
+<p><em><strong>Category.php</strong></em></p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model
+{
+    use HasFactory;
+
+    // Relación uno a muchos posts
+    public function posts()
+    {
+        return $this-&gt;hasMany(Post::class); // Una categoría puede estar en muchos posts
+    }
+}
+</code></pre>
+<p>Creo el mismo método en el modelo <code>user</code>.</p>
+<p><em><strong>User.php</strong></em></p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Sanctum\HasApiTokens;
+
+class User extends Authenticatable
+{
+    use HasApiTokens;
+    use HasFactory;
+    use HasProfilePhoto;
+    use Notifiable;
+    use TwoFactorAuthenticatable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' =&gt; 'datetime',
+    ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'profile_photo_url',
+    ];
+
+    //relación uno a muchos posts
+    public function posts()
+    {
+        return $this-&gt;hasMany(Post::class);
+    }
+}
+</code></pre>
+<p>Y el modelo <code>Post</code> tiene la misma pero inversa, por lo que creo un método llamado <code>user</code> y otro <code>category</code>.</p>
+<p><em><strong>Post.php</strong></em></p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasFactory;
+
+    // Relacion uno a muchos inversa users
+    public function user()
+    {
+        return $this-&gt;belongsTo(User::class);
+    }
+
+    // Relacion uno a muchos inversa categories
+    public function category()
+    {
+        return $this-&gt;belongsTo(Category::class);
+    }
+}
+</code></pre>
+<p>La siguiente relación es la de <code>posts</code> y <code>tags</code> , esta es de muchos a muchos.</p>
+<p>En el modelo <code>Post</code> añado el siguiente método <code>categories</code>.</p>
+<p><em><strong>Post.php</strong></em></p>
+<pre><code class="language-php">    // Relacion muchos a muchos categorias
+    public function tags()
+    {
+        return $this-&gt;belongsToMany(Tag::class);
+    }
+</code></pre>
+<p>Y en el modelo <code>Tag</code> creo el método <code>posts</code>.</p>
+<p><em><strong>Tag.php</strong></em></p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Tag extends Model
+{
+    use HasFactory;
+
+    // relacion muchos a muchos con posts
+    public function posts()
+    {
+        return $this-&gt;belongsToMany(Post::class);
+    }
+}
+</code></pre>
+<p>Por último queda la relación polimórfica del modelo <code>Image</code> y el modelo <code>Post</code>.</p>
+<p>En el modelo <code>Image.php</code> el método <code>imageable</code>.</p>
+<p><em><strong>Image.php</strong></em></p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Image extends Model
+{
+    use HasFactory;
+
+    // Relación uno a uno polimórfica
+    public function imageable()
+    {
+        return $this-&gt;morphTo();
+    }
+}
+</code></pre>
+<p>En el modelo <code>Post</code> creo el método <code>image</code>.</p>
+<p><em><strong>Post.php</strong></em></p>
+<pre><code class="language-php">    // Relacion uno a uno polimórfica con image
+    public function image()
+    {
+        return $this-&gt;morphOne(Image::class, 'imageable'); // Debo pasar el método imageable creado en Image.php
+    }
+</code></pre>
+<p>Ya tengo relacionados todos los modelos.</p>
+
+                    </div>
+                    
+                    
+
+                    
+
+                    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Siguiente</span>
+        <a href="https://esaborit.github.io/docs/blog_laravel/insertar_datos_de_prueba_con_seeders_y_factories/" class="block">Inserción de datos de prueba con seeders y factories</a>
+        
+    </div>
+</div>
+
+                    
+                </div>
+                
+                <div class="hidden lg:block lg:w-1/4">
+                    
+                    <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-secondary-bg pt-16 -mt-16 ">
+    <span class="text-lg font-semibold">En Esta Página</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6  pt-10 -mt-10 border-l ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#creación-del-proyecto">Creación del proyecto</a></li>
+    <li><a href="#diseño-de-la-base-de-datos">Diseño de la base de datos</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.initHighlightingOnLoad();
+        changeSidebarHeight();
+        switchDocToc();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><footer class="w-full text-center p-6 pin-b text-sm text-tertiary-text">
+    <p>&copy; 2020 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</footer></div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sitio web on ESC</title>
+    <link>https://esaborit.github.io/tags/sitio-web/</link>
+    <description>Recent content in Sitio web on ESC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <copyright>&amp;copy; 2020 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/tags/sitio-web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Personalizando el tema beautifulhugo</title>
+      <link>https://esaborit.github.io/posts/personalizando-beautifulhugo/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/personalizando-beautifulhugo/</guid>
+      <description>&lt;p&gt;Para empezar a personalizar el tema que he instalado en mi sitio web, lo primero que debo de hacer es modificar el fichero &lt;code&gt;config.toml&lt;/code&gt; que he copiado en el directorio raíz de mi sitio desde la carpeta llamada &amp;ldquo;exampleSite&amp;rdquo; de dicho tema.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Creando Un Sitio Web Con Hugo</title>
+      <link>https://esaborit.github.io/posts/creando-un-sitio-web-con-hugo/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/creando-un-sitio-web-con-hugo/</guid>
+      <description>&lt;p&gt;Creo este post para acordarme de como voy a instalar este blog utilizando Hugo. Mi entorno de desarrollo está compuesto de un ordenador con Debian 10 como SO, donde instalaré Hugo, VSCodium como editor de código y Github como hosting y repositorio del sitio web del blog.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

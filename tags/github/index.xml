@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on ESC</title>
+    <link>https://esaborit.github.io/tags/github/</link>
+    <description>Recent content in Github on ESC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <copyright>&amp;copy; 2020 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crear un proyecto laravel desde un repositorio en Github</title>
+      <link>https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/</guid>
+      <description>&lt;p&gt;Voy a crear un proyecto con laravel a partir de otro alojado en un repositorio de Github.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Configuración de un entorno de desarrollo con Laravel en Ubuntu Server 20.04</title>
+      <link>https://esaborit.github.io/posts/configurando-entorno-de-desarrollo-con-laravel-en-ubuntu-server-20-04/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/configurando-entorno-de-desarrollo-con-laravel-en-ubuntu-server-20-04/</guid>
+      <description>&lt;p&gt;Voy a crear una máquina virtual con Ubuntu Server 20.04 en VirtualBox donde instalaré todas las herramientas y servicios necesarios para el entorno de desarrollo con Laravel.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Instalando GitKraken en Debian Buster</title>
+      <link>https://esaborit.github.io/posts/instalando-gitkraken-en-debian-buster/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/instalando-gitkraken-en-debian-buster/</guid>
+      <description>&lt;p&gt;Instalo GitKraken siguiendo los pasos de la &lt;a href=&#34;https://support.gitkraken.com/how-to-install/&#34;&gt;página de soporte&lt;/a&gt; del sitio web de &lt;strong&gt;Gitkraken&lt;/strong&gt;. Entre otras razones para su instalación esta que no se requieren herramientas Git para GitKraken, por lo que una vez instalado, se puede abrir la aplicación y comenzar a trabajar con el.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

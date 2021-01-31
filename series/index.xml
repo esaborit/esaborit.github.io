@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on ESC</title>
+    <link>https://esaborit.github.io/series/</link>
+    <description>Recent content in Series on ESC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <copyright>&amp;copy; 2020 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Programando con Laravel</title>
+      <link>https://esaborit.github.io/series/programando-con-laravel/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/series/programando-con-laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mi servidor local</title>
+      <link>https://esaborit.github.io/series/mi-servidor-local/</link>
+      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/series/mi-servidor-local/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Trámites Administración</title>
+      <link>https://esaborit.github.io/series/tr%C3%A1mites-administraci%C3%B3n/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/series/tr%C3%A1mites-administraci%C3%B3n/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog con Hugo</title>
+      <link>https://esaborit.github.io/series/blog-con-hugo/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/series/blog-con-hugo/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

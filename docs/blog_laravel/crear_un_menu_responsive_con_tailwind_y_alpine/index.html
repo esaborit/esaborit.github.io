@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang='es' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Crear un menú responsive con Tailwind y Alpine|ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css"><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="crossorigin></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],});
+  });
+</script><link rel="icon" type="image/png" sizes="32x32" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png"><meta name="description"
+    content="Menú responsive. El menú de navegación lo voy a incluir dentro de un componente de livewire
+enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:livewire navigation COMPONENT CREATED 🤙 CLASS: app/Http/Livewire/Navigation.php VIEW: resources/views/livewire/navigation.blade.php _._ / /o\ \ || () () __ |_\ /_| || || \\// /_\ \\ // || |~~ /_\ |`|`| || || \/ \\_ \^/ || || \\_ Congratulations, you&#39;ve created your first Livewire component! 🎉🎉🎉 Would you like to show some love by starring the repo? (yes/no) [no]: &gt; no I understand, but am not going to pretend I&#39;m not sad about it.">
+
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+"@type": "ListItem",
+"position":  1 ,
+"name": "ESC",
+"item": "https://esaborit.github.io/"
+},{
+"@type": "ListItem",
+"position":  2 ,
+"name": "Documentos",
+"item": "https://esaborit.github.io/docs/"
+},{
+"@type": "ListItem",
+"position":  3 ,
+"name": "Blog diseñado con Laravel",
+"item": "https://esaborit.github.io/docs/blog_laravel/"
+},{
+"@type": "ListItem",
+"position":  4 ,
+"name": "Crear un menú responsive con Tailwind y Alpine",
+"item": "https://esaborit.github.io/docs/blog_laravel/crear_un_menu_responsive_con_tailwind_y_alpine/"
+}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://esaborit.github.io/docs/blog_laravel/crear_un_menu_responsive_con_tailwind_y_alpine/"
+    },
+    "headline": "Crear un menú responsive con Tailwind y Alpine | ESC","datePublished": "2021-01-28T22:22:34+01:00",
+    "dateModified": "2021-01-28T22:22:34+01:00",
+    "wordCount":  2124 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://esaborit.github.io/images/icon.png"
+        }
+        },
+    "description": "Menú responsive. El menú de navegación lo voy a incluir dentro de un componente de livewire\nenrique@enrique-server:\/var\/www\/laravel\/blog_laravel$ php artisan make:livewire navigation COMPONENT CREATED 🤙 CLASS: app\/Http\/Livewire\/Navigation.php VIEW: resources\/views\/livewire\/navigation.blade.php _._ \/ \/o\\ \\ || () () __ |_\\ \/_| || || \\\\\/\/ \/_\\ \\\\ \/\/ || |~~ \/_\\ |`|`| || || \\\/ \\\\_ \\^\/ || || \\\\_ Congratulations, you\u0027ve created your first Livewire component! 🎉🎉🎉 Would you like to show some love by starring the repo? (yes\/no) [no]: \u0026gt; no I understand, but am not going to pretend I\u0027m not sad about it."
+}
+</script>
+<meta property="og:title" content="Crear un menú responsive con Tailwind y Alpine | ESC" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://esaborit.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://esaborit.github.io/docs/blog_laravel/crear_un_menu_responsive_con_tailwind_y_alpine/" />
+
+
+
+
+<meta property="og:description" content="Menú responsive. El menú de navegación lo voy a incluir dentro de un componente de livewire
+enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:livewire navigation COMPONENT CREATED 🤙 CLASS: app/Http/Livewire/Navigation.php VIEW: resources/views/livewire/navigation.blade.php _._ / /o\ \ || () () __ |_\ /_| || || \\// /_\ \\ // || |~~ /_\ |`|`| || || \/ \\_ \^/ || || \\_ Congratulations, you&#39;ve created your first Livewire component! 🎉🎉🎉 Would you like to show some love by starring the repo? (yes/no) [no]: &gt; no I understand, but am not going to pretend I&#39;m not sad about it." />
+
+
+
+
+<meta property="og:locale" content="es" />
+
+
+
+
+<meta property="og:site_name" content="ESC" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-01-28T22:22:34&#43;01:00" />
+
+
+<meta property="article:modified_time" content="2021-01-28T22:22:34&#43;01:00" />
+
+
+
+<meta property="article:section" content="docs" />
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="flex items-center fixed w-full min-h-16 z-50 bg-secondary-bg shadow-sm">
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    
+    if ((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    } else if (storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+    
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">ESC</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0" id="current-url"
+            currenturl="https://esaborit.github.io/docs/blog_laravel/crear_un_menu_responsive_con_tailwind_y_alpine/">
+            
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Articulos</a>
+            
+            <a href="/docs/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Documentos</a>
+            
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    
+                    <i class="fas fa-adjust"></i>
+                    
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+        
+    });
+
+    let currenturl = document.getElementById('current-url').getAttribute('currenturl')
+        if (currenturl.length > 1) {
+            currenturl = currenturl.substr(0, currenturl.length - 1)
+        }
+
+        sessionStorage.setItem("mainKey", currenturl)
+
+        let elements = document.getElementsByClassName('main-a');
+        for (let i in elements) {
+            if (typeof elements[i] === "object") {
+                let elementurl = elements[i].getAttribute('href')
+                if (elementurl.length > 1 && elementurl.charAt(elementurl.length - 1) == '/') {
+                    elementurl = elementurl.substr(0, elementurl.length - 1)
+                }
+                if (elementurl == sessionStorage.getItem("mainKey")) {
+                    elements[i].classList.add('text-eureka')
+                } else {
+                    elements[i].classList.remove('text-eureka')
+                }
+            }
+        }
+</script></div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16">
+        
+        <div class="container mx-auto ">
+            <div class="max-w-screen-xl lg:px-4 xl:px-8">
+
+
+<div class="lg:pt-12">
+    <div class="flex flex-col md:flex-row bg-secondary-bg rounded">
+        <div class="md:w-1/4 lg:w-1/5 border-r">
+            <div class="sticky top-16 pt-6">
+                
+
+
+
+
+<div id="sidebar-title" class="md:hidden mx-4 px-2 pt-4 pb-2 md:border-b text-tertiary-text md:text-primary-text">
+    <span class="font-semibold">Tabla de contenidos</span>
+    <i class="fas fa-caret-right ml-1"></i>
+</div>
+
+<div id="sidebar-toc"
+    class="hidden md:block overflow-y-auto mx-6 md:mx-0 pr-6 pt-2 md:max-h-doc-sidebar bg-primary-bg md:bg-transparent">
+    <div class="flex flex-wrap ml-4 -mr-2 p-2 bg-secondary-bg md:bg-primary-bg rounded">
+        <a class=" hover:text-eureka"
+            href="https://esaborit.github.io/docs/blog_laravel/">Blog diseñado con Laravel</a>
+        
+        
+        
+
+
+    </div>
+    
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/creacion_proyecto_diseno_bbdd/">Creacion del proyecto y diseño de la base de datos del blog</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/insertar_datos_de_prueba_con_seeders_y_factories/">Inserción de datos de prueba con seeders y factories</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" text-eureka  hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crear_un_menu_responsive_con_tailwind_y_alpine/">Crear un menú responsive con Tailwind y Alpine</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/listado_de_posts_en_la_pagina_principal/">Crear un listado de post en la página principal</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/mostrando_y_filtrando_posts/">Mostrando y filtrando posts</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/adminlte_en_el_proyecto/">Creando el backend del blog </a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crud_categorias/">Creando el crud de categorías. </a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crud_etiquetas/">Creando el crud de etiquetas. </a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crud_post/">Creando el crud de posts. </a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+</div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
+            <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
+                <h1 class="font-bold text-3xl text-primary-text">Crear un menú responsive con Tailwind y Alpine</h1>
+                <div class="flex flex-wrap flex-row items-center my-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-01-28</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>10 min lectura</span>
+    </div>
+    
+    
+
+    
+</div>
+            </div>
+            <div class="flex">
+                <div class="w-full lg:w-3/4 px-6">
+                    
+                    
+                    <div class="content">
+                        <h2 id="menú-responsive">Menú responsive.</h2>
+<p>El menú de navegación lo voy a incluir dentro de un componente de <code>livewire</code></p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:livewire navigation
+ COMPONENT CREATED  🤙
+
+CLASS: app/Http/Livewire/Navigation.php
+VIEW:  resources/views/livewire/navigation.blade.php
+
+  _._
+/ /o\ \   || ()                ()  __         
+|_\ /_|   || || \\// /_\ \\ // || |~~ /_\   
+ |`|`|    || ||  \/  \\_  \^/  || ||  \\_   
+
+
+Congratulations, you've created your first Livewire component! 🎉🎉🎉
+
+ Would you like to show some love by starring the repo? (yes/no) [no]:
+ &gt; no
+
+I understand, but am not going to pretend I'm not sad about it...
+</code></pre>
+<p>Se han creado dos archivos, la clase <code>app/Http/Livewire/Navigation.php</code>y la vista <code>resources/views/livewire/navigation.blade.php</code></p>
+<p>La clase <code>Navigation.php</code> renderiza el contenido de la vista <code>navigation.blade.php</code></p>
+<p>¿Como llamo al componente y donde? Lo voy a llamar en la plantilla principal <code>app.blade.php</code> situada en la ruta <code>resources/views/layouts/app.blade.php</code></p>
+<p><strong>app.blade.php</strong></p>
+<pre><code>&lt;!DOCTYPE &gt;
+&lt; lang=&quot;{{ str_replace('_', '-', app()-&gt;getLocale()) }}&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+        &lt;meta name=&quot;csrf-token&quot; content=&quot;{{ csrf_token() }}&quot;&gt;
+
+        &lt;title&gt;{{ config('app.name', 'Laravel') }}&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&amp;display=swap&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ mix('css/app.css') }}&quot;&gt;
+
+        @livewireStyles
+
+        &lt;!-- Scripts --&gt;
+        &lt;script src=&quot;{{ mix('js/app.js') }}&quot; defer&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body class=&quot;font-sans antialiased&quot;&gt;
+        &lt;div class=&quot;min-h-screen bg-gray-100&quot;&gt;
+            @livewire('navigation-dropdown')
+
+            &lt;!-- Page Heading --&gt;
+            &lt;header class=&quot;bg-white shadow&quot;&gt;
+                &lt;div class=&quot;max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8&quot;&gt;
+                    {{ $header }}
+                &lt;/div&gt;
+            &lt;/header&gt;
+
+            &lt;!-- Page Content --&gt;
+            &lt;main&gt;
+                {{ $slot }}
+            &lt;/main&gt;
+        &lt;/div&gt;
+
+        @stack('modals')
+
+        @livewireScripts
+    &lt;/body&gt;
+&lt;/&gt;
+</code></pre>
+<p>En esta plantilla elimino toda la etiqueta <code>header</code> y sustituyo <code>@livewire('navigation-dropdown')</code> por nuestro componente <code>livewire</code> recien creado <code>@livewire('navigation')</code> .</p>
+<pre><code>&lt;!DOCTYPE &gt;
+&lt; lang=&quot;{{ str_replace('_', '-', app()-&gt;getLocale()) }}&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+        &lt;meta name=&quot;csrf-token&quot; content=&quot;{{ csrf_token() }}&quot;&gt;
+
+        &lt;title&gt;{{ config('app.name', 'Laravel') }}&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&amp;display=swap&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ mix('css/app.css') }}&quot;&gt;
+
+        @livewireStyles
+
+        &lt;!-- Scripts --&gt;
+        &lt;script src=&quot;{{ mix('js/app.js') }}&quot; defer&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body class=&quot;font-sans antialiased&quot;&gt;
+        &lt;div class=&quot;min-h-screen bg-gray-100&quot;&gt;
+            @livewire('navigation')
+
+            &lt;!-- Page Content --&gt;
+            &lt;main&gt;
+                {{ $slot }}
+            &lt;/main&gt;
+        &lt;/div&gt;
+
+        @stack('modals')
+
+        @livewireScripts
+    &lt;/body&gt;
+&lt;/&gt;
+</code></pre>
+<p>De esta forma estoy llamando a la clase <code>Navigation.php</code> que  renderiza el contenido de la vista <code>navigation.blade.php</code>. Si lo dejo así no me mostraria ningún menú pues el contenido de <code>navigation.blade.php</code> es un div vacío. Lo que hago es copiar el ejemplo de menú en la pagina de <a href="https://tailwindui.com/preview">tailwind</a> y pegarlo dentro.</p>
+<pre><code>&lt;nav class=&quot;bg-gray-800&quot;&gt;
+    &lt;div class=&quot;max-w-7xl mx-auto px-2 sm:px-6 lg:px-8&quot;&gt;
+      &lt;div class=&quot;relative flex items-center justify-between h-16&quot;&gt;
+        &lt;div class=&quot;absolute inset-y-0 left-0 flex items-center sm:hidden&quot;&gt;
+          &lt;!-- Mobile menu button--&gt;
+          &lt;button class=&quot;inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white&quot; aria-expanded=&quot;false&quot;&gt;
+            &lt;span class=&quot;sr-only&quot;&gt;Open main menu&lt;/span&gt;
+            &lt;!-- Icon when menu is closed. --&gt;
+            &lt;!--
+              Heroicon name: menu
+  
+              Menu open: &quot;hidden&quot;, Menu closed: &quot;block&quot;
+            --&gt;
+            &lt;svg class=&quot;block h-6 w-6&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;
+              &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M4 6h16M4 12h16M4 18h16&quot; /&gt;
+            &lt;/svg&gt;
+            &lt;!-- Icon when menu is open. --&gt;
+            &lt;!--
+              Heroicon name: x
+  
+              Menu open: &quot;block&quot;, Menu closed: &quot;hidden&quot;
+            --&gt;
+            &lt;svg class=&quot;hidden h-6 w-6&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;
+              &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M6 18L18 6M6 6l12 12&quot; /&gt;
+            &lt;/svg&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;flex-1 flex items-center justify-center sm:items-stretch sm:justify-start&quot;&gt;
+          &lt;div class=&quot;flex-shrink-0 flex items-center&quot;&gt;
+            &lt;img class=&quot;block lg:hidden h-8 w-auto&quot; src=&quot;https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg&quot; alt=&quot;Workflow&quot;&gt;
+            &lt;img class=&quot;hidden lg:block h-8 w-auto&quot; src=&quot;https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg&quot; alt=&quot;Workflow&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;hidden sm:block sm:ml-6&quot;&gt;
+            &lt;div class=&quot;flex space-x-4&quot;&gt;
+              &lt;!-- Current: &quot;bg-gray-900 text-white&quot;, Default: &quot;text-gray-300 hover:bg-gray-700 hover:text-white&quot; --&gt;
+              &lt;a href=&quot;#&quot; class=&quot;bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium&quot;&gt;Dashboard&lt;/a&gt;
+              &lt;a href=&quot;#&quot; class=&quot;text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium&quot;&gt;Team&lt;/a&gt;
+              &lt;a href=&quot;#&quot; class=&quot;text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium&quot;&gt;Projects&lt;/a&gt;
+              &lt;a href=&quot;#&quot; class=&quot;text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium&quot;&gt;Calendar&lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0&quot;&gt;
+          &lt;button class=&quot;bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white&quot;&gt;
+            &lt;span class=&quot;sr-only&quot;&gt;View notifications&lt;/span&gt;
+            &lt;!-- Heroicon name: bell --&gt;
+            &lt;svg class=&quot;h-6 w-6&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;
+              &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9&quot; /&gt;
+            &lt;/svg&gt;
+          &lt;/button&gt;
+  
+          &lt;!-- Profile dropdown --&gt;
+          &lt;div class=&quot;ml-3 relative&quot;&gt;
+            &lt;div&gt;
+              &lt;button class=&quot;bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white&quot; id=&quot;user-menu&quot; aria-haspopup=&quot;true&quot;&gt;
+                &lt;span class=&quot;sr-only&quot;&gt;Open user menu&lt;/span&gt;
+                &lt;img class=&quot;h-8 w-8 rounded-full&quot; src=&quot;https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80&quot; alt=&quot;&quot;&gt;
+              &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!--
+              Profile dropdown panel, show/hide based on dropdown state.
+  
+              Entering: &quot;transition ease-out duration-100&quot;
+                From: &quot;transform opacity-0 scale-95&quot;
+                To: &quot;transform opacity-100 scale-100&quot;
+              Leaving: &quot;transition ease-in duration-75&quot;
+                From: &quot;transform opacity-100 scale-100&quot;
+                To: &quot;transform opacity-0 scale-95&quot;
+            --&gt;
+            &lt;div class=&quot;origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5&quot; role=&quot;menu&quot; aria-orientation=&quot;vertical&quot; aria-labelledby=&quot;user-menu&quot;&gt;
+              &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Your Profile&lt;/a&gt;
+              &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Settings&lt;/a&gt;
+              &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Sign out&lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+    &lt;!--
+      Mobile menu, toggle classes based on menu state.
+  
+      Menu open: &quot;block&quot;, Menu closed: &quot;hidden&quot;
+    --&gt;
+    &lt;div class=&quot;hidden sm:hidden&quot;&gt;
+      &lt;div class=&quot;px-2 pt-2 pb-3 space-y-1&quot;&gt;
+        &lt;!-- Current: &quot;bg-gray-900 text-white&quot;, Default: &quot;text-gray-300 hover:bg-gray-700 hover:text-white&quot; --&gt;
+        &lt;a href=&quot;#&quot; class=&quot;bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium&quot;&gt;Dashboard&lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium&quot;&gt;Team&lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium&quot;&gt;Projects&lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium&quot;&gt;Calendar&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+</code></pre>
+<p>Lo guardo todo y veo los cambios desde el navegador web.</p>
+<figure>
+    <img src="/img/documentos/blog_laravel/10.png"/> 
+</figure>
+
+<p>Comento los diferentes <code>div</code> del menú para su mejor identificación.</p>
+<figure>
+    <img src="/img/documentos/blog_laravel/11.png"/> 
+</figure>
+
+<p>Comienzo a dar funcionalidad al menú móvil que tiene la propiedad<code>hidden</code> que le voy a quitar. Le mantengo la clase <code>sm:hidden</code>que me permite ocultar el menú móvil en pantallas de resolución superior a 640 px.</p>
+<p>Al realizar la instalación de laravel con jetstream se instaló también <code>Alpine</code> por lo que ya puedo usarlo sin tener que instalar nada mas.</p>
+<p>Para ello considero al <code>div</code>  del menú de la derecha como un componente de <code>alpine</code> y le agrego la propiedad <code>x-data</code> dentro de la que defino una variable llamada <code>open</code> que inicializo a <code>false</code>. Toda la interactividad que agrege va a ser a nivel de este componente y no fuera</p>
+<pre><code>          &lt;!-- Profile dropdown --&gt;
+          &lt;div class=&quot;ml-3 relative&quot; x-data=&quot;{open: false}&quot;&gt;
+              .......
+          &lt;/div&gt;
+</code></pre>
+<p>Puedo utilizar el valor de esta variable para ocultar o mostrar el valor de algún div que se encuentre dentro del div al que hemos añadido la propiedad <code>x-data</code>. El div que quiero ocultar es el que me muestra las opciones del menú de la derecha. Para hacerlo le añado el metodo <code>x-show={open}</code>.</p>
+<pre><code>&lt;div x-show={open} class=&quot;origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5&quot; role=&quot;menu&quot; aria-orientation=&quot;vertical&quot; aria-labelledby=&quot;user-menu&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Your Profile&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Settings&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Sign out&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Además le debo de pasar un evento al botón que muestra el menú de la derecha <code>x-on:click=&quot;open = true&quot;</code>. para que la hacer click sobre el se muestre el menú.</p>
+<pre><code>&lt;!-- Profile dropdown --&gt;
+ &lt;div class=&quot;ml-3 relative&quot; x-data=&quot;{open: false}&quot;&gt;
+   &lt;div&gt;
+     &lt;button x-on:click=&quot;open = true&quot; class=&quot;bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white&quot; id=&quot;user-menu&quot; aria-haspopup=&quot;true&quot;&gt;
+       &lt;span class=&quot;sr-only&quot;&gt;Open user menu&lt;/span&gt;
+       &lt;img class=&quot;h-8 w-8 rounded-full&quot; src=&quot;https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80&quot; alt=&quot;&quot;&gt;
+     &lt;/button&gt;
+   &lt;/div&gt;
+     ...........
+</code></pre>
+<p>Para completar la funcionalidad del menú le añado el método <code>x-on:click.away=&quot;open = false&quot;</code> al div que muestra las opciones del menú de la redera lo que me permitirá que cuando haga clic fuera de el se ocultará automaticamente.</p>
+<p>La funcionalidad del componente queda así:</p>
+<pre><code>        &lt;!-- Barra menu derecha--&gt;
+        &lt;div class=&quot;absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0&quot;&gt;
+            
+          &lt;!-- Boton de alertas--&gt;
+          &lt;button class=&quot;bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white&quot;&gt;
+            &lt;span class=&quot;sr-only&quot;&gt;View notifications&lt;/span&gt;
+            &lt;!-- Heroicon name: bell --&gt;
+            &lt;svg class=&quot;h-6 w-6&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;
+              &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9&quot; /&gt;
+            &lt;/svg&gt;
+          &lt;/button&gt;
+  
+          &lt;!-- Profile dropdown --&gt;
+          &lt;div class=&quot;ml-3 relative&quot; x-data=&quot;{open: false}&quot;&gt;
+            &lt;div&gt;
+              &lt;button x-on:click=&quot;open = true&quot; class=&quot;bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white&quot; id=&quot;user-menu&quot; aria-haspopup=&quot;true&quot;&gt;
+                &lt;span class=&quot;sr-only&quot;&gt;Open user menu&lt;/span&gt;
+                &lt;img class=&quot;h-8 w-8 rounded-full&quot; src=&quot;https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80&quot; alt=&quot;&quot;&gt;
+              &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!--
+              Profile dropdown panel, show/hide based on dropdown state.
+  
+              Entering: &quot;transition ease-out duration-100&quot;
+                From: &quot;transform opacity-0 scale-95&quot;
+                To: &quot;transform opacity-100 scale-100&quot;
+              Leaving: &quot;transition ease-in duration-75&quot;
+                From: &quot;transform opacity-100 scale-100&quot;
+                To: &quot;transform opacity-0 scale-95&quot;
+            --&gt;
+            &lt;div x-show=&quot;open&quot; x-on:click.away=&quot;open = false&quot; class=&quot;origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5&quot; role=&quot;menu&quot; aria-orientation=&quot;vertical&quot; aria-labelledby=&quot;user-menu&quot;&gt;
+              &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Your Profile&lt;/a&gt;
+              &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Settings&lt;/a&gt;
+              &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Sign out&lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+</code></pre>
+<p>Al otro <code>div</code> que voy a dar funcionalidad de la misma manera es a la etiqueta <code>&lt;nav&gt;</code> para que al hacer clic sobre el botón del menú móvil se despliegue y cierre el menú móvil que solo puede ser visible para pantalla de resolución inferios a 640 px.</p>
+<figure>
+    <img src="/img/documentos/blog_laravel/12.png"/> 
+</figure>
+
+<h2 id="dotando-de-funcionalidad-al-menú">Dotando de funcionalidad al menú</h2>
+<p>Primero de todo extiendo la plantilla principal a la ruta raiz de mi proyecto. para ello edito <code>resources/views/welcome.blade.php</code> y añado la etiqueta <code>&lt;x-app-layout /&gt;</code> . Todo lo que escriba en su interior se rendizará dentro de la plantilla principal dentro de <code>{{slot}}</code>.</p>
+<p><strong>welcome.blade.php</strong></p>
+<pre><code>&lt;x-app-layout&gt;
+    hola
+&lt;/x-app-layout&gt;
+</code></pre>
+<p><strong>app.blade.php</strong></p>
+<pre><code>&lt;!DOCTYPE &gt;
+&lt; lang=&quot;{{ str_replace('_', '-', app()-&gt;getLocale()) }}&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+        &lt;meta name=&quot;csrf-token&quot; content=&quot;{{ csrf_token() }}&quot;&gt;
+
+        &lt;title&gt;{{ config('app.name', 'Laravel') }}&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&amp;display=swap&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ mix('css/app.css') }}&quot;&gt;
+
+        @livewireStyles
+
+        &lt;!-- Scripts --&gt;
+        &lt;script src=&quot;{{ mix('js/app.js') }}&quot; defer&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body class=&quot;font-sans antialiased&quot;&gt;
+        &lt;div class=&quot;min-h-screen bg-gray-100&quot;&gt;
+            @livewire('navigation')
+
+            &lt;!-- Page Content --&gt;
+            &lt;main&gt;
+                {{ $slot }}
+            &lt;/main&gt;
+        &lt;/div&gt;
+
+        @stack('modals')
+
+        @livewireScripts
+    &lt;/body&gt;
+&lt;/&gt;
+</code></pre>
+<p>Lo siguiente es añadir la funcionalidad a nuestro menú.</p>
+<p><strong>navigation.blade.php</strong></p>
+<p>Cambio el <code>div</code> que contiene a el logotipo por una etiqueta <code>&lt;a&gt;</code>que me dirija a la página principal.</p>
+<pre><code>&lt;a href=&quot;/&quot; class=&quot;flex-shrink-0 flex items-center&quot;&gt;
+   &lt;img class=&quot;block lg:hidden h-8 w-auto&quot; src=&quot;https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg&quot; alt=&quot;Workflow&quot;&gt;
+   &lt;img class=&quot;hidden lg:block h-8 w-auto&quot; src=&quot;https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg&quot; alt=&quot;Workflow&quot;&gt;
+&lt;/a&gt;
+</code></pre>
+<p>Encierro el menú derecho en una directiva <code> @auth</code> de blade que solo lo mostrará si estoy autentificado y si no mostrará dos enlaces: al registro y al login.</p>
+<pre><code>        &lt;!-- Barra menu derecha--&gt;
+        @auth
+                   
+          &lt;div class=&quot;absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0&quot;&gt;
+              
+            &lt;!-- Boton de alertas--&gt;
+            &lt;button class=&quot;bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white&quot;&gt;
+              &lt;span class=&quot;sr-only&quot;&gt;View notifications&lt;/span&gt;
+              &lt;!-- Heroicon name: bell --&gt;
+              &lt;svg class=&quot;h-6 w-6&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9&quot; /&gt;
+              &lt;/svg&gt;
+            &lt;/button&gt;
+    
+            &lt;!-- Profile dropdown --&gt;
+            &lt;div class=&quot;ml-3 relative&quot; x-data=&quot;{open: false}&quot;&gt;
+              &lt;div&gt;
+                &lt;button x-on:click=&quot;open = true&quot; class=&quot;bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white&quot; id=&quot;user-menu&quot; aria-haspopup=&quot;true&quot;&gt;
+                  &lt;span class=&quot;sr-only&quot;&gt;Open user menu&lt;/span&gt;
+                  &lt;img class=&quot;h-8 w-8 rounded-full&quot; src=&quot;https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80&quot; alt=&quot;&quot;&gt;
+                &lt;/button&gt;
+              &lt;/div&gt;
+              &lt;div x-show=&quot;open&quot; x-on:click.away=&quot;open = false&quot; class=&quot;origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5&quot; role=&quot;menu&quot; aria-orientation=&quot;vertical&quot; aria-labelledby=&quot;user-menu&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Your Profile&lt;/a&gt;
+                &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Settings&lt;/a&gt;
+                &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Sign out&lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        
+        @else
+
+          &lt;a href=&quot;{{route('login')}}&quot; class=&quot;text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium&quot;&gt;Login&lt;/a&gt;
+          &lt;a href=&quot;{{route('register')}}&quot; class=&quot;text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium&quot;&gt;Register&lt;/a&gt;
+
+        @endauth
+</code></pre>
+<p>Edito el cierre de sesión. Es una ruta de tipo post dentro de un formulario, voy a reutilizar la de jetstream en su vista <code>navigation-dropdown.blade.php</code>.</p>
+<p>Lo mando a través de un evento.</p>
+<pre><code>&lt;div x-show=&quot;open&quot; x-on:click.away=&quot;open = false&quot; class=&quot;origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5&quot; role=&quot;menu&quot; aria-orientation=&quot;vertical&quot; aria-labelledby=&quot;user-menu&quot;&gt;
+   &lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Tu perfil&lt;/a&gt;
+                &lt;!--&lt;a href=&quot;#&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Settings&lt;/a&gt;--&gt;
+   &lt;form method=&quot;POST&quot; action=&quot;{{ route('logout') }}&quot;&gt;
+     @csrf
+     &lt;a href=&quot;{{ route('logout') }}&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;  onclick=&quot;event.preventDefault(); this.closest('form').submit();&quot;&gt;Cerra sesion&lt;/a&gt;
+   &lt;/form&gt;
+ &lt;/div&gt;
+</code></pre>
+<p>Lo siguiente que quiero actualizar es la barra de menú que aparece a la izquierda, quiero sustituir los enlaces de muestra que aparecen por las categorías del blog. Lo primero es almacenar todas las categorías en una variable dentro de la clase del componente <code>App\Http\Livewire\Navigation.php</code> y pasárselas a la vista del componente.</p>
+<p><strong>Navigation.php</strong></p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+
+use App\Models\Category;
+
+class Navigation extends Component
+{
+    public function render()
+    {
+        $categorias = Category::all();
+
+        return view('livewire.navigation', compact('categorias'));
+    }
+}
+</code></pre>
+<p>Luego, ya en la vista <code>resources/views/livewire/navigation.blade.php</code> recooro el array <code>categorias</code> con un bucle <code>foreach</code> y creo un enlace para cada categoría dentro de la barra del menú izquierdo.</p>
+<p><strong>navigation.blade.php</strong></p>
+<pre><code>        &lt;!-- Barra menu izquierdo--&gt;
+        &lt;div class=&quot;flex-1 flex items-center justify-center sm:items-stretch sm:justify-start&quot;&gt;
+
+          &lt;!-- logotipo--&gt;
+          &lt;a href=&quot;/&quot; class=&quot;flex-shrink-0 flex items-center&quot;&gt;
+            &lt;img class=&quot;block lg:hidden h-8 w-auto&quot; src=&quot;https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg&quot; alt=&quot;Workflow&quot;&gt;
+            &lt;img class=&quot;hidden lg:block h-8 w-auto&quot; src=&quot;https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg&quot; alt=&quot;Workflow&quot;&gt;
+          &lt;/a&gt;
+
+          &lt;!-- barra de menu lg--&gt;
+          &lt;div class=&quot;hidden sm:block sm:ml-6&quot;&gt;
+            &lt;div class=&quot;flex space-x-4&quot;&gt;
+              @foreach ($categorias as $categoria)              
+                &lt;!-- Current: &quot;bg-gray-900 text-white&quot;, Default: &quot;text-gray-300 hover:bg-gray-700 hover:text-white&quot; --&gt;
+                &lt;!--&lt;a href=&quot;#&quot; class=&quot;bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium&quot;&gt;Dashboard&lt;/a&gt;--&gt;
+                &lt;a href=&quot;&quot; class=&quot;text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium&quot;&gt;{{$categoria-&gt;name}}&lt;/a&gt;
+              @endforeach
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+</code></pre>
+
+                    </div>
+                    
+                    
+
+                    
+
+                    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Anterior</span>
+        <a href="https://esaborit.github.io/docs/blog_laravel/insertar_datos_de_prueba_con_seeders_y_factories/" class="block">Inserción de datos de prueba con seeders y factories</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Siguiente</span>
+        <a href="https://esaborit.github.io/docs/blog_laravel/listado_de_posts_en_la_pagina_principal/" class="block">Crear un listado de post en la página principal</a>
+        
+    </div>
+</div>
+
+                    
+                </div>
+                
+                <div class="hidden lg:block lg:w-1/4">
+                    
+                    <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-secondary-bg pt-16 -mt-16 ">
+    <span class="text-lg font-semibold">En Esta Página</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6  pt-10 -mt-10 border-l ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#menú-responsive">Menú responsive.</a></li>
+    <li><a href="#dotando-de-funcionalidad-al-menú">Dotando de funcionalidad al menú</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.initHighlightingOnLoad();
+        changeSidebarHeight();
+        switchDocToc();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><footer class="w-full text-center p-6 pin-b text-sm text-tertiary-text">
+    <p>&copy; 2020 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</footer></div>
+        </div>
+    </footer>
+</body>
+
+</html>

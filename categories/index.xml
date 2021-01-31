@@ -4,6 +4,90 @@
     <title>Categories on ESC</title>
     <link>https://esaborit.github.io/categories/</link>
     <description>Recent content in Categories on ESC</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://esaborit.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <copyright>&amp;copy; 2020 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laravel</title>
+      <link>https://esaborit.github.io/categories/laravel/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/categories/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programación</title>
+      <link>https://esaborit.github.io/categories/programaci%C3%B3n/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/categories/programaci%C3%B3n/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sistemas Operativos</title>
+      <link>https://esaborit.github.io/categories/sistemas-operativos/</link>
+      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/categories/sistemas-operativos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Trámites Administración</title>
+      <link>https://esaborit.github.io/categories/tr%C3%A1mites-administraci%C3%B3n/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/categories/tr%C3%A1mites-administraci%C3%B3n/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Servicios web</title>
+      <link>https://esaborit.github.io/categories/servicios-web/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/categories/servicios-web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Desarrollo web</title>
+      <link>https://esaborit.github.io/categories/desarrollo-web/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/categories/desarrollo-web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://esaborit.github.io/categories/hugo/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programacion</title>
+      <link>https://esaborit.github.io/categories/programacion/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/categories/programacion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>syntax</title>
+      <link>https://esaborit.github.io/categories/syntax/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/categories/syntax/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

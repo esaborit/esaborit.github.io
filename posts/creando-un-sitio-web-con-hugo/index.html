@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang='es' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Creando Un Sitio Web Con Hugo|ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css"><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="crossorigin></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],});
+  });
+</script><link rel="icon" type="image/png" sizes="32x32" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png"><meta name="description"
+    content="Sample article showcasing basic Markdown syntax and formatting for HTML elements.">
+
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+"@type": "ListItem",
+"position":  1 ,
+"name": "ESC",
+"item": "https://esaborit.github.io/"
+},{
+"@type": "ListItem",
+"position":  2 ,
+"name": "Artículos",
+"item": "https://esaborit.github.io/posts/"
+},{
+"@type": "ListItem",
+"position":  3 ,
+"name": "Creando Un Sitio Web Con Hugo",
+"item": "https://esaborit.github.io/posts/creando-un-sitio-web-con-hugo/"
+}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://esaborit.github.io/posts/creando-un-sitio-web-con-hugo/"
+    },
+    "headline": "Creando Un Sitio Web Con Hugo | ESC",
+    "image": "https://esaborit.github.io/img/post/creando-un-sitio-web-con-hugo/hugo-logo-wide.svg",
+    "datePublished": "2020-06-01T00:00:00+00:00",
+    "dateModified": "2020-06-01T00:00:00+00:00",
+    "wordCount":  773 ,
+    "author": {
+        "@type": "Person",
+        "name": ["enrique_saborit"]
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://esaborit.github.io/images/icon.png"
+        }
+        },
+    "description": "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
+}
+</script>
+<meta property="og:title" content="Creando Un Sitio Web Con Hugo | ESC" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://esaborit.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://esaborit.github.io/posts/creando-un-sitio-web-con-hugo/" />
+
+
+
+<meta property="og:description" content="Sample article showcasing basic Markdown syntax and formatting for HTML elements." />
+
+
+
+<meta property="og:locale" content="es" />
+
+
+
+
+<meta property="og:site_name" content="ESC" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2020-06-01T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2020-06-01T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Hugo" />
+
+<meta property="article:tag" content="Sitio web" />
+
+
+
+
+
+
+
+
+
+<meta property="og:see_also" content="https://esaborit.github.io/posts/recursos-compartidos-debian-buster/" />
+
+
+
+<meta property="og:see_also" content="https://esaborit.github.io/posts/openvpn-as/" />
+
+
+
+<meta property="og:see_also" content="https://esaborit.github.io/posts/wordpress-y-letsencrypt/" />
+
+
+
+<meta property="og:see_also" content="https://esaborit.github.io/posts/comandos-elementales-en-docker/" />
+
+
+
+<meta property="og:see_also" content="https://esaborit.github.io/posts/docker-en-un-servidor-casero/" />
+
+
+
+<meta property="og:see_also" content="https://esaborit.github.io/posts/conky-manager-en-debian-buster/" />
+
+
+
+<meta property="og:see_also" content="https://esaborit.github.io/posts/instalando-gitkraken-en-debian-buster/" />
+
+
+
+
+
+<meta property="og:see_also" content="https://esaborit.github.io/posts/instalando-vscodium-en-debian-10/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="flex items-center fixed w-full min-h-16 z-50 bg-secondary-bg shadow-sm">
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    
+    if ((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    } else if (storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+    
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">ESC</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0" id="current-url"
+            currenturl="https://esaborit.github.io/posts/creando-un-sitio-web-con-hugo/">
+            
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Articulos</a>
+            
+            <a href="/docs/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Documentos</a>
+            
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    
+                    <i class="fas fa-adjust"></i>
+                    
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+        
+    });
+
+    let currenturl = document.getElementById('current-url').getAttribute('currenturl')
+        if (currenturl.length > 1) {
+            currenturl = currenturl.substr(0, currenturl.length - 1)
+        }
+
+        sessionStorage.setItem("mainKey", currenturl)
+
+        let elements = document.getElementsByClassName('main-a');
+        for (let i in elements) {
+            if (typeof elements[i] === "object") {
+                let elementurl = elements[i].getAttribute('href')
+                if (elementurl.length > 1 && elementurl.charAt(elementurl.length - 1) == '/') {
+                    elementurl = elementurl.substr(0, elementurl.length - 1)
+                }
+                if (elementurl == sessionStorage.getItem("mainKey")) {
+                    elements[i].classList.add('text-eureka')
+                } else {
+                    elements[i].classList.remove('text-eureka')
+                }
+            }
+        }
+</script></div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16">
+        
+        <div class="container mx-auto ">
+            <div class="max-w-screen-xl lg:px-4 xl:px-8">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Creando Un Sitio Web Con Hugo</h1>
+        <div class="flex flex-wrap flex-row items-center my-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2020-06-01</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4 min lectura</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://esaborit.github.io/categories/programacion/" class="hover:text-eureka">Programacion</a>
+        
+    </div>
+    
+
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-th-list mr-1"></i>
+        
+        <a href="https://esaborit.github.io/series/mi-servidor-local/" class="hover:text-eureka">Mi servidor local</a>
+        
+    </div>
+    
+</div>
+        
+        
+        <div class="my-4">
+            <img src="https://esaborit.github.io/img/post/creando-un-sitio-web-con-hugo/hugo-logo-wide.svg" class="w-full" alt="Featured Image">
+        </div>
+        
+        <div class="content">
+            <p>Creo este post para acordarme de como voy a instalar este blog utilizando Hugo. Mi entorno de desarrollo está compuesto de un ordenador con Debian 10 como SO, donde instalaré Hugo, VSCodium como editor de código y Github como hosting y repositorio del sitio web del blog.</p>
+<p>Lo primero que debo hacer es preparar el entorno de trabajo.
+Necesito instalar Git, Hugo y <strong>VSCodium</strong>. Además debo crear, si no la tengo ya, una cuenta en Github.</p>
+<h2 id="git">Git</h2>
+<p>Instalo git desde la consola</p>
+<pre><code class="language-bash">    $ sudo apt-get install git
+</code></pre>
+<p>Compruebo que está correctamente instalado con el siguiente comando:</p>
+<pre><code class="language-bash">    $ git --version
+    git version 2.20.1
+
+</code></pre>
+<h3 id="configurando-git">Configurando Git</h3>
+<p>Ahora que he instalado Git, debo configurarlo para que los mensajes de confirmación generados contengan su información correcta.</p>
+<p>Esto lo puedo hacer usando el comando &ldquo;git config&rdquo;. Tengo que aportar un nombre de usuario y una dirección de correo electrónico porque Git incorpora esta información en cada confirmación que haga. Voy a poner mi usuario y correo que proporcioné al crear la cuenta de Github:</p>
+<pre><code class="language-bash">    $ git config --global user.name &quot;Mi_nombre&quot;
+    $ git config --global user.email &quot;mi_nombre@dominio.com&quot;
+</code></pre>
+<p>Puedo ver todos los elementos de configuración que se han guardado escribiendo:</p>
+<pre><code class="language-bash">    $ git config --list
+    Output
+    user.name=Mi_nombre
+    user.email=mi_nombre@dominio.com
+    ...
+</code></pre>
+<p>La información se almacena en su archivo de configuración <code>&quot;.gitconfig&quot;</code>, que se puede editar a mano con nano, por ejemplo:</p>
+<pre><code class="language-bash">    $ nano ~/.gitconfig
+    ~ / .gitconfig contenidos
+    [user]
+      name = Mi_nombre
+      email = mi_nombre@dominio.com
+</code></pre>
+<p>Hay muchas otras opciones que puede configurar, pero estas son las dos esenciales. Si omito este paso, es probable que aparezcan advertencias al ejecutar los comandos de Git.</p>
+<h2 id="hugo">Hugo</h2>
+<p>He decidido instalar Hugo con snap porque los paquetes .deb de los repositorios ofrecen versiones mas antiguas del programa.  Para instalar Hugo como snap en Debian 10, primero habilito snapd</p>
+<pre><code class="language-bash">    $ sudo apt update
+    $ sudo apt install snapd
+</code></pre>
+<p>Para después instalarlo así</p>
+<pre><code class="language-bash">    $ sudo snap install hugo
+</code></pre>
+<p>Compruebo la versión con</p>
+<pre><code class="language-bash">    $ hugo version
+    Hugo Static Site Generator v0.72.0 linux/amd64 BuildDate: 2020-05-31T18:06:12Z
+</code></pre>
+<h2 id="sitio-web-en-local">Sitio web en local</h2>
+<p>Ahora ya puede crear mi sitio web en local. Desde la consola me sitúo dentro de la carpeta dentro de la que voy a crear el sitio web.</p>
+<pre><code class="language-bash">    $ cd /Proyectos
+</code></pre>
+<p>Creo el framework para mi sitio web con Hugo ejecutando el siguiente comando:</p>
+<pre><code class="language-bash">    $ hugo new site mi-sitio
+</code></pre>
+<p>Si todo ha ido bien veré el siguiente texto:</p>
+<pre><code class="language-bash">Congratulations! Your new Hugo site is created in ~/Documents/websitename.
+
+Just a few more steps and you are ready to go:
+
+1. Download a theme into the same-named folder.
+   Choose a theme from https://themes.gohugo.io/ or
+   create your own with the &quot;hugo new theme &lt;THEMENAME&gt;&quot; command.
+2. Perhaps you want to add some content. You can add single files
+   with &quot;hugo new &lt;SECTIONNAME&gt;/&lt;FILENAME&gt;.&lt;FORMAT&gt;&quot;.
+3. Start the built-in live server via &quot;hugo server&quot;.
+
+Visit https://gohugo.io/ for quickstart guide and full documentation.
+Veo su contenido
+</code></pre>
+<p>Entro de la carpeta del sitio recién creado y veo su contenido,</p>
+<pre><code class="language-bash">    esc@pc:$ /Proyectos/mi-sitio tree
+    .
+    ├── archetypes
+    │   └── default.md
+    ├── config.toml
+    ├── content
+    ├── data
+    ├── layouts
+    ├── static
+    └── themes
+
+    6 directories, 2 files
+</code></pre>
+<p>Puedo ver que se han creado 6 carpetas y dos archivos. Me centro en lo mas importante para empezar, las carpetas <code>&quot;content&quot;</code>, <code>&quot;themes&quot;</code>,
+<code>&quot;data&quot;</code> y el archivo <code>&quot;config.toml&quot;</code> dentro del cual están los parámetros de configuración del sitio.</p>
+<p>Lo siguiente que necesito es bajarme un tema, pues no viene con ninguno por defecto. Yo he elegido el tema beautifulhugo, lo descargo desde su sitio web en formato <a href="https://github.com/halogenica/beautifulhugo/archive/master.zip">zip</a> , lo descomprimo y lo copio dentro de la carpeta <code>&quot;themes&quot;</code> de <code>&quot;mi-sitio&quot;</code>.</p>
+<p>Entro en la carpeta beautifulhugo descomprimida y veo que hay una carpeta llamada <code>&quot;exampleSite&quot;</code> que contiene las siguientes carpetas y ficheros.
+<figure>
+    <img src="/img/post/creando-un-sitio-web-con-hugo/carpetas.png"/> 
+</figure>
+
+Copio todo su contenido y lo pego en el directorio raíz de <code>&quot;mi-sitio&quot;</code>. Ahora ya dispongo de un sitio web de ejemplo que modificaré a mi antojo.</p>
+<p>Puedo ver como se ve ejecuntando el siguiente comando:</p>
+<pre><code class="language-bash">  $ hugo server
+
+                   | ES   
+-------------------+------
+  Pages            |  48  
+  Paginator pages  |   2  
+  Non-page files   |   0  
+  Static files     | 188  
+  Processed images |   0  
+  Aliases          |  12  
+  Sitemaps         |   1  
+  Cleaned          |   0  
+
+Built in 579 ms
+Watching for changes in /Proyectos/mi_sitio/{archetypes,content,data,layouts,static,themes}
+Watching for config changes in /Proyectos/mi_sitio/config.toml
+Environment: &quot;development&quot;
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+</code></pre>
+<p>Debo copiar la dirección <code>http://localhost:1313/</code> en la barra de direcciones de un navegador web para poder verlo.
+Después de confirmar que es el tema que quiero usar para mi sitio cierro el servidor local de Hugo desde la terminal, utilizando la combinación de teclas <code>Ctrl + C</code>.</p>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://esaborit.github.io/tags/hugo/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Hugo</a>
+    
+    <a href="https://esaborit.github.io/tags/sitio-web/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Sitio web</a>
+    
+</div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="https://esaborit.github.io/authors/enrique_saborit/" class="w-24 h-24 md:mr-4">
+            
+            
+            <i class="fas fa-user-circle fa-6x"></i>
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="https://esaborit.github.io/authors/enrique_saborit/" class="block font-bold text-lg pb-1 mb-2 border-b">Enrique Saborit</a>
+            <span class="block pb-2">«No se puede enseñar nada a un hombre; sólo se le puede ayudar a encontrar la respuesta dentro de sí mismo». Galileo Galilei (1564 - 1642) </span>
+            
+            
+            <a href="https://github.com/esaborit" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            <a href="https://gitlab.com/esaborit" class="mr-1">
+                <i class="fab fa-gitlab"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Anterior</span>
+        <a href="https://esaborit.github.io/posts/personalizando-beautifulhugo/" class="block">Personalizando el tema beautifulhugo</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Siguiente</span>
+        <a href="https://esaborit.github.io/posts/instalando-vscodium-en-debian-10/" class="block">Instalando VSCodium en Debian 10</a>
+        
+    </div>
+</div>
+
+        
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+<div class="bg-secondary-bg rounded p-6">
+    <h3 class="text-lg font-semibold mb-4">Series de artículos</h3>
+    <div class="content">
+        
+        
+        <a href="https://esaborit.github.io/posts/recursos-compartidos-debian-buster/">Compartiendo recursos con Samba en Debian 10 Buster</a>
+        <br />
+        
+        <a href="https://esaborit.github.io/posts/openvpn-as/">WordPress y linuxserver-letsencrypt</a>
+        <br />
+        
+        <a href="https://esaborit.github.io/posts/wordpress-y-letsencrypt/">WordPress y linuxserver-letsencrypt</a>
+        <br />
+        
+        <a href="https://esaborit.github.io/posts/comandos-elementales-en-docker/">Comandos Elementales en Docker</a>
+        <br />
+        
+        <a href="https://esaborit.github.io/posts/docker-en-un-servidor-casero/">Docker en un servidor casero</a>
+        <br />
+        
+        <a href="https://esaborit.github.io/posts/conky-manager-en-debian-buster/">Instalando Conky System Monitor y Conky Manager en Debian Buster</a>
+        <br />
+        
+        <a href="https://esaborit.github.io/posts/instalando-gitkraken-en-debian-buster/">Instalando GitKraken en Debian Buster</a>
+        <br />
+        
+        <a href="https://esaborit.github.io/posts/creando-un-sitio-web-con-hugo/">Creando Un Sitio Web Con Hugo</a>
+        <br />
+        
+        <a href="https://esaborit.github.io/posts/instalando-vscodium-en-debian-10/">Instalando VSCodium en Debian 10</a>
+        <br />
+        
+        
+    </div>
+</div>
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">En Esta Página</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#git">Git</a>
+      <ul>
+        <li><a href="#configurando-git">Configurando Git</a></li>
+      </ul>
+    </li>
+    <li><a href="#hugo">Hugo</a></li>
+    <li><a href="#sitio-web-en-local">Sitio web en local</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><footer class="w-full text-center p-6 pin-b text-sm text-tertiary-text">
+    <p>&copy; 2020 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</footer></div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang='es' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Crear un proyecto laravel desde un repositorio en Github|ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css"><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="crossorigin></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],});
+  });
+</script><link rel="icon" type="image/png" sizes="32x32" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png"><meta name="description"
+    content="Sample article showcasing basic Markdown syntax and formatting for HTML elements.">
+
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+"@type": "ListItem",
+"position":  1 ,
+"name": "ESC",
+"item": "https://esaborit.github.io/"
+},{
+"@type": "ListItem",
+"position":  2 ,
+"name": "Artículos",
+"item": "https://esaborit.github.io/posts/"
+},{
+"@type": "ListItem",
+"position":  3 ,
+"name": "Crear un proyecto laravel desde un repositorio en Github",
+"item": "https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/"
+}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/"
+    },
+    "headline": "Crear un proyecto laravel desde un repositorio en Github | ESC",
+    "image": "https://esaborit.github.io/img/post/clonar-proyecto-laravel-desde-github/laravel-github.jpg",
+    "datePublished": "2020-12-30T00:00:00+00:00",
+    "dateModified": "2020-12-30T00:00:00+00:00",
+    "wordCount":  420 ,
+    "author": {
+        "@type": "Person",
+        "name": ["enrique_saborit"]
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://esaborit.github.io/images/icon.png"
+        }
+        },
+    "description": "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
+}
+</script>
+<meta property="og:title" content="Crear un proyecto laravel desde un repositorio en Github | ESC" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://esaborit.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/" />
+
+
+
+<meta property="og:description" content="Sample article showcasing basic Markdown syntax and formatting for HTML elements." />
+
+
+
+<meta property="og:locale" content="es" />
+
+
+
+
+<meta property="og:site_name" content="ESC" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2020-12-30T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2020-12-30T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Github" />
+
+<meta property="article:tag" content="Laravel" />
+
+
+
+
+
+
+
+
+
+
+
+<meta property="og:see_also" content="https://esaborit.github.io/posts/configurando-entorno-de-desarrollo-con-laravel-en-ubuntu-server-20-04/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="flex items-center fixed w-full min-h-16 z-50 bg-secondary-bg shadow-sm">
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    
+    if ((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    } else if (storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+    
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">ESC</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0" id="current-url"
+            currenturl="https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/">
+            
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Articulos</a>
+            
+            <a href="/docs/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Documentos</a>
+            
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    
+                    <i class="fas fa-adjust"></i>
+                    
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+        
+    });
+
+    let currenturl = document.getElementById('current-url').getAttribute('currenturl')
+        if (currenturl.length > 1) {
+            currenturl = currenturl.substr(0, currenturl.length - 1)
+        }
+
+        sessionStorage.setItem("mainKey", currenturl)
+
+        let elements = document.getElementsByClassName('main-a');
+        for (let i in elements) {
+            if (typeof elements[i] === "object") {
+                let elementurl = elements[i].getAttribute('href')
+                if (elementurl.length > 1 && elementurl.charAt(elementurl.length - 1) == '/') {
+                    elementurl = elementurl.substr(0, elementurl.length - 1)
+                }
+                if (elementurl == sessionStorage.getItem("mainKey")) {
+                    elements[i].classList.add('text-eureka')
+                } else {
+                    elements[i].classList.remove('text-eureka')
+                }
+            }
+        }
+</script></div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16">
+        
+        <div class="container mx-auto ">
+            <div class="max-w-screen-xl lg:px-4 xl:px-8">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Crear un proyecto laravel desde un repositorio en Github</h1>
+        <div class="flex flex-wrap flex-row items-center my-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2020-12-30</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2 min lectura</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://esaborit.github.io/categories/programaci%C3%B3n/" class="hover:text-eureka">Programación</a>
+        
+        
+        <span>, </span>
+        <a href="https://esaborit.github.io/categories/laravel/" class="hover:text-eureka">Laravel</a>
+        
+    </div>
+    
+
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-th-list mr-1"></i>
+        
+        <a href="https://esaborit.github.io/series/programando-con-laravel/" class="hover:text-eureka">Programando con Laravel</a>
+        
+    </div>
+    
+</div>
+        
+        
+        <div class="my-4">
+            <img src="https://esaborit.github.io/img/post/clonar-proyecto-laravel-desde-github/laravel-github.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+        <div class="content">
+            <p>Voy a crear un proyecto con laravel a partir de otro alojado en un repositorio de Github.</p>
+<h2 id="clonación-del-proyecto">Clonación del proyecto</h2>
+<p>Me conecto a mi servidor mediante ssh y me sitúo en la carpeta raíz de mis proyectos laravel. Una vez allí utilizo git para clonar el repositorio</p>
+<pre><code>enrique@enrique-server:/var/www/laravel$ git clone https://github.com/coders-free/udemy.git
+</code></pre>
+<p>Una vez que termina la clonación abro el proyecto en Visual Studio Code.</p>
+<h2 id="instalacion-de-dependencias">Instalacion de dependencias</h2>
+<p>En el proyecto recién clonado no aparecen ni la carpeta <code>vendors</code>  (dependencias de php que necesita laravel para funcionar) ni la carpeta <code>node_modules</code> (dependencias de npm) ni el archivo <code>.env</code> .</p>
+<p>Tengo que generar dichas carpetas desde la consola ejecutando el siguiente comando desde dentro de la carpeta principal del proyecto</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog$ composer install
+</code></pre>
+<p>El comando anterior me instala las dependencias de <code>php</code> y me genera la carpeta <code>vendor</code>.</p>
+<p>Lo siguiente es instalar todas las dependencias de <code>npm</code> .</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog$ npm install
+</code></pre>
+<p>Continuo creando el archivo <code>.env</code> a partir del archivo <code>.env.example</code></p>
+<p>Una vez copiado lo debo editar poniendo la <code>APP_URL</code> de mi proyecto, el nombre de a base de datos del proyecto en la variable <code>DB_DATABASE</code>,  el usuario <code>DB_USERNAME</code> y la password <code>DB_PASSWORD</code>.</p>
+<p>Para generar la <code>APP_KEY</code> debo ejecutar el siguiente comando desde la terminal.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog$ php artisan key:generate
+</code></pre>
+<p>Hecho esto el contenido del archivo quedaría como sigue.</p>
+<pre><code>...........
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=base64:l+Nh2C7redmnxlKzZl2dcJ1qbtWctJdI3M/2bd4t47g=
+APP_DEBUG=true
+APP_URL=http://blog.test
+
+LOG_CHANNEL=stack
+LOG_LEVEL=debug
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=blog
+DB_USERNAME=root
+DB_PASSWORD=esaborit
+...........
+</code></pre>
+<p>Falta por generar el acceso directo desde la carpeta <code>public</code> a la carpeta <code>storage</code> . Lo hago desde la consola con el siguiente comando:</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog$ php artisan storage:link
+</code></pre>
+<h2 id="generación-de-registros">Generación de registros</h2>
+<p>Por último genero todos los registros de prueba.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog$ php artisan migrate:fresh --seed
+</code></pre>
+<h2 id="subiendo-un-proyecto-laravel-a-github">Subiendo un proyecto laravel a github</h2>
+<p>Me situo en la carpeta raiz del proyecto que quiero subir e inicio git en ella con el siguiente comando.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog$ git init
+</code></pre>
+<p>Ejecuto el comando status para saber el estado actual del proyecto. Git nos muestra en rojo los archivos y carpetas que no estan agregados al repositorio.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog$ git status
+</code></pre>
+<p>Agrego todos los archivos al repositorio con el comando <code>git add .</code></p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog$ git add .
+</code></pre>
+<p>Si ejecutase otrave el comando <code>git status</code> me listaria todos los archivos en verde.</p>
+<p>Confirmo los archivos</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog$ git commit -m &quot;primer commit&quot;
+</code></pre>
+<p>Añado el origen remoto del repositorio en github</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog$ git remote add origin https://github.com/user/repo.git
+enrique@enrique-server:/var/www/laravel/blog$ git push -u origin master
+</code></pre>
+<p>Ingreso los datos de acceso de github y ya está, comienza a subir el proyecto. Una vez acabada la subida se puede consultar en nuestra cuenta de github.</p>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://esaborit.github.io/tags/github/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Github</a>
+    
+    <a href="https://esaborit.github.io/tags/laravel/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Laravel</a>
+    
+</div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="https://esaborit.github.io/authors/enrique_saborit/" class="w-24 h-24 md:mr-4">
+            
+            
+            <i class="fas fa-user-circle fa-6x"></i>
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="https://esaborit.github.io/authors/enrique_saborit/" class="block font-bold text-lg pb-1 mb-2 border-b">Enrique Saborit</a>
+            <span class="block pb-2">«No se puede enseñar nada a un hombre; sólo se le puede ayudar a encontrar la respuesta dentro de sí mismo». Galileo Galilei (1564 - 1642) </span>
+            
+            
+            <a href="https://github.com/esaborit" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            <a href="https://gitlab.com/esaborit" class="mr-1">
+                <i class="fab fa-gitlab"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Siguiente</span>
+        <a href="https://esaborit.github.io/posts/configurando-entorno-de-desarrollo-con-laravel-en-ubuntu-server-20-04/" class="block">Configuración de un entorno de desarrollo con Laravel en Ubuntu Server 20.04</a>
+        
+    </div>
+</div>
+
+        
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+<div class="bg-secondary-bg rounded p-6">
+    <h3 class="text-lg font-semibold mb-4">Series de artículos</h3>
+    <div class="content">
+        
+        
+        <a href="https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/">Crear un proyecto laravel desde un repositorio en Github</a>
+        <br />
+        
+        <a href="https://esaborit.github.io/posts/configurando-entorno-de-desarrollo-con-laravel-en-ubuntu-server-20-04/">Configuración de un entorno de desarrollo con Laravel en Ubuntu Server 20.04</a>
+        <br />
+        
+        
+    </div>
+</div>
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">En Esta Página</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#clonación-del-proyecto">Clonación del proyecto</a></li>
+    <li><a href="#instalacion-de-dependencias">Instalacion de dependencias</a></li>
+    <li><a href="#generación-de-registros">Generación de registros</a></li>
+    <li><a href="#subiendo-un-proyecto-laravel-a-github">Subiendo un proyecto laravel a github</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">Ver tambien</h2>
+        <div class="content">
+            
+            <a href="https://esaborit.github.io/posts/configurando-entorno-de-desarrollo-con-laravel-en-ubuntu-server-20-04/">Configuración de un entorno de desarrollo con Laravel en Ubuntu Server 20.04</a>
+            <br />
+            
+            <a href="https://esaborit.github.io/posts/instalando-gitkraken-en-debian-buster/">Instalando GitKraken en Debian Buster</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><footer class="w-full text-center p-6 pin-b text-sm text-tertiary-text">
+    <p>&copy; 2020 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</footer></div>
+        </div>
+    </footer>
+</body>
+
+</html>

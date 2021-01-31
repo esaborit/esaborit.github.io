@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang='es' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Creando el crud de posts. |ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css"><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="crossorigin></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],});
+  });
+</script><link rel="icon" type="image/png" sizes="32x32" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png"><meta name="description"
+    content="Creando un crud para los post del blog Creo el controlador con los siete métodos
+enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controller Admin/PostController -r Controller created successfully.  Lo modifico para recibir objetos post y las vistas a los métodos correspondientes.
+&lt;?php namespace App\Http\Controllers\Admin; use App\Http\Controllers\Controller; use App\Models\Post; use Illuminate\Http\Request; class PostController extends Controller { /** * Display a listing of the resource. * * @return \Illuminate\Http\Response */ public function index() { return view(&#39;admin.posts.index&#39;); } /** * Show the form for creating a new resource.">
+
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+"@type": "ListItem",
+"position":  1 ,
+"name": "ESC",
+"item": "https://esaborit.github.io/"
+},{
+"@type": "ListItem",
+"position":  2 ,
+"name": "Documentos",
+"item": "https://esaborit.github.io/docs/"
+},{
+"@type": "ListItem",
+"position":  3 ,
+"name": "Blog diseñado con Laravel",
+"item": "https://esaborit.github.io/docs/blog_laravel/"
+},{
+"@type": "ListItem",
+"position":  4 ,
+"name": "Creando el crud de posts. ",
+"item": "https://esaborit.github.io/docs/blog_laravel/crud_post/"
+}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://esaborit.github.io/docs/blog_laravel/crud_post/"
+    },
+    "headline": "Creando el crud de posts.  | ESC","datePublished": "2021-01-28T22:17:33+01:00",
+    "dateModified": "2021-01-28T22:17:33+01:00",
+    "wordCount":  3609 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://esaborit.github.io/images/icon.png"
+        }
+        },
+    "description": "Creando un crud para los post del blog Creo el controlador con los siete métodos\nenrique@enrique-server:\/var\/www\/laravel\/blog_laravel$ php artisan make:controller Admin\/PostController -r Controller created successfully.  Lo modifico para recibir objetos post y las vistas a los métodos correspondientes.\n\u0026lt;?php namespace App\\Http\\Controllers\\Admin; use App\\Http\\Controllers\\Controller; use App\\Models\\Post; use Illuminate\\Http\\Request; class PostController extends Controller { \/** * Display a listing of the resource. * * @return \\Illuminate\\Http\\Response *\/ public function index() { return view(\u0027admin.posts.index\u0027); } \/** * Show the form for creating a new resource."
+}
+</script>
+<meta property="og:title" content="Creando el crud de posts.  | ESC" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://esaborit.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://esaborit.github.io/docs/blog_laravel/crud_post/" />
+
+
+
+
+<meta property="og:description" content="Creando un crud para los post del blog Creo el controlador con los siete métodos
+enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controller Admin/PostController -r Controller created successfully.  Lo modifico para recibir objetos post y las vistas a los métodos correspondientes.
+&lt;?php namespace App\Http\Controllers\Admin; use App\Http\Controllers\Controller; use App\Models\Post; use Illuminate\Http\Request; class PostController extends Controller { /** * Display a listing of the resource. * * @return \Illuminate\Http\Response */ public function index() { return view(&#39;admin.posts.index&#39;); } /** * Show the form for creating a new resource." />
+
+
+
+
+<meta property="og:locale" content="es" />
+
+
+
+
+<meta property="og:site_name" content="ESC" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-01-28T22:17:33&#43;01:00" />
+
+
+<meta property="article:modified_time" content="2021-01-28T22:17:33&#43;01:00" />
+
+
+
+<meta property="article:section" content="docs" />
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="flex items-center fixed w-full min-h-16 z-50 bg-secondary-bg shadow-sm">
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    
+    if ((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    } else if (storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+    
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">ESC</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0" id="current-url"
+            currenturl="https://esaborit.github.io/docs/blog_laravel/crud_post/">
+            
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Articulos</a>
+            
+            <a href="/docs/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Documentos</a>
+            
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    
+                    <i class="fas fa-adjust"></i>
+                    
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+        
+    });
+
+    let currenturl = document.getElementById('current-url').getAttribute('currenturl')
+        if (currenturl.length > 1) {
+            currenturl = currenturl.substr(0, currenturl.length - 1)
+        }
+
+        sessionStorage.setItem("mainKey", currenturl)
+
+        let elements = document.getElementsByClassName('main-a');
+        for (let i in elements) {
+            if (typeof elements[i] === "object") {
+                let elementurl = elements[i].getAttribute('href')
+                if (elementurl.length > 1 && elementurl.charAt(elementurl.length - 1) == '/') {
+                    elementurl = elementurl.substr(0, elementurl.length - 1)
+                }
+                if (elementurl == sessionStorage.getItem("mainKey")) {
+                    elements[i].classList.add('text-eureka')
+                } else {
+                    elements[i].classList.remove('text-eureka')
+                }
+            }
+        }
+</script></div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16">
+        
+        <div class="container mx-auto ">
+            <div class="max-w-screen-xl lg:px-4 xl:px-8">
+
+
+<div class="lg:pt-12">
+    <div class="flex flex-col md:flex-row bg-secondary-bg rounded">
+        <div class="md:w-1/4 lg:w-1/5 border-r">
+            <div class="sticky top-16 pt-6">
+                
+
+
+
+
+<div id="sidebar-title" class="md:hidden mx-4 px-2 pt-4 pb-2 md:border-b text-tertiary-text md:text-primary-text">
+    <span class="font-semibold">Tabla de contenidos</span>
+    <i class="fas fa-caret-right ml-1"></i>
+</div>
+
+<div id="sidebar-toc"
+    class="hidden md:block overflow-y-auto mx-6 md:mx-0 pr-6 pt-2 md:max-h-doc-sidebar bg-primary-bg md:bg-transparent">
+    <div class="flex flex-wrap ml-4 -mr-2 p-2 bg-secondary-bg md:bg-primary-bg rounded">
+        <a class=" hover:text-eureka"
+            href="https://esaborit.github.io/docs/blog_laravel/">Blog diseñado con Laravel</a>
+        
+        
+        
+
+
+    </div>
+    
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/creacion_proyecto_diseno_bbdd/">Creacion del proyecto y diseño de la base de datos del blog</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/insertar_datos_de_prueba_con_seeders_y_factories/">Inserción de datos de prueba con seeders y factories</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crear_un_menu_responsive_con_tailwind_y_alpine/">Crear un menú responsive con Tailwind y Alpine</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/listado_de_posts_en_la_pagina_principal/">Crear un listado de post en la página principal</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/mostrando_y_filtrando_posts/">Mostrando y filtrando posts</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/adminlte_en_el_proyecto/">Creando el backend del blog </a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crud_categorias/">Creando el crud de categorías. </a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crud_etiquetas/">Creando el crud de etiquetas. </a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" text-eureka  hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crud_post/">Creando el crud de posts. </a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+</div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
+            <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
+                <h1 class="font-bold text-3xl text-primary-text">Creando el crud de posts. </h1>
+                <div class="flex flex-wrap flex-row items-center my-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-01-28</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>17 min lectura</span>
+    </div>
+    
+    
+
+    
+</div>
+            </div>
+            <div class="flex">
+                <div class="w-full lg:w-3/4 px-6">
+                    
+                    
+                    <div class="content">
+                        <h2 id="creando-un-crud-para-los-post-del-blog">Creando un crud para los post del blog</h2>
+<p>Creo el controlador con los siete métodos</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controller Admin/PostController -r
+Controller created successfully.
+</code></pre>
+<p>Lo modifico para recibir objetos post y las vistas a los métodos correspondientes.</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Post;
+use Illuminate\Http\Request;
+
+class PostController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('admin.posts.index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.posts.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Post $post)
+    {
+        return view('admin.posts.show', compact('post'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Post $post)
+    {
+        return view('admin.posts.edit', compact('post'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Post $post)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Post $post)
+    {
+        //
+    }
+}
+</code></pre>
+<p>Creo la ruta dentro del archivo <code>routes/admin.php</code></p>
+<pre><code>use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\TagController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('', [HomeController::class, 'index'])-&gt;name('admin.home');
+Route::resource('categories', CategoryController::class)-&gt;names('admin.categories');
+Route::resource('tags', TagController::class)-&gt;names('admin.tags');
+Route::resource('posts', PostController::class)-&gt;names('admin.posts');
+</code></pre>
+<p>Creo las vistas <code>index.blade.php</code>, <code>create.blade.php</code>, <code>show.blade.php</code> y <code>edit.blade.php</code> en la carpeta <code>resources/views/admin/posts</code> y les pego la plantilla de adminLTE3.</p>
+<p>Abro el archivo <code>config/adminlte.php</code>,  quiero  modificar  el menú de navegación de la barra lateral de la izquierda. Para ello dentro de <code>adminlte.php</code> modifico la sección <code>Menu Items</code> para que aparezca un enlace a la vista <code>index</code> de los posts.</p>
+<pre><code>   /*
+    |--------------------------------------------------------------------------
+    | Menu Items
+    |--------------------------------------------------------------------------
+    |
+    | Here we can modify the sidebar/top navigation of the admin panel.
+    |
+    | For more detailed instructions you can look here:
+    | https://github.com/jeroennoten/Laravel-AdminLTE/#8-menu-configuration
+    |
+    */
+
+    'menu' =&gt; [
+        [
+            'text' =&gt; 'search',
+            'search' =&gt; true,
+            'topnav' =&gt; true,
+        ],
+        [
+            'text' =&gt; 'blog',
+            'url'  =&gt; 'admin/blog',
+            'can'  =&gt; 'manage-blog',
+        ],
+        [
+            'text'        =&gt; 'Dashboard',
+            'route'       =&gt; 'admin.home',
+            'icon'        =&gt; 'fas fa-tachometer-alt fa-fw',
+        ],
+        ['header' =&gt; 'ADMINISTRADOR'],
+        [
+            'text' =&gt; 'Categorías',
+            'route'  =&gt; 'admin.categories.index',
+            'icon' =&gt; 'fab fa-fw fa-buffer',
+            'active' =&gt; ['admin/categories*'],
+        ],
+        [
+            'text' =&gt; 'Etiquetas',
+            'route'  =&gt; 'admin.tags.index',
+            'icon' =&gt; 'fas fa-fw fa-lock',
+            'active' =&gt; ['admin/tags*'],
+        ],
+        ['header' =&gt; 'OPCIONES DEL BLOG'],
+        [
+            'text'       =&gt; 'Listado de posts',
+            'icon' =&gt; 'fas fa-fw fa-clipboard',
+            'route'        =&gt; 'admin.posts.index',
+        ],
+        [
+            'text'       =&gt; 'Crear un post',
+            'icon' =&gt; 'fas fa-fw fa-file',
+            'route'        =&gt; 'admin.posts.create',
+        ],
+    ],
+</code></pre>
+<figure>
+    <img src="/img/documentos/blog_laravel/31.png"/> 
+</figure>
+
+<p>Para mostrar el listado de posts quiero utilizar <code>livewire</code> en la plantilla <code>admiLTE</code> para así poder interactuar con el listado sin refrescar la pantalla y dotar lo de un campo de búsqueda que nos filtre los registros por nombre. Para poder usar <code>livewire</code> junto con la plantilla <code>adminLTE</code> debo molificar a true el campo <code>livewire</code> valor de  en el archivo de configuración de <code>adminlte</code>.</p>
+<p><strong>adminLTE.php</strong></p>
+<pre><code>........
+    /*
+    |--------------------------------------------------------------------------
+    | Livewire
+    |--------------------------------------------------------------------------
+    |
+    | Here we can enable the Livewire support.
+    |
+    | For more detailed instructions you can look here:
+    | https://github.com/jeroennoten/Laravel-AdminLTE/#93-livewire
+    */
+
+    'livewire' =&gt; true,
+........
+</code></pre>
+<p>Ahora ya puedo crear un componente de <code>livewire</code></p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:livewire Admin/PostsIndex
+ COMPONENT CREATED  🤙
+
+CLASS: app/Http/Livewire/Admin/PostsIndex.php
+VIEW:  resources/views/livewire/admin/posts-index.blade.php
+</code></pre>
+<p>Me ha creado una clase <code>app/Http/Livewire/Admin/PostsIndex.php</code> y una vista <code>resources/views/livewire/admin/posts-index.blade.php</code>  en las rutas arriba indicadas.</p>
+<p>Incluyo el componente <code>@livewire('admin.posts-index') </code> dentro del archivo <code>resources/views/admin/posts/index.blade.php</code></p>
+<p><strong>index.blade.php</strong></p>
+<pre><code>@extends('adminlte::page')
+
+@section('title', 'Blog con Laravel')
+
+@section('content_header')
+    &lt;h1&gt;Listado de posts&lt;/h1&gt;
+@stop
+
+@section('content')
+    @livewire('admin.posts-index')  //Aquí incluyo el componente livewire
+@stop
+
+@section('css')
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/admin_custom.css&quot;&gt;
+@stop
+
+@section('js')
+    &lt;script&gt; console.log('Hi!'); &lt;/script&gt;
+@stop
+</code></pre>
+<p>Escribo un texto de prueba en <code>resources/views/livewire/admin/posts-index.blade.php</code></p>
+<p><strong>posts-index.blade.php</strong></p>
+<pre><code>&lt;div&gt;
+    Componente de prueba.
+&lt;/div&gt;
+</code></pre>
+<p>El resultado es:</p>
+<figure>
+    <img src="/img/documentos/blog_laravel/32.png"/> 
+</figure>
+
+<p>Abro el archivo de la clase de livewire <code>app/Http/Livewire/Admin/PostsIndex.php</code> y agrego la logica que pasará a la vista <code>resources/views/livewire/admin/posts-index.blade.php</code>. En el almaceno en la variable <code>$posts</code>  aquellos post que pertenecen al usuario actualmente logeado ordenados por id de mayor a menor y paginados. Para que la paginación use estilos de <code>bootstrap</code> defino la propiedad <code>$paginationTheme</code> y pido que use <code>WithPagination</code>.</p>
+<p><strong>PostIndex.php</strong></p>
+<pre><code>use App\Models\Post;
+use Livewire\Component;
+use Livewire\WithPagination;
+
+
+class PostsIndex extends Component
+{
+    use WithPagination;  //para usar la paginación con livewire
+
+    protected $paginationTheme = &quot;bootstrap&quot;; //para que livewire use los estilos de bootstrap en vez de tailwind
+    
+    public function render()
+    {
+        $posts = Post::where('user_id', auth()-&gt;user()-&gt;id)-&gt;latest('id')-&gt;paginate();
+        
+        return view('livewire.admin.posts-index', compact('posts'));
+    }
+}
+
+</code></pre>
+<p>En la vista creo una tabla que lista los posts dentro de una tarjeta y le añado la paginación</p>
+<p><strong>posts-indes.blade.php</strong></p>
+<pre><code>&lt;div class=&quot; card&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+        &lt;table class=&quot;table table-striped&quot;&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Id&lt;/th&gt;
+                    &lt;th&gt;Nombre&lt;/th&gt;
+                    &lt;th colspan=&quot;2&quot;&gt;&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                @foreach ($posts as $post)
+                    &lt;tr&gt;
+                        &lt;th&gt;{{$post-&gt;id}}&lt;/th&gt;
+                        &lt;th&gt;{{$post-&gt;name}}&lt;/th&gt;
+                        &lt;th width=&quot;10px&quot;&gt;&lt;a class=&quot; btn btn-primary btn-sm&quot; href=&quot;{{route('admin.posts.edit', $post)}}&quot;&gt;Editar&lt;/a&gt;&lt;/th&gt;
+                        &lt;th width=&quot;10px&quot;&gt;
+                            &lt;form action=&quot;{{route('admin.posts.destroy', $post)}}&quot; method=&quot;POST&quot;&gt;
+                                @csrf
+                                @method('delete')
+                                &lt;button class=&quot;btn btn-danger btn-sm&quot; type=&quot;submit&quot;&gt;Eliminar&lt;/button&gt;
+                            &lt;/form&gt;
+                        &lt;/th&gt;
+                    &lt;/tr&gt;
+                @endforeach
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+    {{-- Aqui pongo la paginación--}}
+    &lt;div class=&quot;car-footer&quot;&gt;
+        {{$posts-&gt;links()}}
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>En la parte superior de la lista de post voy a agregar un buscador en el que al escribir una palabra me seleccione todos los posts que contengan el texto escrito dentro del campo nombre.</p>
+<p>Para ello en <code>app/Http/Livewire/Admin/PostsIndex.php</code> defino una propiedad llamada <code>search</code> que sincronizo con un input que pongo en la vista <code>index.blade.php</code> gracias al componente <code>wire:model = &quot;search&quot; </code> de <code>livewire</code>. La propiedad <code>search</code> la uso dentro de una clausula <code>where</code> para filtrar los post que cumplan esa condición.</p>
+<p><strong>PostIndex.php</strong></p>
+<pre><code>use App\Models\Post;
+use Livewire\Component;
+use Livewire\WithPagination;
+
+
+class PostsIndex extends Component
+{
+    use WithPagination;  //para usar la paginación con livwwire
+
+    protected $paginationTheme = &quot;bootstrap&quot;; //para que livewire use los estilos de bootstrap en vez de tailwind
+    
+    public $search;
+
+    public function render()
+    {
+        $posts = Post::where('user_id', auth()-&gt;user()-&gt;id)
+                        -&gt;where('name', 'LIKE', '%' . $this-&gt;search . '%')
+                        -&gt;latest('id')
+                        -&gt;paginate();
+        
+        return view('livewire.admin.posts-index', compact('posts'));
+    }
+}
+</code></pre>
+<p><strong>posts-indes.blade.php</strong></p>
+<pre><code>&lt;div class=&quot; card&quot;&gt;
+    &lt;div class=&quot;card-header&quot;&gt;
+        {{-- Sincronizo el input con la propiedad search de PostIndex.php--}}
+        &lt;input wire:model = &quot;search&quot; class=&quot; form-control&quot; placeholder=&quot;Escriba el nombre de un post&quot;&gt;
+    &lt;/div&gt;
+    @if ($posts-&gt;count())
+        &lt;div class=&quot;card-body&quot;&gt;
+            &lt;table class=&quot;table table-striped&quot;&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Id&lt;/th&gt;
+                        &lt;th&gt;Nombre&lt;/th&gt;
+                        &lt;th colspan=&quot;2&quot;&gt;&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    @foreach ($posts as $post)
+                        &lt;tr&gt;
+                            &lt;th&gt;{{$post-&gt;id}}&lt;/th&gt;
+                            &lt;th&gt;{{$post-&gt;name}}&lt;/th&gt;
+                            &lt;th width=&quot;10px&quot;&gt;&lt;a class=&quot; btn btn-primary btn-sm&quot; href=&quot;{{route('admin.posts.edit', $post)}}&quot;&gt;Editar&lt;/a&gt;&lt;/th&gt;
+                            &lt;th width=&quot;10px&quot;&gt;
+                                &lt;form action=&quot;{{route('admin.posts.destroy', $post)}}&quot; method=&quot;POST&quot;&gt;
+                                    @csrf
+                                    @method('delete')
+                                    &lt;button class=&quot;btn btn-danger btn-sm&quot; type=&quot;submit&quot;&gt;Eliminar&lt;/button&gt;
+                                &lt;/form&gt;
+                            &lt;/th&gt;
+                        &lt;/tr&gt;
+                    @endforeach
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+        {{-- Aqui pongo la paginación--}}
+        &lt;div class=&quot;car-footer&quot;&gt;
+            {{$posts-&gt;links()}}
+        &lt;/div&gt;
+    @else
+        &lt;div class=&quot;card-body&quot;&gt;
+            &lt;strong&gt;No hay ninguna coincidencia.&lt;/strong&gt;
+        &lt;/div&gt;
+    @endif
+&lt;/div&gt;
+</code></pre>
+<p>Para que me elimine la página de la paginación  de la barra de direcciones del navegador web, defino el método <code>updatingSearch</code> que se activa cuando la propiedad <code>search</code> cambia de valor. De esta manera la búsqueda siempre se realiza sobre el listado completo.</p>
+<pre><code>use App\Models\Post;
+use Livewire\Component;
+use Livewire\WithPagination;
+
+
+class PostsIndex extends Component
+{
+    use WithPagination;  //para usar la paginación con livwwire
+
+    protected $paginationTheme = &quot;bootstrap&quot;; //para que livewire use los estilos de bootstrap en vez de tailwind
+    
+    public $search;
+
+    public function updatingSearch() // Solo se activa cuando la propiedad search cambia de valor
+    {
+        $this-&gt;resetPage();
+    }
+
+    public function render()
+    {
+        $posts = Post::where('user_id', auth()-&gt;user()-&gt;id)
+                        -&gt;where('name', 'LIKE', '%' . $this-&gt;search . '%')
+                        -&gt;latest('id')
+                        -&gt;paginate();
+        
+        return view('livewire.admin.posts-index', compact('posts'));
+    }
+}
+
+</code></pre>
+<h2 id="creo-el-formulario-para-crear-un-post"><strong>Creo el formulario para crear un post</strong></h2>
+<p>En la vista <code>resources/views/admin/posts/index.blade.php</code> agrego un botón que me dirige a la ruta <code>admin.posts.create</code> administrada por el método <code>create</code> del controlador <code>app/Http/controllers/Admin/PostController.php</code>.</p>
+<p><strong>index.blade.php</strong></p>
+<pre><code>@extends('adminlte::page')
+
+@section('title', 'Blog con Laravel')
+
+@section('content_header')
+    &lt;a class=&quot;btn btn-secondary btn-m float-right&quot; href=&quot;{{route('admin.posts.create')}}&quot;&gt;Crear nuevo post&lt;/a&gt;
+    &lt;h1&gt;Listado de posts&lt;/h1&gt;
+@stop
+
+@section('content')
+    @livewire('admin.posts-index')
+@stop
+
+@section('css')
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/admin_custom.css&quot;&gt;
+@stop
+
+@section('js')
+    &lt;script&gt; console.log('Hi!'); &lt;/script&gt;
+@stop
+</code></pre>
+<p>Dentro del método <code>create</code> almaceno en dos variables dos arrays, uno con parejas clave, valor de nombre e id de las categorías y otro de objetos <code>tag</code> que se los paso a la vista donde escribiré el código del formulario para crear un post.</p>
+<p><strong>Método create de PostController.php</strong></p>
+<pre><code>...................
+/**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $categories = Category::pluck('name', 'id'); //Devuelve un array de parejas clave=&gt;valor ('id'=&gt;'nombre')
+        $tags = Tag::all();//Devuelve un array de objetos Tag.
+        
+        return view('admin.posts.create', compact('categories', 'tags'));
+    }
+...................
+</code></pre>
+<p>Creo el formulario en la vista <code>resources/views/admin/posts/create.blade.php</code>.</p>
+<p><strong>create.blade.php</strong></p>
+<pre><code>@extends('adminlte::page')
+
+@section('title', 'Blog con Laravel')
+
+@section('content_header')
+    &lt;h1&gt;Crea un post&lt;/h1&gt;
+@stop
+
+@section('content')
+    &lt;div class=&quot;card&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+            {!! Form::open(['route' =&gt; 'admin.posts.store']) !!}
+                &lt;div class=&quot;form-group&quot;&gt;
+                    {!! Form::label('name', 'Nombre: ') !!}
+                    {!! Form::text('name', null, ['class' =&gt; 'form-control', 'placeholder' =&gt; 'Escribe el nombre del post']) !!}
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    {!! Form::label('slug', 'Slug: ') !!}
+                    {!! Form::text('slug', null, ['class' =&gt; 'form-control', 'readonly', 'placeholder' =&gt; 'Escribe el slug del post']) !!}
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    {!! Form::label('category_id', 'Categoría: ') !!}
+                    {!! Form::select('category_id', $categories, null, ['class' =&gt; 'form-control']) !!}
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;p class=&quot;font-weight-bold&quot;&gt;Etiquetas: &lt;/p&gt;
+                    @foreach ($tags as $tag)
+                        &lt;label class=&quot;mr-2&quot;&gt;
+                            {!! Form::checkbox('tags[]', $tag-&gt;id, null) !!} {{--Seleccion multiple en array tags[]--}}
+                            {{$tag-&gt;name}}
+                        &lt;/label&gt;
+                    @endforeach
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    {!! Form::label('extract', 'Extracto: ') !!}
+                    {!! Form::textarea('extract', null, ['class' =&gt; 'form-control']) !!}
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    {!! Form::label('body', 'Cuerpo del post: ') !!}
+                    {!! Form::textarea('body', null, ['class' =&gt; 'form-control']) !!}
+                &lt;/div&gt;
+                {!! Form::submit('Crear post', ['class' =&gt; 'btn btn-primary']) !!}
+            {!! Form::close() !!}
+        &lt;/div&gt;
+    &lt;/div&gt;
+@stop
+
+@section('js')
+    &lt;script src=&quot;{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready( function() {
+            $(&quot;#name&quot;).stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
+    &lt;/script&gt;
+@endsection
+</code></pre>
+<p>Para permitir texto enriquecido en los dos <code>textarea</code> voy a utilizar <code>ckeditor</code>. Me dirijo a su <a href="https://ckeditor.com/ckeditor-5/download/">página</a>  de descargas y copio el CDN <code>&lt;script src=&quot;https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js&quot;&gt;&lt;/script&gt;</code>que inserto en la sección <code>@section('js')</code> de la vista <code>create.blade.php</code>. Localizo el elemento en el que quiero usarlo y pongo el valor de su <code>id</code> dentro del método <code>ClassicEditro.create()</code>. Como indica sus instrucciones de la <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/quick-start.html">página</a>.</p>
+<p><strong>Classic editor</strong></p>
+<p>In your HTML page add an element that CKEditor should replace:</p>
+<pre><code class="language-html">&lt;div id=&quot;editor&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>Load the classic editor build (here <a href="https://cdn.ckeditor.com/">CDN</a> location is used):</p>
+<pre><code class="language-javascript">&lt;script src=&quot;https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Call the <a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_editor-classic_classiceditor-ClassicEditor.html#static-function-create"><code>ClassicEditor.create()</code></a> method.</p>
+<pre><code class="language-javascript">&lt;script&gt;
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error =&gt; {
+            console.error( error );
+        } );
+&lt;/script&gt;
+</code></pre>
+<p>La sección <code>@section('js')</code> de la vista <code>create.blade.php</code> queda así:</p>
+<pre><code class="language-javascript">@section('js')
+    &lt;script src=&quot;{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready( function() {
+            $(&quot;#name&quot;).stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
+
+        ClassicEditor
+        .create( document.querySelector( '#extract' ) )
+        .catch( error =&gt; {
+            console.error( error );
+        } );
+
+        ClassicEditor
+        .create( document.querySelector( '#body' ) )
+        .catch( error =&gt; {
+            console.error( error );
+        } );
+    &lt;/script&gt;
+@endsection
+</code></pre>
+<p>y el formulario se ve así:</p>
+<figure>
+    <img src="/img/documentos/blog_laravel/33.png"/> 
+</figure>
+
+<p>Se me olvidó añadir un radio button para el estado</p>
+<pre><code class="language-html">                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;p class=&quot;font-weight-bold&quot;&gt;Estado&lt;/p&gt;
+                    &lt;label class=&quot;mr-2&quot;&gt;
+                        {!! Form::radio('status', 1, true) !!}
+                        Borrador
+                    &lt;/label&gt;
+                    &lt;label class=&quot;mr-2&quot;&gt;
+                        {!! Form::radio('status', 2) !!}
+                        Publicado
+                    &lt;/label&gt;
+                &lt;/div&gt;
+</code></pre>
+<figure>
+    <img src="/img/documentos/blog_laravel/34.png"/> 
+</figure>
+
+<p>Voy a manejar dos validaciones con este formulario, una cuando quiera guardar el formulario como borrador y otra cuando quiera que sea como publicado. Como los campos <code>extract</code> y <code>body</code> de la tabla <code>posts</code> quiero que puedan ser vacíos en el caso de borrador, debo modificarlo en el <code>factory</code> correspondiente <code>database/migrations/2020_12_10_152625_create_posts_table.php</code>.</p>
+<p><strong>2020_12_10_152625_create_posts_table.php</strong></p>
+<pre><code>&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreatePostsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table-&gt;id();
+
+            $table-&gt;string('name');
+            $table-&gt;string('slug');
+            $table-&gt;text('extract')-&gt;nullable();  //Modificado para que sea nulable
+            $table-&gt;longText('body')-&gt;nullable(); //Modificado para que sea nulable
+            $table-&gt;enum('status', [1,2])-&gt;default(1); //1 es borrador y 2 publicado
+            $table-&gt;unsignedBigInteger('category_id');
+            $table-&gt;unsignedBigInteger('user_id');
+
+            $table-&gt;foreign('category_id')-&gt;references('id')-&gt;on('categories')-&gt;onDelete('cascade');
+            $table-&gt;foreign('user_id')-&gt;references('id')-&gt;on('users')-&gt;onDelete('cascade');
+
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('posts');
+    }
+}
+</code></pre>
+<p>Vuelvo a realizar las migraciones para que tengan efecto los cambios.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan migrate:fresh --seed
+</code></pre>
+<p>Ahora debo crear las reglas de validación que no voy a incluir dentro del método <code>store</code> del controlador <code>Admin/PostController.php</code> sino</p>
+<p>mediante un <code>formRequest</code></p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:request StorePostRequest
+Request created successfully.
+</code></pre>
+<p><strong>app/Http/Requests/StorePostRequest.php</strong></p>
+<pre><code>&lt;?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class StorePostRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return false;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            //
+        ];
+    }
+}
+</code></pre>
+<p>y lo modifico incluyendo las reglas de validación para los status de <code>borrador</code> y de <code>publicado</code>.</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class StorePostRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        $rules = [
+            'name' =&gt; 'required',
+            'slug' =&gt; 'required|unique:posts',
+            'status' =&gt; 'required|in:1,2'
+        ];
+
+        if($this-&gt;status == 2){
+            $rules = array_merge($rules, [
+                'category_id' =&gt; 'required',
+                'tags' =&gt; 'required',
+                'extract' =&gt; 'required',
+                'body' =&gt; 'required'
+            ]);
+        }
+        return $rules;
+    }
+}
+</code></pre>
+<p>Cambio la clase <code>Request</code> por <code>StorePostRequest</code> en el método <code>store</code> del controlador para que utilice la clase del <code>formRequest</code> que acabo de crear con las validaciones, los objetos que pasamos por parámetro serán de la clase <code>formRequest</code>.</p>
+<p><strong>Método store en Admin/PostController.php</strong></p>
+<pre><code>    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  App\Http\Requests\StorePostRequest   $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StorePostRequest $request)
+    {
+        //
+    }
+</code></pre>
+<p>Lo siguiente es agregar los mensajes de error de validación en la vista <code>resources/views/admin/posts/create.blade.php</code></p>
+<p><strong>create.blade.php</strong></p>
+<pre><code>@extends('adminlte::page')
+
+@section('title', 'Blog con Laravel')
+
+@section('content_header')
+    &lt;h1&gt;Crea un post&lt;/h1&gt;
+@stop
+
+@section('content')
+    &lt;div class=&quot;card&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+            {!! Form::open(['route' =&gt; 'admin.posts.store']) !!}
+                &lt;div class=&quot;form-group&quot;&gt;
+                    {!! Form::label('name', 'Nombre: ') !!}
+                    {!! Form::text('name', null, ['class' =&gt; 'form-control', 'placeholder' =&gt; 'Escribe el nombre del post']) !!}
+                    @error('name')
+                        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+                    @enderror
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    {!! Form::label('slug', 'Slug: ') !!}
+                    {!! Form::text('slug', null, ['class' =&gt; 'form-control', 'readonly', 'placeholder' =&gt; 'Escribe el slug del post']) !!}
+                    @error('slug')
+                        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+                    @enderror
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    {!! Form::label('category_id', 'Categoría: ') !!}
+                    {!! Form::select('category_id', $categories, null, ['class' =&gt; 'form-control']) !!}
+                    @error('category_id')
+                        &lt;br&gt;
+                        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+                    @enderror
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;p class=&quot;font-weight-bold&quot;&gt;Etiquetas: &lt;/p&gt;
+                    @foreach ($tags as $tag)
+                        &lt;label class=&quot;mr-2&quot;&gt;
+                            {!! Form::checkbox('tags[]', $tag-&gt;id, null) !!} {{--Seleccion multiple en array tags[]--}}
+                            {{$tag-&gt;name}}
+                        &lt;/label&gt;
+                    @endforeach
+                    @error('tags')
+                        &lt;br&gt;
+                        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+                    @enderror
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;p class=&quot;font-weight-bold&quot;&gt;Estado&lt;/p&gt;
+                    &lt;label class=&quot;mr-2&quot;&gt;
+                        {!! Form::radio('status', 1, true) !!}
+                        Borrador
+                    &lt;/label&gt;
+                    &lt;label class=&quot;mr-2&quot;&gt;
+                        {!! Form::radio('status', 2) !!}
+                        Publicado
+                    &lt;/label&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    {!! Form::label('extract', 'Extracto: ') !!}
+                    {!! Form::textarea('extract', null, ['class' =&gt; 'form-control']) !!}
+                    @error('extract')
+                        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+                    @enderror
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    {!! Form::label('body', 'Cuerpo del post: ') !!}
+                    {!! Form::textarea('body', null, ['class' =&gt; 'form-control']) !!}
+                    @error('body')
+                        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+                    @enderror
+                &lt;/div&gt;
+                {!! Form::submit('Crear post', ['class' =&gt; 'btn btn-primary']) !!}
+            {!! Form::close() !!}
+        &lt;/div&gt;
+    &lt;/div&gt;
+@stop
+
+@section('js')
+    &lt;script src=&quot;{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready( function() {
+            $(&quot;#name&quot;).stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
+
+        ClassicEditor
+        .create( document.querySelector( '#extract' ) )
+        .catch( error =&gt; {
+            console.error( error );
+        } );
+
+        ClassicEditor
+        .create( document.querySelector( '#body' ) )
+        .catch( error =&gt; {
+            console.error( error );
+        } );
+    &lt;/script&gt;
+@endsection
+</code></pre>
+<p>Compruebo que funciona la validación.</p>
+<figure>
+    <img src="/img/documentos/blog_laravel/35.png"/> 
+</figure>
+
+<p>Dentro del formulario debo incluir de forma oculta dentro de un <code>input</code> el id del usuario logeado.</p>
+<pre><code>........
+@section('content')
+    &lt;div class=&quot;card&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+            {!! Form::open(['route' =&gt; 'admin.posts.store']) !!}
+                {!! Form::hidden('user_id', auth()-&gt;user()-&gt;id) !!} {{-- Campo oculto --}}
+                &lt;div class=&quot;form-group&quot;&gt;
+                    {!! Form::label('name', 'Nombre: ') !!}
+                    {!! Form::text('name', null, ['class' =&gt; 'form-control', 'placeholder' =&gt; 'Escribe el nombre del post']) !!}
+                    @error('name')
+                        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+                    @enderror
+                &lt;/div&gt;
+........
+</code></pre>
+<p>Para garantizar que no se modifica este id al enviar el formulario voy a modificar el método <code>authorize</code> de <code>app/Http/Requests/StorePostRequest.php</code></p>
+<p><strong>StorePostRequest.php</strong></p>
+<pre><code>.........
+    public function authorize()
+    {
+        // Compruebo si cualquier user_id que se pasa por el formulario coincide con el del usuario logeado
+        // Entonces e permito la verificacion de las reglas y enviar el formulario
+        if($this-&gt;user_id == auth()-&gt;user()-&gt;id)
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
+.........
+</code></pre>
+<p>Para poder mandar el formulario utilizando el método <code>store</code> del controlador <code>Admin/PostController.php</code> debo activa la asignación masiva en el modelo<code>Post.php</code>. En este caso utilizaré la propiedad <code>$guarded</code>.</p>
+<p><strong>app/Models/Post.php</strong></p>
+<pre><code>&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasFactory;
+
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    // Relacion uno a muchos inversa users
+    public function user()
+    {
+        return $this-&gt;belongsTo(User::class);
+    }
+
+    // Relacion uno a muchos inversa categories
+    public function category()
+    {
+        return $this-&gt;belongsTo(Category::class);
+    }
+
+    // Relacion muchos a muchos etiquetas
+    public function tags()
+    {
+        return $this-&gt;belongsToMany(Tag::class);
+    }
+
+    // Relacion uno a uno polimórfica con image
+    public function image()
+    {
+        return $this-&gt;morphOne(Image::class, 'imageable');
+    }
+}
+</code></pre>
+<p><strong>Método store en Admin/PostController.php</strong></p>
+<pre><code>.......
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  App\Http\Requests\StorePostRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StorePostRequest $request)
+    {
+        $post = Post::create($request-&gt;all()); {{-- Guardo el post--}}
+
+        if($request-&gt;tags) {{-- Si hay etiquetas marcadas en el formulario--}}
+        {
+            $post-&gt;tags()-&gt;attach($request-&gt;tags); {{-- Las añado a la tala intermedia--}}
+        }
+
+        return redirect()-&gt;route('admin.posts.index');
+    }
+.......
+</code></pre>
+<p>Si ahora creo un <code>post</code> y lo publico, al listarlo en la página principal del sitio, o al intentar mostrar su contenido, o filtrar los <code>posts</code> por categorías o etiquetas, laravel me lanzará un mensaje de error porque le estoy pidiendo en la vista correspondiente que muestre una imagen que no he subido. Para corregir este fallo de diseño debo hacer los siguientes cambios de código en las vistas.</p>
+<p><strong>resources/views/posts/index.blade.php</strong></p>
+<pre><code>&lt;x-app-layout&gt;
+
+    &lt;div class=&quot;micontainer py-8&quot;&gt;
+        &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6&quot;&gt;
+            @foreach ($posts as $post)
+                &lt;article class=&quot; w-full h-80 bg-cover bg-center @if($loop-&gt;first) md:col-span-2 @endif&quot; style=&quot;background-image: url(@if($post-&gt;image){{Storage::url($post-&gt;image-&gt;url)}} @else https://cdn.pixabay.com/photo/2016/10/22/17/46/mountains-1761292_960_720.jpg @endif)&quot;&gt;
+                    &lt;div class=&quot; w-full h-full px-8 flex flex-col justify-center&quot;&gt;
+.....................
+</code></pre>
+<p>En este bloque de código le digo con un if a la propiedad <code>backgroud-image</code> que me muestre una imagen por defecto cuando no he subido yo una al crear el post</p>
+<p><strong>resources/views/components/card-post.blade.php</strong></p>
+<pre><code>@props(['post'])
+
+&lt;article class=&quot;mb-8 bg-white shadow-lg rounded-lg overflow-hidden&quot;&gt;
+    @if ($post-&gt;image)
+        &lt;img class=&quot; w-full h-72 object-cover object-center&quot; src=&quot;{{Storage::url($post-&gt;image-&gt;url)}}&quot; alt=&quot;&quot;&gt;
+    @else
+        &lt;img class=&quot; w-full h-72 object-cover object-center&quot; src=&quot;https://cdn.pixabay.com/photo/2016/10/22/17/46/mountains-1761292_960_720.jpg &quot; alt=&quot;&quot;&gt;
+    @endif
+    &lt;div class=&quot;px-6 py-4&quot;&gt;
+        &lt;h1 class=&quot; font-bold text-xl mb-2&quot;&gt;
+            &lt;a href=&quot;{{route('posts.show', $post)}}&quot;&gt;{{$post-&gt;name}}&lt;/a&gt;
+        &lt;/h1&gt;
+        &lt;div class=&quot; text-gray-700 text-base&quot;&gt;
+            {!!$post-&gt;extract!!} {{-- Sustituido por {{$post-&gt;extract}} para que laravel no escape el html usado con ckeditor--}}
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;px-6 pt-4 pb-2&quot;&gt;
+        @foreach ($post-&gt;tags as $tag)
+            &lt;a href=&quot;{{route('posts.tag', $tag)}}&quot; class=&quot; inline-block bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700 mr-2&quot;&gt;{{$tag-&gt;name}}&lt;/a&gt;
+        @endforeach
+    &lt;/div&gt;
+&lt;/article&gt; 
+</code></pre>
+<p>Filtrado de categorías o etiquetas corregido.</p>
+<p><strong>resources/views/posts/show.blade.php</strong></p>
+<pre><code>&lt;x-app-layout&gt;
+    &lt;div class=&quot; micontainer py-8&quot;&gt;
+        &lt;h1 class=&quot; text-4xl font-bold text-gray-600&quot;&gt;{{$post-&gt;name}}&lt;/h1&gt;
+        &lt;div class=&quot; text-lg text-gray-500 mb-2&quot;&gt;
+            {!!$post-&gt;extract!!} {{-- Sustituido por {{$post-&gt;extract}} para que laravel no escape el html usado con ckeditor--}}
+        &lt;/div&gt;
+        &lt;div class=&quot;grid grid-cols-1 lg:grid-cols-3 gap-6&quot;&gt;
+            {{-- Contenido principal --}}
+            &lt;div class=&quot; lg:col-span-2&quot;&gt;
+                &lt;figure&gt;
+                   @if ($post-&gt;image)
+                        &lt;img class=&quot; w-full h-80 object-cover object-center&quot; src=&quot;{{Storage::url($post-&gt;image-&gt;url)}}&quot; alt=&quot;&quot;&gt;
+                   @else
+                        &lt;img class=&quot; w-full h-80 object-cover object-center&quot; src=&quot;https://cdn.pixabay.com/photo/2016/10/22/17/46/mountains-1761292_960_720.jpg&quot; alt=&quot;&quot;&gt;
+                   @endif
+                &lt;/figure&gt;
+                &lt;div class=&quot; text-base text-gray-500 mt-4&quot;&gt;
+                    {!!$post-&gt;body!!} {{-- Sustituido por {{$post-&gt;body}} para que laravel no escape el html usado con ckeditor--}}
+                &lt;/div&gt;
+            &lt;/div&gt;
+            {{-- Contenido relacionado--}}
+            &lt;aside&gt;
+                &lt;h1 class=&quot; text-2xl font-bold text-gray-600 mb-4&quot;&gt;Más en: {{$post-&gt;category-&gt;name}}&lt;/h1&gt;
+                &lt;ul&gt;
+                    @foreach ($similares as $similar)
+                        &lt;li class=&quot; mb-4&quot;&gt;
+                            &lt;a class=&quot;flex&quot; href=&quot;{{Route('posts.show', $similar)}}&quot;&gt;
+                                &lt;img class=&quot; w-40 h-20 object-cover object-center &quot; src=&quot;@if($similar-&gt;image) {{Storage::url($similar-&gt;image-&gt;url)}} @else https://cdn.pixabay.com/photo/2016/10/22/17/46/mountains-1761292_960_720.jpg @endif&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot; ml-2 text-gray-600&quot;&gt;{{$similar-&gt;name}}&lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                    @endforeach
+                &lt;/ul&gt;
+            &lt;/aside&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/x-app-layout&gt;
+</code></pre>
+<h2 id="subiendo-una-imagen-al-servidor-y-asociandola-a-un-post">Subiendo una imagen al servidor y asociandola a un post</h2>
+<p>Modifico la vista <code>create.blade.php</code> en la que añado un <code>div</code> que me contiene una imagen de muestra y un <code>input</code> de tipo <code>file</code> para poder subir imágenes. Además necesito añadir al formulario la propiedad <code>'files' =&gt; true</code> para permitir subir imágenes y un <code>script js</code> que controle el cambio de imagen en la vista previa antes de mandar el formulario.</p>
+<p><strong>resources/views/admin/posts/create.blade.php</strong></p>
+<pre><code>.................
+@section('content')
+    &lt;div class=&quot;card&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+            {!! Form::open(['route' =&gt; 'admin.posts.store', 'autocomplete' =&gt; 'off', 'files' =&gt; true]) !!}
+                {!! Form::hidden('user_id', auth()-&gt;user()-&gt;id) !!}
+.................
+&lt;div class=&quot;row mb-3&quot;&gt;
+    &lt;div class=&quot;col&quot;&gt;
+        &lt;div class=&quot;image-wrapper&quot;&gt;
+            &lt;img id=&quot;picture&quot; src=&quot;https://cdn.pixabay.com/photo/2016/10/22/17/46/mountains-1761292_960_720.jpg&quot; alt=&quot;&quot;&gt;
+        &lt;/div&gt;                        
+    &lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            {!! Form::label('file', 'Imagen a mostrar en el post') !!}
+            {!! Form::file('file', ['class' =&gt; 'form-control-file', 'accept' =&gt; 'image/*']) !!}
+            &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias totam adipisci, reiciendis rem soluta cupiditate repudiandae voluptate autem fugit asperiores nobis nihil eveniet quam aperiam assumenda eius ipsa facilis tempora?&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+........................
+
+
+@section('js')
+    &lt;script src=&quot;{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+     .........
+
+        //Cambiar imagen
+        document.getElementById(&quot;file&quot;).addEventListener('change', cambiarImagen);
+
+        function cambiarImagen(event){
+            var file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload = (event) =&gt; {
+                document.getElementById(&quot;picture&quot;).setAttribute('src', event.target.result); 
+            };
+
+            reader.readAsDataURL(file);
+        }
+    &lt;/script&gt;
+@endsection
+
+</code></pre>
+<p>Al enviar este formulario a la ruta <code>admin.posts.store</code> que gestiona el controlador <code>Admin/PostsController.php</code> a través de su método <code>store</code>  debo modificar este último para que pueda recoger la imagen si es enviada  y almacenarla en la tabla <code>images</code>.</p>
+<p><code>use Illuminate\Support\Facades\Storage;</code> Añado el <code>Facades Storage</code> para que laravel me permita almacenar imágenes en la carpeta public del servidor.</p>
+<p><strong>Método store del controlador Admin/PostsController.php</strong></p>
+<pre><code>............
+use Illuminate\Support\Facades\Storage
+............
+	/**
+     * Store a newly created resource in storage.
+     *
+     * @param  App\Http\Requests\StorePostRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StorePostRequest $request)
+    {
+        $post = Post::create($request-&gt;all());
+        
+        if ($request-&gt;file('file')) { // Si se está enviando una imagen
+            $url = Storage::put('posts', $request-&gt;file('file'));  //guardo la imagen en la carpeta post y copio su url en la variable $url
+
+            $post-&gt;image()-&gt;create([ // al usar create para almacenar la imagen en la tabla img debo habilitar asignación masiva en Image.php
+                'url' =&gt; $url
+            ]);
+        }         
+
+        if($request-&gt;tags)
+        {
+            $post-&gt;tags()-&gt;attach($request-&gt;tags);
+        }
+
+        return redirect()-&gt;route('admin.posts.index');
+    }
+</code></pre>
+<p>Habilito la asignación masiva en <code>app/Models/Image.php</code>.</p>
+<p><strong>Modelo Image.php</strong></p>
+<pre><code>&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Image extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['url']; // Habilito la signación masiva.
+
+    // Relacion uno a uno polimórfica
+    public function imageable()
+    {
+        return $this-&gt;morphTo();
+    }
+}
+</code></pre>
+<p>Valido desde el servidor que solo pueda subir imágenes añadiendo la regla <code>'file' =&gt; 'image'</code> en <code>app/Http/Requests/StorePostRequest.php</code>.</p>
+<p><strong>StorePostRequest.php</strong></p>
+<pre><code>.........
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        $rules = [
+            'name' =&gt; 'required',
+            'slug' =&gt; 'required|unique:posts',
+            'status' =&gt; 'required|in:1,2',
+            'file' =&gt; 'image'
+        ];
+
+        if($this-&gt;status == 2){
+            $rules = array_merge($rules, [
+                'category_id' =&gt; 'required',
+                'tags' =&gt; 'required',
+                'extract' =&gt; 'required',
+                'body' =&gt; 'required'
+            ]);
+        }
+        return $rules;
+    }
+.........
+</code></pre>
+<p>Y <code>'accept' =&gt; 'image/*'</code> en el <code>input</code> tipo <code>file</code> de la vista.</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ sudo chmod 777 storage/app/public/posts/
+[sudo] password for enrique: 
+enrique@enrique-server:/var/www/laravel/blog_laravel$ ls -la storage/app/public/
+total 32
+drwxrwsr-x 3 enrique www-data  4096 Jan 24 15:48 .
+drwxrwsr-x 3 enrique www-data  4096 Dec  8 15:51 ..
+-rwxrwxr-x 1 enrique www-data    14 Dec  8 15:51 .gitignore
+drwxrwsrwx 2 enrique www-data 20480 Jan 24 15:58 posts
+enrique@enrique-server:/var/www/laravel/blog_laravel$ 
+</code></pre>
+
+                    </div>
+                    
+                    
+
+                    
+
+                    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Anterior</span>
+        <a href="https://esaborit.github.io/docs/blog_laravel/crud_etiquetas/" class="block">Creando el crud de etiquetas. </a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+    </div>
+</div>
+
+                    
+                </div>
+                
+                <div class="hidden lg:block lg:w-1/4">
+                    
+                    <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-secondary-bg pt-16 -mt-16 ">
+    <span class="text-lg font-semibold">En Esta Página</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6  pt-10 -mt-10 border-l ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#creando-un-crud-para-los-post-del-blog">Creando un crud para los post del blog</a></li>
+    <li><a href="#creo-el-formulario-para-crear-un-post"><strong>Creo el formulario para crear un post</strong></a></li>
+    <li><a href="#subiendo-una-imagen-al-servidor-y-asociandola-a-un-post">Subiendo una imagen al servidor y asociandola a un post</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.initHighlightingOnLoad();
+        changeSidebarHeight();
+        switchDocToc();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><footer class="w-full text-center p-6 pin-b text-sm text-tertiary-text">
+    <p>&copy; 2020 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</footer></div>
+        </div>
+    </footer>
+</body>
+
+</html>

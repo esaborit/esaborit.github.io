@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang='es' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Creando el backend del blog |ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css"><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="crossorigin></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],});
+  });
+</script><link rel="icon" type="image/png" sizes="32x32" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png"><meta name="description"
+    content="Integrando AdminLTE en el proyecto Para la gestión de la parte administrativa voy a usar el paquete AdminLTE 3
+Voy a generar una url llamada admin que utilizaré para desarrollar la parte de administración del blog. Esta url no la voy a declarar en el fichero web.php sino que creo uno nuevo llamado routes/admin.php dentro del cual iré definiendo las rutas de administrador. Para que laravel reconozca al archivo admin.php como administrador de rutas debo especificárselo dentro del método boot del archivo app/Providers/RouteServiceProvider.">
+
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+"@type": "ListItem",
+"position":  1 ,
+"name": "ESC",
+"item": "https://esaborit.github.io/"
+},{
+"@type": "ListItem",
+"position":  2 ,
+"name": "Documentos",
+"item": "https://esaborit.github.io/docs/"
+},{
+"@type": "ListItem",
+"position":  3 ,
+"name": "Blog diseñado con Laravel",
+"item": "https://esaborit.github.io/docs/blog_laravel/"
+},{
+"@type": "ListItem",
+"position":  4 ,
+"name": "Creando el backend del blog ",
+"item": "https://esaborit.github.io/docs/blog_laravel/adminlte_en_el_proyecto/"
+}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://esaborit.github.io/docs/blog_laravel/adminlte_en_el_proyecto/"
+    },
+    "headline": "Creando el backend del blog  | ESC","datePublished": "2021-01-28T22:20:33+01:00",
+    "dateModified": "2021-01-28T22:20:33+01:00",
+    "wordCount":  890 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://esaborit.github.io/images/icon.png"
+        }
+        },
+    "description": "Integrando AdminLTE en el proyecto Para la gestión de la parte administrativa voy a usar el paquete AdminLTE 3\nVoy a generar una url llamada admin que utilizaré para desarrollar la parte de administración del blog. Esta url no la voy a declarar en el fichero web.php sino que creo uno nuevo llamado routes\/admin.php dentro del cual iré definiendo las rutas de administrador. Para que laravel reconozca al archivo admin.php como administrador de rutas debo especificárselo dentro del método boot del archivo app\/Providers\/RouteServiceProvider."
+}
+</script>
+<meta property="og:title" content="Creando el backend del blog  | ESC" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://esaborit.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://esaborit.github.io/docs/blog_laravel/adminlte_en_el_proyecto/" />
+
+
+
+
+<meta property="og:description" content="Integrando AdminLTE en el proyecto Para la gestión de la parte administrativa voy a usar el paquete AdminLTE 3
+Voy a generar una url llamada admin que utilizaré para desarrollar la parte de administración del blog. Esta url no la voy a declarar en el fichero web.php sino que creo uno nuevo llamado routes/admin.php dentro del cual iré definiendo las rutas de administrador. Para que laravel reconozca al archivo admin.php como administrador de rutas debo especificárselo dentro del método boot del archivo app/Providers/RouteServiceProvider." />
+
+
+
+
+<meta property="og:locale" content="es" />
+
+
+
+
+<meta property="og:site_name" content="ESC" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-01-28T22:20:33&#43;01:00" />
+
+
+<meta property="article:modified_time" content="2021-01-28T22:20:33&#43;01:00" />
+
+
+
+<meta property="article:section" content="docs" />
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="flex items-center fixed w-full min-h-16 z-50 bg-secondary-bg shadow-sm">
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    
+    if ((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    } else if (storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+    
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">ESC</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0" id="current-url"
+            currenturl="https://esaborit.github.io/docs/blog_laravel/adminlte_en_el_proyecto/">
+            
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Articulos</a>
+            
+            <a href="/docs/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Documentos</a>
+            
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    
+                    <i class="fas fa-adjust"></i>
+                    
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+        
+    });
+
+    let currenturl = document.getElementById('current-url').getAttribute('currenturl')
+        if (currenturl.length > 1) {
+            currenturl = currenturl.substr(0, currenturl.length - 1)
+        }
+
+        sessionStorage.setItem("mainKey", currenturl)
+
+        let elements = document.getElementsByClassName('main-a');
+        for (let i in elements) {
+            if (typeof elements[i] === "object") {
+                let elementurl = elements[i].getAttribute('href')
+                if (elementurl.length > 1 && elementurl.charAt(elementurl.length - 1) == '/') {
+                    elementurl = elementurl.substr(0, elementurl.length - 1)
+                }
+                if (elementurl == sessionStorage.getItem("mainKey")) {
+                    elements[i].classList.add('text-eureka')
+                } else {
+                    elements[i].classList.remove('text-eureka')
+                }
+            }
+        }
+</script></div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16">
+        
+        <div class="container mx-auto ">
+            <div class="max-w-screen-xl lg:px-4 xl:px-8">
+
+
+<div class="lg:pt-12">
+    <div class="flex flex-col md:flex-row bg-secondary-bg rounded">
+        <div class="md:w-1/4 lg:w-1/5 border-r">
+            <div class="sticky top-16 pt-6">
+                
+
+
+
+
+<div id="sidebar-title" class="md:hidden mx-4 px-2 pt-4 pb-2 md:border-b text-tertiary-text md:text-primary-text">
+    <span class="font-semibold">Tabla de contenidos</span>
+    <i class="fas fa-caret-right ml-1"></i>
+</div>
+
+<div id="sidebar-toc"
+    class="hidden md:block overflow-y-auto mx-6 md:mx-0 pr-6 pt-2 md:max-h-doc-sidebar bg-primary-bg md:bg-transparent">
+    <div class="flex flex-wrap ml-4 -mr-2 p-2 bg-secondary-bg md:bg-primary-bg rounded">
+        <a class=" hover:text-eureka"
+            href="https://esaborit.github.io/docs/blog_laravel/">Blog diseñado con Laravel</a>
+        
+        
+        
+
+
+    </div>
+    
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/creacion_proyecto_diseno_bbdd/">Creacion del proyecto y diseño de la base de datos del blog</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/insertar_datos_de_prueba_con_seeders_y_factories/">Inserción de datos de prueba con seeders y factories</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crear_un_menu_responsive_con_tailwind_y_alpine/">Crear un menú responsive con Tailwind y Alpine</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/listado_de_posts_en_la_pagina_principal/">Crear un listado de post en la página principal</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/mostrando_y_filtrando_posts/">Mostrando y filtrando posts</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" text-eureka  hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/adminlte_en_el_proyecto/">Creando el backend del blog </a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crud_categorias/">Creando el crud de categorías. </a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crud_etiquetas/">Creando el crud de etiquetas. </a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://esaborit.github.io/docs/blog_laravel/crud_post/">Creando el crud de posts. </a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+</div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
+            <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
+                <h1 class="font-bold text-3xl text-primary-text">Creando el backend del blog </h1>
+                <div class="flex flex-wrap flex-row items-center my-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-01-28</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>5 min lectura</span>
+    </div>
+    
+    
+
+    
+</div>
+            </div>
+            <div class="flex">
+                <div class="w-full lg:w-3/4 px-6">
+                    
+                    
+                    <div class="content">
+                        <h2 id="integrando-adminlte-en-el-proyecto">Integrando AdminLTE en el proyecto</h2>
+<p>Para la gestión de la parte administrativa voy a usar el paquete <code>AdminLTE 3</code></p>
+<p>Voy a generar una <code>url</code> llamada <code>admin</code> que utilizaré para desarrollar la parte de administración del blog. Esta <code>url</code> no la voy a declarar en el fichero <code>web.php</code> sino que creo uno nuevo llamado <code>routes/admin.php</code> dentro del cual iré definiendo las rutas de administrador. Para que laravel reconozca al archivo <code>admin.php</code> como administrador de rutas debo especificárselo dentro del método <code>boot</code> del archivo <code>app/Providers/RouteServiceProvider.php</code></p>
+<p><strong>RouteServiceProvider.php</strong></p>
+<pre><code>    /**
+     * Define your route model bindings, pattern filters, etc.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this-&gt;configureRateLimiting();
+
+        $this-&gt;routes(function () {
+            Route::prefix('api')
+                -&gt;middleware('api')
+                -&gt;namespace($this-&gt;namespace)
+                -&gt;group(base_path('routes/api.php'));
+
+            Route::middleware('web')
+                -&gt;namespace($this-&gt;namespace)
+                -&gt;group(base_path('routes/web.php'));
+
+            Route::middleware('web', 'auth')
+                -&gt;prefix('admin')
+                -&gt;namespace($this-&gt;namespace)
+                -&gt;group(base_path('routes/admin.php'));
+        });
+    }
+</code></pre>
+<p>Como se puede ver al final he añadido a <code>admin.php</code> como administrador de rutas y he especificado el middleware <code>auth</code> para que solo se accesible si estamos autentificados y el método <code>prefix</code> para añadir el prefijo <code>admin</code> a todas las rutas y así no tener que escribirlo en todas.</p>
+<p>Creo la primera ruta dentro del fichero administrador de rutas <code>admin.php</code> que acabo de crear y le añado el nombre del controlador que va a gestionar la ruta.</p>
+<pre><code class="language-powershell">enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controller Admin/HomeController
+Controller created successfully.
+</code></pre>
+<p><strong>Admin\HomeController.php</strong></p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function index()
+    {
+        return view('admin.index');
+    }
+}
+</code></pre>
+<p><strong>admin.php</strong></p>
+<pre><code>&lt;?php
+
+use App\Http\Controllers\Admin\HomeController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('', [HomeController::class, 'index']);
+</code></pre>
+<p>Creo la vista <code>resources/views/admin/index.blade.php</code> y pongo un texto de prueba</p>
+<p><strong>index.blade.php</strong></p>
+<pre><code class="language-html">Hola Administrador
+</code></pre>
+<p>Voy al navegador me logeo y testeo la ruta y veo que funciona</p>
+<p>![](/mnt/Datos/Coders Free/Curso_blog_autoadministrable/13.png)</p>
+<p>El siguiente paso es instalar <code>adminLTE</code>.</p>
+<pre><code class="language-powershell">enrique@enrique-server:/var/www/laravel/blog_laravel$ composer require jeroennoten/laravel-adminlte
+Using version ^3.5 for jeroennoten/laravel-adminlte
+./composer.json has been updated
+Running composer update jeroennoten/laravel-adminlte
+Loading composer repositories with package information
+Updating dependencies
+Lock file operations: 2 installs, 0 updates, 0 removals
+  - Locking almasaeed2010/adminlte (v3.0.5)
+  - Locking jeroennoten/laravel-adminlte (v3.5.0)
+Writing lock file
+Installing dependencies from lock file (including require-dev)
+Package operations: 2 installs, 0 updates, 0 removals
+  - Downloading almasaeed2010/adminlte (v3.0.5)
+  - Downloading jeroennoten/laravel-adminlte (v3.5.0)
+  - Installing almasaeed2010/adminlte (v3.0.5): Extracting archive
+  - Installing jeroennoten/laravel-adminlte (v3.5.0): Extracting archive
+Generating optimized autoload files
+&gt; Illuminate\Foundation\ComposerScripts::postAutoloadDump
+&gt; @php artisan package:discover --ansi
+Discovered Package: facade/ignition
+Discovered Package: fideloper/proxy
+Discovered Package: fruitcake/laravel-cors
+Discovered Package: jenssegers/agent
+Discovered Package: jeroennoten/laravel-adminlte
+Discovered Package: laravel/fortify
+Discovered Package: laravel/jetstream
+Discovered Package: laravel/sail
+Discovered Package: laravel/sanctum
+Discovered Package: laravel/tinker
+Discovered Package: livewire/livewire
+Discovered Package: nesbot/carbon
+Discovered Package: nunomaduro/collision
+Package manifest generated successfully.
+75 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+</code></pre>
+<p>Como ya estoy usando un sistema de autenticación con <code>jetstream</code> me salto el paso de :</p>
+<pre><code class="language-powershell">composer require laravel/ui
+php artisan ui vue --auth
+</code></pre>
+<p>y paso al siguiente:</p>
+<pre><code class="language-powershell">enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan adminlte:install
+Basic assets installed successfully.
+Configuration file installed successfully.
+Translation files installed successfully.
+The installation is complete.
+</code></pre>
+<p>Ya está instalado en el proyecto. Para poder usarlo sigo las instrucciones de su <a href="https://github.com/jeroennoten/Laravel-AdminLTE/wiki/4.-Usage">página</a> y dentro de la vista ``resources/views/admin/index.blade.php`</p>
+<p>extiendo su plantilla.</p>
+<p><strong>index.blade.php</strong></p>
+<pre><code>@extends('adminlte::page')
+
+@section('title', 'Blog con Laravel')
+
+@section('content_header')
+    &lt;h1&gt;Dashboard&lt;/h1&gt;
+@stop
+
+@section('content')
+    &lt;p&gt;Welcome to this beautiful admin panel.&lt;/p&gt;
+@stop
+
+@section('css')
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/admin_custom.css&quot;&gt;
+@stop
+
+@section('js')
+    &lt;script&gt; console.log('Hi!'); &lt;/script&gt;
+@stop
+</code></pre>
+<p>Vuelvo al navegador web para revisar los cambios.</p>
+<figure>
+    <img src="/img/documentos/blog_laravel/14.png"/> 
+</figure>
+
+<h2 id="personalizando-la-plantilla-adminlte">Personalizando la plantilla adminLTE</h2>
+<p>Para comenzar la personalización abro el archivo php <code>config/adminlte.php</code> y cambio su nombre en el logo y el enlace para que me dirija a página principal situada en el directorio raíz.</p>
+<p><strong>adminlte.php</strong></p>
+<pre><code>/*
+    |--------------------------------------------------------------------------
+    | Logo
+    |--------------------------------------------------------------------------
+    |
+    | Here you can change the logo of your admin panel.
+    |
+    | For more detailed instructions you can look here:
+    | https://github.com/jeroennoten/Laravel-AdminLTE/#63-logo
+    |
+    */
+
+    'logo' =&gt; '&lt;b&gt;Blog&lt;/b&gt; de Buceo',
+.
+.
+.
+.
+/*
+    |--------------------------------------------------------------------------
+    | URLs
+    |--------------------------------------------------------------------------
+    |
+    | Here we can modify the url settings of the admin panel.
+    |
+    | For more detailed instructions you can look here:
+    | https://github.com/jeroennoten/Laravel-AdminLTE/#65-urls
+    |
+    */
+
+    'use_route_url' =&gt; false,
+
+    'dashboard_url' =&gt; '/',
+</code></pre>
+<p>Necesito incluir en el menú de navegación de la derecha  situado en <code>resources/views/livewire/navigation.blade.php</code>, un enlace que permita a los administradores acceder al panel de administración. <code> &lt;a href=&quot;{{route('admin.home')}}&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Dashboard&lt;/a&gt;</code></p>
+<p><strong>navigation.blade.php</strong></p>
+<pre><code>.........
+&lt;div x-show=&quot;open&quot; x-on:click.away=&quot;open = false&quot; class=&quot;origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5&quot; role=&quot;menu&quot; aria-orientation=&quot;vertical&quot; aria-labelledby=&quot;user-menu&quot;&gt;
+     &lt;a href=&quot;{{route('profile.show')}}&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Tu perfil&lt;/a&gt;
+     &lt;a href=&quot;{{route('admin.home')}}&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;&gt;Dashboard&lt;/a&gt;
+     &lt;form method=&quot;POST&quot; action=&quot;{{ route('logout') }}&quot;&gt;
+          @csrf
+          &lt;a href=&quot;{{ route('logout') }}&quot; class=&quot;block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100&quot; role=&quot;menuitem&quot;  onclick=&quot;event.preventDefault();
+                  this.closest('form').submit();&quot;&gt;Cerra sesion&lt;/a&gt;
+     &lt;/form&gt;
+&lt;/div&gt;
+..........
+</code></pre>
+<p>Lo siguiente que quiero es modificar es el menú de navegación de la barra lateral de la izquierda. Para ello dentro de <code>adminlte.php</code> modifico la sección <code>Menu Items</code>.</p>
+<pre><code>/*
+    |--------------------------------------------------------------------------
+    | Menu Items
+    |--------------------------------------------------------------------------
+    |
+    | Here we can modify the sidebar/top navigation of the admin panel.
+    |
+    | For more detailed instructions you can look here:
+    | https://github.com/jeroennoten/Laravel-AdminLTE/#8-menu-configuration
+    |
+    */
+
+    'menu' =&gt; [
+        [
+            'text' =&gt; 'search',
+            'search' =&gt; true,
+            'topnav' =&gt; true,
+        ],
+        [
+            'text' =&gt; 'blog',
+            'url'  =&gt; 'admin/blog',
+            'can'  =&gt; 'manage-blog',
+        ],
+        [
+            'text'        =&gt; 'pages',
+            'url'         =&gt; 'admin/pages',
+            'icon'        =&gt; 'far fa-fw fa-file',
+            'label'       =&gt; 4,
+            'label_color' =&gt; 'success',
+        ],
+</code></pre>
+<p>Cambio el item <code>pages</code> por <code>dashboard</code> y cambio su icono y su url (uso la ruta en su lugar, es lo mismo).</p>
+<pre><code>        [
+            'text'        =&gt; 'Dashboard',
+            'route'       =&gt; 'admin.home',
+            'icon'        =&gt; 'fas fa-tachometer-alt fa-fw',
+        ],
+</code></pre>
+<p>El resultado se puede ver en la siguiente imagen</p>
+<figure>
+    <img src="/img/documentos/blog_laravel/15.png"/> 
+</figure>
+
+
+                    </div>
+                    
+                    
+
+                    
+
+                    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Anterior</span>
+        <a href="https://esaborit.github.io/docs/blog_laravel/mostrando_y_filtrando_posts/" class="block">Mostrando y filtrando posts</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Siguiente</span>
+        <a href="https://esaborit.github.io/docs/blog_laravel/crud_categorias/" class="block">Creando el crud de categorías. </a>
+        
+    </div>
+</div>
+
+                    
+                </div>
+                
+                <div class="hidden lg:block lg:w-1/4">
+                    
+                    <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-secondary-bg pt-16 -mt-16 ">
+    <span class="text-lg font-semibold">En Esta Página</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6  pt-10 -mt-10 border-l ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#integrando-adminlte-en-el-proyecto">Integrando AdminLTE en el proyecto</a></li>
+    <li><a href="#personalizando-la-plantilla-adminlte">Personalizando la plantilla adminLTE</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.initHighlightingOnLoad();
+        changeSidebarHeight();
+        switchDocToc();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><footer class="w-full text-center p-6 pin-b text-sm text-tertiary-text">
+    <p>&copy; 2020 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</footer></div>
+        </div>
+    </footer>
+</body>
+
+</html>
