@@ -2,13 +2,14 @@
 <html lang='es' ><meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
-<meta http-equiv="Content-Security-Policy" content=" default-src 'self'; frame-ancestors 'none'">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="deny">
+<meta http-equiv="Content-Security-Policy" content=" default-src 'self'; frame-ancestors 'self'; script-src 'self'; style-src 'self'">
+
 <meta http-equiv="X-XSS-Protection"  content="1;mode=block">
 
 
-<title>Artículos|ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css"><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
+<title>Artículos|ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css">
+
+<link rel="stylesheet" type="text/css" href="https://esaborit.github.iocss/mis.css" /><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload"
@@ -381,7 +382,6 @@
             </div>
             <div class="content">
                 Ya que tengo un pequeño servidor casero lo voy a aprovechar para conectar a el los discos duros donde guardamos copias simples de los datos de los ordenadores de casa y las copias de seguridad.
-En un principios todos los ordenadores que tendrán acceso a los recursos compartidos utilizan como S.O. GNU/Linux pero no quiero cerrar el acceso a un posible uso por parte de usuarios con equipos Windows por lo que utilizaré Samba como implementación de código abierto del protocolo de red SMB/CIFS para montar un servidor Samba independiente.
 
             </div>
         </div>
@@ -434,7 +434,6 @@ En un principios todos los ordenadores que tendrán acceso a los recursos compar
             </div>
             <div class="content">
                 Otra herramienta útil en la tramitación de documentación de manera telemática ante la administración es Autofirma. Según nos indican en la sede electrónicoa del gobierno de España.
- Autofirma es una aplicación de firma realizada por el Ministerio de Hacienda y Administraciones Públicas. Su principal objetivo es ofrecer al usuario un sistema de firma en el que éste pueda firmar cualquier tipo de documento de manera sencilla. El usuario indica qué fichero quiere firmar y la aplicación escoge automáticamente el formato de firma qué debe aplicar, liberando así, al usuario de cualquier duda técnica.
 
             </div>
         </div>
@@ -566,7 +565,7 @@ En un principios todos los ordenadores que tendrán acceso a los recursos compar
     <footer>
         <div class="container mx-auto">
             <div class="max-w-screen-xl"><footer class="w-full text-center p-6 pin-b text-sm text-tertiary-text">
-    <p>&copy; 2020 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+    <p>&copy; 2021 Enrique Saborit Crespo &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </footer></div>
         </div>
     </footer>

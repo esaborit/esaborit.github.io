@@ -2,13 +2,14 @@
 <html lang='es' ><meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
-<meta http-equiv="Content-Security-Policy" content=" default-src 'self'; frame-ancestors 'none'">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="deny">
+<meta http-equiv="Content-Security-Policy" content=" default-src 'self'; frame-ancestors 'self'; script-src 'self'; style-src 'self'">
+
 <meta http-equiv="X-XSS-Protection"  content="1;mode=block">
 
 
-<title>Blog diseñado con Laravel|ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css"><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
+<title>Blog diseñado con Laravel|ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css">
+
+<link rel="stylesheet" type="text/css" href="https://esaborit.github.iocss/mis.css" /><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload"
@@ -34,7 +35,7 @@
   });
 </script><link rel="icon" type="image/png" sizes="32x32" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
 <link rel="apple-touch-icon" sizes="180x180" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png"><meta name="description"
-    content="Este es un proyecto de un sencillo blog desarrollado con Laravel,Tailwind, Livewire y Alpine.">
+    content="Este es un proyecto de un sencillo blog desarrollado con Laravel, Tailwind, Livewire y Alpine.">
 
 
 
@@ -73,7 +74,9 @@
         "@type": "WebPage",
         "@id": "https://esaborit.github.io/docs/blog_laravel/"
     },
-    "headline": "Blog diseñado con Laravel | ESC","wordCount":  14 ,
+    "headline": "Blog diseñado con Laravel | ESC",
+    "image": "https://esaborit.github.io/img/documentos/blog_laravel/blog_laravel.jpg",
+    "wordCount":  15 ,
     "publisher": {
         "@type": "Blog",
         "name": "C. Wang",
@@ -82,7 +85,7 @@
             "url": "https://esaborit.github.io/images/icon.png"
         }
         },
-    "description": "Este es un proyecto de un sencillo blog desarrollado con Laravel,Tailwind, Livewire y Alpine."
+    "description": "Este es un proyecto de un sencillo blog desarrollado con Laravel, Tailwind, Livewire y Alpine."
 }
 </script>
 <meta property="og:title" content="Blog diseñado con Laravel | ESC" />
@@ -391,8 +394,12 @@
                 <div class="w-full lg:w-3/4 px-6">
                     
                     
+                    <div class="my-4">
+                        <img src="https://esaborit.github.io/img/documentos/blog_laravel/blog_laravel.jpg" class="w-full" alt="Featured Image">
+                    </div>
+                    
                     <div class="content">
-                        <p>Este es un proyecto de un sencillo blog desarrollado con Laravel,Tailwind, Livewire y Alpine.</p>
+                        <p>Este es un proyecto de un sencillo blog desarrollado con Laravel, Tailwind, Livewire y Alpine.</p>
 
                     </div>
                     
@@ -436,7 +443,7 @@
     <footer>
         <div class="container mx-auto">
             <div class="max-w-screen-xl"><footer class="w-full text-center p-6 pin-b text-sm text-tertiary-text">
-    <p>&copy; 2020 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+    <p>&copy; 2021 Enrique Saborit Crespo &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </footer></div>
         </div>
     </footer>
