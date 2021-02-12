@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang='es' ><meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
+
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
+<meta http-equiv="X-Content-Type-Options" content="'nosniff' always">
+<meta http-equiv="X-Frame-Options" content="deny">
+<meta http-equiv="X-XSS-Protection"  content="1;mode=block">
+
 <title>Creando el crud de posts. |ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css"><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,7 +81,7 @@ enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controlle
     },
     "headline": "Creando el crud de posts.  | ESC","datePublished": "2021-01-28T22:17:33+01:00",
     "dateModified": "2021-01-28T22:17:33+01:00",
-    "wordCount":  3609 ,
+    "wordCount":  5433 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -153,7 +159,7 @@ enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controlle
             currenturl="https://esaborit.github.io/docs/blog_laravel/crud_post/">
             
             <a href="/posts/"
-                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Articulos</a>
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Artículos</a>
             
             <a href="/docs/"
                 class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Documentos</a>
@@ -388,7 +394,7 @@ enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controlle
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>17 min lectura</span>
+        <span>26 min lectura</span>
     </div>
     
     
@@ -1521,6 +1527,644 @@ drwxrwsr-x 3 enrique www-data  4096 Dec  8 15:51 ..
 drwxrwsrwx 2 enrique www-data 20480 Jan 24 15:58 posts
 enrique@enrique-server:/var/www/laravel/blog_laravel$ 
 </code></pre>
+<h2 id="actualizando-un-post">Actualizando un post</h2>
+<p>Para editar un post voy a reutilizar los input del formulario de la vista <code>views/admin/posts/create.blade.php</code> por lo que lo refactorizo para poder utilizarlos en ambas vistas. Creo el partial <code>views/admin/posts/partials/form.blade.php</code> y pego en el los campos comunes a los dos formularios.</p>
+<p><strong>views/admin/posts/partials/form.blade.php</strong></p>
+<pre><code>&lt;div class=&quot;form-group&quot;&gt;
+    {!! Form::label('name', 'Nombre: ') !!}
+    {!! Form::text('name', null, ['class' =&gt; 'form-control', 'placeholder' =&gt; 'Escribe el nombre del post']) !!}
+    @error('name')
+        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+    @enderror
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+    {!! Form::label('slug', 'Slug: ') !!}
+    {!! Form::text('slug', null, ['class' =&gt; 'form-control', 'readonly', 'placeholder' =&gt; 'Escribe el slug del post']) !!}
+    @error('slug')
+        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+    @enderror
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+    {!! Form::label('category_id', 'Categoría: ') !!}
+    {!! Form::select('category_id', $categories, null, ['class' =&gt; 'form-control']) !!}
+    @error('category_id')
+        &lt;br&gt;
+        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+    @enderror
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+    &lt;p class=&quot;font-weight-bold&quot;&gt;Etiquetas: &lt;/p&gt;
+    @foreach ($tags as $tag)
+        &lt;label class=&quot;mr-2&quot;&gt;
+            {!! Form::checkbox('tags[]', $tag-&gt;id, null) !!} {{--Seleccion multiple en array tags[]--}}
+            {{$tag-&gt;name}}
+        &lt;/label&gt;
+    @endforeach
+    @error('tags')
+        &lt;br&gt;
+        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+    @enderror
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+    &lt;p class=&quot;font-weight-bold&quot;&gt;Estado&lt;/p&gt;
+    &lt;label class=&quot;mr-2&quot;&gt;
+        {!! Form::radio('status', 1, true) !!}
+        Borrador
+    &lt;/label&gt;
+    &lt;label class=&quot;mr-2&quot;&gt;
+        {!! Form::radio('status', 2) !!}
+        Publicado
+    &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row mb-3&quot;&gt;
+    &lt;div class=&quot;col&quot;&gt;
+        &lt;div class=&quot;image-wrapper&quot;&gt;
+            @isset($post-&gt;image)
+                &lt;img id=&quot;picture&quot; src=&quot;{{Storage::url($post-&gt;image-&gt;url)}}&quot; alt=&quot;&quot;&gt;
+            @else
+                &lt;img id=&quot;picture&quot; src=&quot;https://cdn.pixabay.com/photo/2016/10/22/17/46/mountains-1761292_960_720.jpg&quot; alt=&quot;&quot;&gt;
+            @endisset            
+        &lt;/div&gt;                        
+    &lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            {!! Form::label('file', 'Imagen a mostrar en el post') !!}
+            {!! Form::file('file', ['class' =&gt; 'form-control-file', 'accept' =&gt; 'image/*']) !!}
+            &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias totam adipisci, reiciendis rem soluta cupiditate repudiandae voluptate autem fugit asperiores nobis nihil eveniet quam aperiam assumenda eius ipsa facilis tempora?&lt;/p&gt;
+            @error('file')
+                &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+            @enderror
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+    {!! Form::label('extract', 'Extracto: ') !!}
+    {!! Form::textarea('extract', null, ['class' =&gt; 'form-control']) !!}
+    @error('extract')
+        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+    @enderror
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+    {!! Form::label('body', 'Cuerpo del post: ') !!}
+    {!! Form::textarea('body', null, ['class' =&gt; 'form-control']) !!}
+    @error('body')
+        &lt;small class=&quot;text-danger&quot;&gt;{{$message}}&lt;/small&gt;
+    @enderror
+&lt;/div&gt;
+</code></pre>
+<p>Actualizo la vista create:</p>
+<p><strong>views/admin/posts/create.blade.php</strong></p>
+<pre><code>@extends('adminlte::page')
+
+@section('title', 'Blog con Laravel')
+
+@section('content_header')
+    &lt;h1&gt;Crea un post&lt;/h1&gt;
+@stop
+
+@section('content')
+    &lt;div class=&quot;card&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+            {!! Form::open(['route' =&gt; 'admin.posts.store', 'autocomplete' =&gt; 'off', 'files' =&gt; true]) !!}
+                {!! Form::hidden('user_id', auth()-&gt;user()-&gt;id) !!}
+                @include('admin.posts.partials.form')
+                {!! Form::submit('Crear post', ['class' =&gt; 'btn btn-primary']) !!}
+            {!! Form::close() !!}
+        &lt;/div&gt;
+    &lt;/div&gt;
+@stop
+
+@section('css')
+    &lt;style&gt;
+        .image-wrapper{
+            position: relative;
+            padding-bottom: 56.25%
+        }
+        .image-wrapper img{
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    &lt;/style&gt;   
+@endsection
+
+@section('js')
+    &lt;script src=&quot;{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready( function() {
+            $(&quot;#name&quot;).stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
+
+        ClassicEditor
+        .create( document.querySelector( '#extract' ) )
+        .catch( error =&gt; {
+            console.error( error );
+        } );
+
+        ClassicEditor
+        .create( document.querySelector( '#body' ) )
+        .catch( error =&gt; {
+            console.error( error );
+        } );
+
+        //Cambiar imagen
+        document.getElementById(&quot;file&quot;).addEventListener('change', cambiarImagen);
+
+        function cambiarImagen(event){
+            var file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload = (event) =&gt; {
+                document.getElementById(&quot;picture&quot;).setAttribute('src', event.target.result); 
+            };
+
+            reader.readAsDataURL(file);
+        }
+    &lt;/script&gt;
+@endsection
+</code></pre>
+<p>Y la vista edit:</p>
+<p><strong>views/admin/posts/edit.blade.php</strong></p>
+<pre><code>@extends('adminlte::page')
+
+@section('title', 'Blog con Laravel')
+
+@section('content_header')
+    &lt;h1&gt;Editar un post&lt;/h1&gt;
+@stop
+
+@section('content')
+    @if (session('info'))
+        &lt;div class=&quot; alert alert-success&quot;&gt;
+            &lt;strong&gt;{{session('info')}}&lt;/strong&gt;
+        &lt;/div&gt;
+    @endif
+    &lt;div class=&quot;card&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+            {!! Form::model($post,['route' =&gt; ['admin.posts.update', $post], 'autocomplete' =&gt; 'off', 'files' =&gt; true, 'method' =&gt; 'put']) !!}
+               {{-- {!! Form::hidden('user_id', auth()-&gt;user()-&gt;id) !!} Lo validare--}}
+                @include('admin.posts.partials.form')
+                {!! Form::submit('Actualizar post', ['class' =&gt; 'btn btn-primary']) !!}
+            {!! Form::close() !!}
+        &lt;/div&gt;
+    &lt;/div&gt;
+@stop
+
+@section('css')
+    &lt;style&gt;
+        .image-wrapper{
+            position: relative;
+            padding-bottom: 56.25%
+        }
+        .image-wrapper img{
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    &lt;/style&gt;   
+@endsection
+
+@section('js')
+    &lt;script src=&quot;{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready( function() {
+            $(&quot;#name&quot;).stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
+
+        ClassicEditor
+        .create( document.querySelector( '#extract' ) )
+        .catch( error =&gt; {
+            console.error( error );
+        } );
+
+        ClassicEditor
+        .create( document.querySelector( '#body' ) )
+        .catch( error =&gt; {
+            console.error( error );
+        } );
+
+        //Cambiar imagen
+        document.getElementById(&quot;file&quot;).addEventListener('change', cambiarImagen);
+
+        function cambiarImagen(event){
+            var file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload = (event) =&gt; {
+                document.getElementById(&quot;picture&quot;).setAttribute('src', event.target.result); 
+            };
+
+            reader.readAsDataURL(file);
+        }
+    &lt;/script&gt;
+@endsection
+</code></pre>
+<p>Actualizo los métodos <code>edit</code> y <code>update</code> del controlador <code>PostController.php</code></p>
+<p><strong>PostController.php</strong></p>
+<pre><code>.........
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Post $post)
+    {
+        $categories = Category::pluck('name', 'id'); //Devuelve un array de parejas clave=&gt;valor ('id'=&gt;'nombre')
+        $tags = Tag::all();//Devuelve un array de objetos Tag.
+
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\PostRequest  $request
+     * @param  App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function update(PostRequest $request, Post $post)
+    {
+        $post-&gt;update($request-&gt;all()); // actualizo los datos del post
+
+        if($request-&gt;file('file')){ //Si se envia una imagen en el formulario
+            $url = Storage::put('posts', $request-&gt;file('file'));  //la almaceno en la carpeta posts
+            if($post-&gt;image){ //si el registro del post tiene una imagen previa asociada
+                Storage::delete([$post-&gt;image-&gt;url]); //borro la imagen de la carpeta posts
+                $post-&gt;image-&gt;update([  // Y cambio la url por la nueva
+                    'url' =&gt; $url
+                ]);
+            }else{ // Si no tiene imagen previa le asigno la url de la nueva
+                $post-&gt;image()-&gt;create([
+                    'url' =&gt; $url
+                ]);
+            }
+        }
+
+        if($request-&gt;tags){            
+            $post-&gt;tags()-&gt;sync($request-&gt;tags); // El método sync sincroniza las etiquetas, eliminando las desseleccionadas y agregando las nuevas.
+        }
+
+        return redirect()-&gt;route('admin.posts.edit', $post)-&gt;with('info', 'El post se actualizó con éxito.');
+    }
+.........
+</code></pre>
+<p>Tanto en el método <code>update</code> como en el <code>store</code> he utilizado las mismas reglas de validación por lo que modifico el <code>formRequest</code> creado para validar los campos del método <code>store</code> y cambio también su nombre a <code>PostRequest.php</code></p>
+<p><strong>app/Http/Request/PostRequest.php</strong></p>
+<pre><code>&lt;?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class PostRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+       return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        $post = $this-&gt;route()-&gt;parameter('post');
+
+        $rules = [
+            'name' =&gt; 'required',
+            'slug' =&gt; 'required|unique:posts',
+            'status' =&gt; 'required|in:1,2',
+            'file' =&gt; 'image|max:3000'
+        ];
+
+        if($post){
+            $rules['slug'] = 'required|unique:posts,slug, '. $post-&gt;id;
+        }
+
+        if($this-&gt;status == 2){
+            $rules = array_merge($rules, [
+                'category_id' =&gt; 'required',
+                'tags' =&gt; 'required',
+                'extract' =&gt; 'required',
+                'body' =&gt; 'required'
+            ]);
+        }
+        return $rules;
+    }
+}
+</code></pre>
+<figure>
+    <img src="/img/documentos/blog_laravel/36.png"/> 
+</figure>
+
+<h2 id="eliminando-un-post">Eliminando un post</h2>
+<p>Al hacer clic en el botón <code>eliminar</code> del listado de post de la vista <code>resources/views/livewire/admin/posts-index.blade.php</code> el formulario en el que está encerrado me dirige a la ruta <code>admin.posts.destroy</code> gestionada por el método <code>destroy</code> del controlador <code>Admin/PostCopntroller.php</code>. En el escribo la logica para eliminar el post y una redireccion a la ruta <code>admin.posts.index</code> a la que le paso un mensaje de éxito.</p>
+<pre><code>    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Post $post)
+    {
+        $post-&gt;delete();
+
+        return redirect()-&gt;route('admin.posts.index')-&gt;with('info-del', 'El post se eliminó con éxito');
+    }
+</code></pre>
+<p>Recojo las variables de sesión dentro de <code>resources/views/livewire/admin/posts-index.blade.php</code></p>
+<p><strong>resources/views/livewire/admin/posts-index.blade.php</strong></p>
+<pre><code>&lt;div class=&quot; card&quot;&gt;
+    &lt;div class=&quot;card-header&quot;&gt;
+        {{-- Sincronizo el input con la propiedad search de PostIndex.php--}}
+        &lt;input wire:model = &quot;search&quot; class=&quot; form-control&quot; placeholder=&quot;Escriba el nombre de un post&quot;&gt;
+    &lt;/div&gt;
+    @if ($posts-&gt;count())
+        @if (session('info'))
+            &lt;div class=&quot; alert alert-success&quot;&gt;
+                &lt;strong&gt;{{session('info')}}&lt;/strong&gt;
+            &lt;/div&gt;
+        @elseif(session('info-del'))
+            &lt;div class=&quot; alert alert-danger&quot;&gt;
+                &lt;strong&gt;{{session('info-del')}}&lt;/strong&gt;
+            &lt;/div&gt;
+        @endif
+        &lt;div class=&quot;card-body&quot;&gt;
+            &lt;table class=&quot;table table-striped&quot;&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Id&lt;/th&gt;
+                        &lt;th&gt;Nombre&lt;/th&gt;
+                        &lt;th colspan=&quot;2&quot;&gt;&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    @foreach ($posts as $post)
+                        &lt;tr&gt;
+                            &lt;th&gt;{{$post-&gt;id}}&lt;/th&gt;
+                            &lt;th&gt;{{$post-&gt;name}}&lt;/th&gt;
+                            &lt;th width=&quot;10px&quot;&gt;&lt;a class=&quot; btn btn-primary btn-sm&quot; href=&quot;{{route('admin.posts.edit', $post)}}&quot;&gt;Editar&lt;/a&gt;&lt;/th&gt;
+                            &lt;th width=&quot;10px&quot;&gt;
+                                &lt;form action=&quot;{{route('admin.posts.destroy', $post)}}&quot; method=&quot;POST&quot;&gt;
+                                    @csrf
+                                    @method('delete')
+                                    &lt;button class=&quot;btn btn-danger btn-sm&quot; type=&quot;submit&quot;&gt;Eliminar&lt;/button&gt;
+                                &lt;/form&gt;
+                            &lt;/th&gt;
+                        &lt;/tr&gt;
+                    @endforeach
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+        {{-- Aqui pongo la paginación--}}
+        &lt;div class=&quot;car-footer&quot;&gt;
+            {{$posts-&gt;links()}}
+        &lt;/div&gt;
+    @else
+        &lt;div class=&quot;card-body&quot;&gt;
+            &lt;strong&gt;No hay ninguna coincidencia.&lt;/strong&gt;
+        &lt;/div&gt;
+    @endif
+&lt;/div&gt;
+</code></pre>
+<p>No he incluido el código para eliminar la imagen asociada al post dentro del método <code>destroy</code> como si hice en el método <code>update</code>. Para eliminar las imágenes asociadas a los <code>post</code> voy a utilizar una clase <code>observer</code> (son clases que tienen métodos que reflejan los eventos de un modelo en especifico: <strong>created</strong>: evento que se ejecuta cuando se crea un registro en el modelo.)</p>
+<pre><code>enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:observer PostObserver --model=Post
+Observer created successfully.
+</code></pre>
+<p>La clase creada queda así:</p>
+<p><strong>app/Observers/PostObserver.php</strong></p>
+<pre><code>&lt;?php
+
+namespace App\Observers;
+
+use App\Models\Post;
+
+class PostObserver
+{
+    /**
+     * Handle the Post &quot;created&quot; event.
+     *
+     * @param  \App\Models\Post  $post
+     * @return void
+     */
+    public function created(Post $post)
+    {
+        //
+    }
+
+    /**
+     * Handle the Post &quot;updated&quot; event.
+     *
+     * @param  \App\Models\Post  $post
+     * @return void
+     */
+    public function updated(Post $post)
+    {
+        //
+    }
+
+    /**
+     * Handle the Post &quot;deleted&quot; event.
+     *
+     * @param  \App\Models\Post  $post
+     * @return void
+     */
+    public function deleted(Post $post)
+    {
+        //
+    }
+
+    /**
+     * Handle the Post &quot;restored&quot; event.
+     *
+     * @param  \App\Models\Post  $post
+     * @return void
+     */
+    public function restored(Post $post)
+    {
+        //
+    }
+
+    /**
+     * Handle the Post &quot;force deleted&quot; event.
+     *
+     * @param  \App\Models\Post  $post
+     * @return void
+     */
+    public function forceDeleted(Post $post)
+    {
+        //
+    }
+}
+
+</code></pre>
+<p>Cada una de esas funciones se activan cada vez que realicemos una acción con respecto al modelo Post. cada vez que cree un nuevo post se activara el evento <code> public function created(Post $post)</code>.</p>
+<p>De momento solo voy a usar los métodos <code>created</code> y <code>updated</code> por lo que elimino los demás.</p>
+<p><strong>app/Observers/PostObserver.php</strong></p>
+<pre><code>&lt;?php
+
+namespace App\Observers;
+
+use App\Models\Post;
+
+class PostObserver
+{
+    /**
+     * Handle the Post &quot;created&quot; event.
+     *
+     * @param  \App\Models\Post  $post
+     * @return void
+     */
+    public function created(Post $post)
+    {
+        //
+    }
+
+    /**
+     * Handle the Post &quot;deleted&quot; event.
+     *
+     * @param  \App\Models\Post  $post
+     * @return void
+     */
+    public function deleted(Post $post)
+    {
+        //
+    }
+
+  
+}
+</code></pre>
+<p>Ambos métodos se activan después de borrar o crear un post. Pero necesito que el evento se ejecute antes de eliminar o crear el post. Por lo que voy a</p>
+<p>usar el evento <code>deleting</code> en vez del <code>deleted</code>.</p>
+<p><strong>Método deleting en app/Observers/PostObserver.php</strong></p>
+<pre><code>........
+	/**
+     * Handle the Post &quot;deleted&quot; event.
+     *
+     * @param  \App\Models\Post  $post
+     * @return void
+     */
+    public function deleting(Post $post) //cada vez que se elimina un post si este tiene imagen la borramos tambien.
+    {
+        if($post-&gt;image){
+            Storage::delete($post-&gt;image-&gt;url);
+        }
+    }
+........
+</code></pre>
+<p>Registro  <code>PostObserver</code> en <code>app/Providers/EventServiceProvider.php</code>. Importo tanto el modelo como el observador con: <code>use App\Models\Post;</code> y <code>use App\Observers\PostObserver;</code>  y lo registro en el método <code>boot</code>  del mismo.</p>
+<p><strong>app/Providers/EventServiceProvider.php</strong></p>
+<pre><code>&lt;?php
+
+namespace App\Providers;
+
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Event;
+
+use App\Models\Post;
+use App\Observers\PostObserver;
+
+class EventServiceProvider extends ServiceProvider
+{
+    /**
+     * The event listener mappings for the application.
+     *
+     * @var array
+     */
+    protected $listen = [
+        Registered::class =&gt; [
+            SendEmailVerificationNotification::class,
+        ],
+    ];
+
+    /**
+     * Register any events for your application.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Post::observe(PostObserver::class);
+    }
+}
+</code></pre>
+<p>Aprovecho este <code>observer</code> para pasar desde el <code>backend</code> el id del usuario logeado como creador del post  en vez de enviarlo desde el <code>frontend</code> (vista <code>views/admin/posts/create.blade.php</code>)</p>
+<p><strong>resources/views/admin/posts/create.blade.php</strong></p>
+<pre><code>........
+@section('content')
+    &lt;div class=&quot;card&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+            {!! Form::open(['route' =&gt; 'admin.posts.store', 'autocomplete' =&gt; 'off', 'files' =&gt; true]) !!}
+               {{-- {!! Form::hidden('user_id', auth()-&gt;user()-&gt;id) !!}--}}
+                @include('admin.posts.partials.form')
+                {!! Form::submit('Crear post', ['class' =&gt; 'btn btn-primary']) !!}
+            {!! Form::close() !!}
+        &lt;/div&gt;
+    &lt;/div&gt;
+@stop
+.....
+</code></pre>
+<p><strong>app/Observers/PostObserver.php</strong></p>
+<pre><code>..........
+class PostObserver
+{
+    /**
+     * Handle the Post &quot;created&quot; event.
+     *
+     * @param  \App\Models\Post  $post
+     * @return void
+     */
+    public function creating(Post $post)
+    {
+        $post-&gt;user_id = auth()-&gt;user()-&gt;id;
+    }
+.........
+</code></pre>
+<p>Para evitar errores durante las migraciones y seeders modifico el método <code>creating</code>.</p>
+<p><strong>Método creating en app/Observers/PostObserver.php</strong></p>
+<pre><code>namespace App\Observers;
+
+use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
+
+class PostObserver
+{
+    /**
+     * Handle the Post &quot;created&quot; event.
+     *
+     * @param  \App\Models\Post  $post
+     * @return void
+     */
+    public function creating(Post $post)
+    {
+        if(! \App::runningInConsole()){ // Para que no se ejecute cuando se esten ejecutando los seeders
+            $post-&gt;user_id = auth()-&gt;user()-&gt;id; //cada vez que se cree un post se asigna l campo user_id el valor del usuario autentiado.
+        }
+    }
+..........
+</code></pre>
 
                     </div>
                     
@@ -1547,7 +2191,7 @@ enrique@enrique-server:/var/www/laravel/blog_laravel$
                 <div class="hidden lg:block lg:w-1/4">
                     
                     <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-secondary-bg pt-16 -mt-16 ">
-    <span class="text-lg font-semibold">En Esta Página</span>
+    <span class="text-lg font-semibold">Secciones</span>
 </div>
 <div class="sticky-toc hidden lg:block px-6 pb-6  pt-10 -mt-10 border-l ">
     <nav id="TableOfContents">
@@ -1555,6 +2199,8 @@ enrique@enrique-server:/var/www/laravel/blog_laravel$
     <li><a href="#creando-un-crud-para-los-post-del-blog">Creando un crud para los post del blog</a></li>
     <li><a href="#creo-el-formulario-para-crear-un-post"><strong>Creo el formulario para crear un post</strong></a></li>
     <li><a href="#subiendo-una-imagen-al-servidor-y-asociandola-a-un-post">Subiendo una imagen al servidor y asociandola a un post</a></li>
+    <li><a href="#actualizando-un-post">Actualizando un post</a></li>
+    <li><a href="#eliminando-un-post">Eliminando un post</a></li>
   </ul>
 </nav>
 </div>

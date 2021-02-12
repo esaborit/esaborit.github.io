@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang='es' ><meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
+
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
+<meta http-equiv="X-Content-Type-Options" content="'nosniff' always">
+<meta http-equiv="X-Frame-Options" content="deny">
+<meta http-equiv="X-XSS-Protection"  content="1;mode=block">
+
 <title>Crear un listado de post en la página principal|ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css"><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -155,7 +161,7 @@ PostController.php
             currenturl="https://esaborit.github.io/docs/blog_laravel/listado_de_posts_en_la_pagina_principal/">
             
             <a href="/posts/"
-                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Articulos</a>
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Artículos</a>
             
             <a href="/docs/"
                 class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Documentos</a>
@@ -574,7 +580,7 @@ class PostController extends Controller
                 <div class="hidden lg:block lg:w-1/4">
                     
                     <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-secondary-bg pt-16 -mt-16 ">
-    <span class="text-lg font-semibold">En Esta Página</span>
+    <span class="text-lg font-semibold">Secciones</span>
 </div>
 <div class="sticky-toc hidden lg:block px-6 pb-6  pt-10 -mt-10 border-l ">
     <nav id="TableOfContents">

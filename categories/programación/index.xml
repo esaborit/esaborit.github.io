@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>&amp;copy; 2020 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/categories/programaci%C3%B3n/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://esaborit.github.io/categories/programaci%C3%B3n/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Crear un proyecto laravel desde un repositorio en Github</title>
       <link>https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/</link>
