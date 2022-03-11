@@ -7,17 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>&amp;copy; 2021 Enrique Saborit Crespo</copyright>
-    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://esaborit.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 23 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git</title>
+      <link>https://esaborit.github.io/tags/git/</link>
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/tags/git/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Github</title>
       <link>https://esaborit.github.io/tags/github/</link>
-      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://esaborit.github.io/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gitlab</title>
+      <link>https://esaborit.github.io/tags/gitlab/</link>
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>KMV</title>
+      <link>https://esaborit.github.io/tags/kmv/</link>
+      <pubDate>Mon, 17 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/tags/kmv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mx-linux</title>
+      <link>https://esaborit.github.io/tags/mx-linux/</link>
+      <pubDate>Mon, 17 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/tags/mx-linux/</guid>
       <description></description>
     </item>
     

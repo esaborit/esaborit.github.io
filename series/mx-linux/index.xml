@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mx-linux on ESC</title>
+    <link>https://esaborit.github.io/series/mx-linux/</link>
+    <description>Recent content in Mx-linux on ESC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <copyright>&amp;copy; 2021 Enrique Saborit Crespo</copyright>
+    <lastBuildDate>Wed, 23 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/series/mx-linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Uso básico de Git con GitLab y GitHub</title>
+      <link>https://esaborit.github.io/posts/git-github-gitlab/</link>
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/git-github-gitlab/</guid>
+      <description>&lt;p&gt;Github y GitLab son servicios web que permiten alojar el código de proyectos utilizando  el software de control de versiones Git.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Virtualizando con KMV libvirt y virt-manager en Mx-linux</title>
+      <link>https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/</link>
+      <pubDate>Mon, 17 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/</guid>
+      <description>&lt;p&gt;Pequeño tutorial para la instalación de KMV en Mx-linux.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>&amp;copy; 2021 Enrique Saborit Crespo</copyright>
-    <lastBuildDate>Fri, 12 Jun 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://esaborit.github.io/tags/conky-manager/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 12 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/tags/conky-manager/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Instalando Conky System Monitor y Conky Manager en Debian Buster</title>
       <link>https://esaborit.github.io/posts/conky-manager-en-debian-buster/</link>

@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang='es' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+<meta http-equiv="X-XSS-Protection"  content="1;mode=block">
+<meta http-equiv="Content-Security-Policy" content=" frame-ancestors 'self'; style-src 'self'  https://cdn.jsdelivr.net  https://use.fontawesome.com/; ">
+
+
+<title>Uso básico de Git con GitLab y GitHub|ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css">
+
+<link rel="stylesheet" type="text/css" href="https://esaborit.github.io/css/mis.css" /><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script  defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"crossorigin></script>
+  <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-add-css="false"></script>
+  <link href="https://use.fontawesome.com/releases/v5.15.2/css/svg-with-js.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],});
+  });
+</script><link rel="icon" type="image/png" sizes="32x32" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png"><meta name="description"
+    content="Instalación y creación de máquinas virtuales con kmv.">
+
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+"@type": "ListItem",
+"position":  1 ,
+"name": "ESC",
+"item": "https://esaborit.github.io/"
+},{
+"@type": "ListItem",
+"position":  2 ,
+"name": "Artículos",
+"item": "https://esaborit.github.io/posts/"
+},{
+"@type": "ListItem",
+"position":  3 ,
+"name": "Uso básico de Git con GitLab y GitHub",
+"item": "https://esaborit.github.io/posts/git-github-gitlab/"
+}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://esaborit.github.io/posts/git-github-gitlab/"
+    },
+    "headline": "Uso básico de Git con GitLab y GitHub | ESC",
+    "image": "https://esaborit.github.io/img/post/git-github-gitlab/git_gitlab_github.png",
+    "datePublished": "2022-02-23T00:00:00+00:00",
+    "dateModified": "2022-02-23T00:00:00+00:00",
+    "wordCount":  5656 ,
+    "author": {
+        "@type": "Person",
+        "name": ["enrique_saborit"]
+    },
+    "publisher": {
+        "@type": "Blog",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://esaborit.github.io/images/icon.png"
+        }
+        },
+    "description": "Instalación y creación de máquinas virtuales con kmv."
+}
+</script>
+<meta property="og:title" content="Uso básico de Git con GitLab y GitHub | ESC" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://esaborit.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://esaborit.github.io/posts/git-github-gitlab/" />
+
+
+
+<meta property="og:description" content="Instalación y creación de máquinas virtuales con kmv." />
+
+
+
+<meta property="og:locale" content="es" />
+
+
+
+
+<meta property="og:site_name" content="ESC" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-02-23T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2022-02-23T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Git" />
+
+<meta property="article:tag" content="Github" />
+
+<meta property="article:tag" content="Gitlab" />
+
+
+
+
+
+
+
+
+
+
+
+<meta property="og:see_also" content="https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="flex items-center fixed w-full min-h-16 z-50 bg-secondary-bg shadow-sm">
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    
+    if ((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    } else if (storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+    
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">ESC</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0" id="current-url"
+            currenturl="https://esaborit.github.io/posts/git-github-gitlab/">
+            
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Artículos</a>
+            
+            <a href="/docs/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Documentos</a>
+            
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    
+                    <i class="fas fa-adjust"></i>
+                    
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+        
+    });
+
+    let currenturl = document.getElementById('current-url').getAttribute('currenturl')
+        if (currenturl.length > 1) {
+            currenturl = currenturl.substr(0, currenturl.length - 1)
+        }
+
+        sessionStorage.setItem("mainKey", currenturl)
+
+        let elements = document.getElementsByClassName('main-a');
+        for (let i in elements) {
+            if (typeof elements[i] === "object") {
+                let elementurl = elements[i].getAttribute('href')
+                if (elementurl.length > 1 && elementurl.charAt(elementurl.length - 1) == '/') {
+                    elementurl = elementurl.substr(0, elementurl.length - 1)
+                }
+                if (elementurl == sessionStorage.getItem("mainKey")) {
+                    elements[i].classList.add('text-eureka')
+                } else {
+                    elements[i].classList.remove('text-eureka')
+                }
+            }
+        }
+</script></div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16">
+        
+        <div class="container mx-auto ">
+            <div class="max-w-screen-xl lg:px-4 xl:px-8">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Uso básico de Git con GitLab y GitHub</h1>
+        <div class="flex flex-wrap flex-row items-center my-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2022-02-23</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>27 min lectura</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://esaborit.github.io/categories/sistema-control-de-versiones/" class="hover:text-eureka">Sistema Control de Versiones</a>
+        
+        
+        <span>, </span>
+        <a href="https://esaborit.github.io/categories/linux/" class="hover:text-eureka">Linux</a>
+        
+    </div>
+    
+
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-th-list mr-1"></i>
+        
+        <a href="https://esaborit.github.io/series/mx-linux/" class="hover:text-eureka">Mx-linux</a>
+        
+    </div>
+    
+</div>
+        
+        
+        <div class="my-4">
+            <img src="https://esaborit.github.io/img/post/git-github-gitlab/git_gitlab_github.png" class="w-full" alt="Featured Image">
+        </div>
+        
+        <div class="content">
+            <p>Github y GitLab son servicios web que permiten alojar el código de proyectos utilizando  el software de control de versiones Git.</p>
+<p>Ambos servicios tienen cuentas  gratuitas y de pago. La cuenta gratuita de ambas permite crear repositorios públicos y privados desde 2019, año en que Github cambió su política y permitió  los repositorios privados en la cuenta gratuita.</p>
+<h2 id="creación-de-cuentas-en-githubgitlab">Creación de cuentas en GitHub/GitLab</h2>
+<p>Este es un paso sencillo, basta con entrar en la web de <a href="https://github.com/">GitHub</a> o en la de <a href="https://gitlab.com/">GitLab</a> y seguir el proceso para registrarse que desde ella me ofrece. Como quiero asociar mis cuentas con Git, lo mas cómodo es que el nombre del usuario y el correo electrónico sean el mismo en cada cuenta.</p>
+<h2 id="asociación-de-git-con-las-cuentas-de-githubgitlab">Asociación de Git con las cuentas de GitHub/GitLab</h2>
+<p>Antes que nada, necesito comprobar si tengo instalado Git en mi sistema, porque sino tendría que instalarlo.</p>
+<blockquote>
+<p>Git, es un software de control de versiones diseñado por Linus Torvalds. Su propósito es llevar registro de los cambios en archivos de  computadora incluyendo coordinar el trabajo que varias personas realizan sobre archivos compartidos en un repositorio de código.</p>
+</blockquote>
+<p>Para comprobar si está instalado en el sistema escribo en la terminal:</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git --version
+git version 2.30.2
+</code></pre>
+<p>En mi caso si está instalado. Para instalar Git en una distribución GNU/Linux basada en Debian o Ubuntu bastaría con escribir lo siguiente en el terminal:</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ sudo apt install git
+</code></pre>
+<h3 id="configuración-de-git">Configuración de Git</h3>
+<p>Una  vez que estoy seguro de tener instalado git es hora de empezar a configurarlo. Desde el terminal tecleo lo siguiente:</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git config --global user.name &quot;Mi usuario aquí&quot;
+usuario@mi-pc:~ $ git config --global user.email &quot;usuario@email.com&quot;
+</code></pre>
+<blockquote>
+<p>El email tiene que ser el mismo que el de la cuenta de GitHub o GitLab</p>
+</blockquote>
+<p>Configurada globalmente mi identidad puedo elegir el editor de texto por defecto que se utilizará cuando Git necesite que introduzca un mensaje. Si no indico nada, Git usará el editor por defecto de mi sistema, en este caso es <code>nano</code>.</p>
+<pre><code class="language-bash">$ git config --global core.editor &quot;nano -w&quot;
+# O tambien elegir vs code
+$ git config --global core.editor &quot;code --wait&quot;
+</code></pre>
+<h3 id="generar-ssh-key">Generar SSH KEY</h3>
+<p>Para poder conectarme via ssh debo crear una <code>ssh key</code>. Esta llave se va a utilizar para establecer una conexión segura entre Github o GitLab y mi ordenador.
+Parto de la base que no tengo ninguna llave generada. Para comprobarlo escribo lo siguiente en el terminal:</p>
+<pre><code class="language-bash">usuario@mi-pc:~$ cd ~/.ssh
+usuario@mi-pc:~/.ssh $ ls
+config  known_hosts
+usuario@mi-pc:~/.ssh $ 
+</code></pre>
+<p>Si tuviera alguna llave generada tendría que aparecer alguno de estos dos archivos.</p>
+<pre><code class="language-bash">id_rsa
+id_dsa.pub
+</code></pre>
+<p>En el caso de tenerlo ignoraría el siguiente paso y pasaría directamente  instalar xclip.</p>
+<p><strong>Generación de la clave</strong></p>
+<p>Para generarla llave tecleo lo siguiente en el terminal:</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ ssh-keygen -t rsa -C &quot;usuario@email.com&quot;
+</code></pre>
+<p>Aparece lo siguiente:</p>
+<pre><code class="language-bash">Generating public/private rsa key pair. # Enter file in which to save the key (/home/you/.ssh/id_rsa):
+</code></pre>
+<p>Le doy al enter sin escribir nada y entonces me pide que escriba dos veces una contraseña. Esta  contraseña me la va a pedir cada vez que quiera subir algo a mi cuenta. Me aparece esto:</p>
+<pre><code class="language-bash">usuario@mi-pc:~/.ssh $ ssh-keygen -t rsa -C &quot;usuario@email.com&quot;
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/Usuario/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/Usuario/.ssh/id_rsa
+Your public key has been saved in /home/Usuario/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:oEJknc0DLPMBHsclNK7OQ932mrWX8H2eSY/0o2mbzEg usuario@email.com
+The key's randomart image is:
++---[RSA 3072]----+
+|  =***.          |
+| +o+*o+          |
+|  o+...          |
+| . o.o .         |
+|  + o o S        |
+| + . . .         |
+|  +      o E  o  |
+|   .   + .= =++B |
+|      o .. ..XB +|
++----[SHA256]-----+
+usuario@mi-pc:~/.ssh $ 
+</code></pre>
+<p>Ahora la llave creada debería estar en:</p>
+<pre><code class="language-bash">~/.ssh/id_rsa.pub
+</code></pre>
+<p>Puedo copiarla manualmente o usando el programa xclip desde la linea de comandos.</p>
+<p><strong>Instalación de xclip</strong></p>
+<pre><code class="language-bash">usuario@mi-pc:~/.ssh $ sudo apt install xclip
+</code></pre>
+<p>Instalo el programa xclip. Va a pedir la contraseña de Linux (no confundir con la contraseña de Git)</p>
+<p>Una vez instalado escribo lo siguiente para copiar la llave:</p>
+<pre><code class="language-bash">usuario@mi-pc:~/.ssh $ xclip -sel clip &lt; ~/.ssh/id_rsa.pub
+</code></pre>
+<h3 id="añadir-una-llave-ssh-a-github-o-gitlab">Añadir una llave SSH a GitHub o GitLab</h3>
+<p>Para ello entro en mis cuenta de Github y GitLab y arriba a la  derecha pulso sobre mi foto de usuario, voy a «Settings» y  finalmente a «SSH Keys». En el caso de GitHub tengo que presionar  también en «Add SSH Key»</p>
+<p>En «title» puedo poner lo que me apetezca o dejarlo en blanco (va a aparecer mi correo).
+En la parte de «Key» pego lo que anteriormente copie con el  programa xclip (simplemente botón derecho-pegar o ctrl + v). Finalmente  le doy a «Add Key»</p>
+<figure>
+    <img src="/img/post/git-github-gitlab/a%c3%b1adir_key.jpg"/> 
+</figure>
+
+<h4 id="funcionamiento">Funcionamiento</h4>
+<p>Para comprobar que lo tengo enlazado correctamente escribo lo siguiente:</p>
+<blockquote>
+<p>Nota: aparece una ventana pidiendo una contraseña, debo  introducir la contraseña puesta en la configuración de la SSH Key. Si no lo hago saldrá «Permission denied (publickey)»</p>
+</blockquote>
+<p>Para GitHub:</p>
+<pre><code class="language-bash">usuario@mi-pc:~/.ssh $ ssh -T git@github.com
+The authenticity of host 'github.com (140.82.121.4)' can't be established.
+ECDSA key fingerprint is SHA256:p2QAJJNICHGJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com,140.82.121.4' (ECDSA) to the list of known hosts.
+Enter passphrase for key '/home/Usuario/.ssh/id_rsa': 
+Hi usuario! You've successfully authenticated, but GitHub does not provide shell access.
+usuario@mi-pc:~/.ssh $ 
+</code></pre>
+<p>Para GitLab:</p>
+<pre><code class="language-bash">usuario@mi-pc:~/.ssh $ ssh -T git@gitlab.com
+The authenticity of host 'gitlab.com (172.65.251.78)' can't be established.
+ECDSA key fingerprint is SHA256:Hbw3g8zVjNSksFbiTiUWPWg2Bq1x8xdGUrliXFzSnUw.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'gitlab.com,172.65.251.78' (ECDSA) to the list of known hosts.
+Enter passphrase for key '/home/Usuario/.ssh/id_rsa': 
+Welcome to GitLab, @usuario!
+usuario@mi-pc:~/.ssh $ 
+</code></pre>
+<p>Si aparece el mensaje «Permission denied (publickey)» en más ocasiones Github tiene una página dedicada a solucionar este problema: <a href="https://help.github.com/articles/error-permission-denied-publickey">https://help.github.com/articles/error-permission-denied-publickey</a></p>
+<h2 id="empezar-a-usar-githubgitlab">Empezar a usar GitHub/GitLab</h2>
+<p>Para subir mi código a GitHub o GitLab puedo subir el código de un repositorio local de mi ordenador, o hacer un fork de otro  repositorio remoto.</p>
+<blockquote>
+<p>Nota:  un repositorio es básicamente un lugar/espacio centralizado donde se almacena, organiza, mantiene y difunde información digital, habitualmente archivos informáticos. Pueden ser locales o estar en una red informática (por ejemplo internet).</p>
+</blockquote>
+<h3 id="subir-un-proyecto-almacenado-en-el-ordenador-personal">Subir un proyecto almacenado en el ordenador personal.</h3>
+<p>Primero necesito crear un nuevo repositorio remoto en Github y/o Gitlab donde almacenar el código.</p>
+<h4 id="crear-un-repositorio-remoto">Crear un repositorio remoto</h4>
+<h5 id="github">GitHub</h5>
+<p>Una vez  entro en mi cuenta, en la pestaña de repositorios me aparecerá un botón verde con el nombre de «new repository» que me permitirá crear un  nuevo proyecto.</p>
+<!--![](/home/Enrique/Documentos/Articulos_para_mi_web/Git-gitlab-github/Crear-repositorio-GitHub.jpg)-->
+<figure>
+    <img src="/img/post/git-github-gitlab/Crear-repositorio-GitHub.jpg"/> 
+</figure>
+
+<p>Una vez creado, se sitúa en el automáticamente y muestra una pantalla con instrucciones para iniciar a trabajar con el repositorio remoto y poder vincularlo a otro que tengamos o creemos en local. Nos da dos opciones, vía <code>https</code> o vía <code>ssh</code>.</p>
+<p><strong>ssh</strong></p>
+<!--![](/home/Enrique/Documentos/Articulos_para_mi_web/Git-gitlab-github/Crear-repositorio-GitHub-II.jpg)-->
+<figure>
+    <img src="/img/post/git-github-gitlab/Crear-repositorio-GitHub-II.jpg"/> 
+</figure>
+
+<p><strong>https</strong></p>
+<!--![](/home/Enrique/Documentos/Articulos_para_mi_web/Git-gitlab-github/Crear-repositorio-GitHub-III.jpg)-->
+<figure>
+    <img src="/img/post/git-github-gitlab/Crear-repositorio-GitHub-III.jpg"/> 
+</figure>
+
+<h5 id="gitlab">GitLab</h5>
+<p>Dentro en mi cuenta de GitLab, hay una  sección para crear un proyecto. Donde va a aparecer una página en la que  puedo configurar un nuevo repositorio indicando su nombre,  descripción, licencia y si será privado o público.</p>
+<!--![](/home/Enrique/Documentos/Articulos_para_mi_web/Git-gitlab-github/Crear-proyecto-GitLab.jpg)-->
+<figure>
+    <img src="/img/post/git-github-gitlab/Crear-proyecto-GitLab.jpg"/> 
+</figure>
+
+<p>Una vez creado, muestra una pantalla con instruciones para iniciar a trabajar con el repositorio remoto y poder vincularlo a otro que tengamos o creemos en local.</p>
+<!--![](/home/Enrique/Documentos/Articulos_para_mi_web/Git-gitlab-github/Crear-proyecto-GitLab-II.jpg)-->
+<figure>
+    <img src="/img/post/git-github-gitlab/Crear-proyecto-GitLab-II.jpg"/> 
+</figure>
+
+<h4 id="creando-un-repositorio-local">Creando un repositorio local</h4>
+<p>Me sitúo en la carpeta donde quiero crear el repositorio local y lo creo desde la línea de comandos</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ mkdir proyecto_local_gh
+usuario@mi-pc:~ $ cd proyecto_local_gh/
+</code></pre>
+<p>Entro de la carpeta del que será el repositorio local creo un archivo <code>markdown</code> como primer contenido del mismo.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ echo &quot;# Primer proyecto en github&quot; &gt;&gt; README.md
+</code></pre>
+<p>Transformo la carpeta en repositorio local creándose una carpeta oculta llamada <code>.git</code>.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git init
+Inicializado repositorio Git vacío en /home/Enrique/repositorios_github/Pruebas/proyecto_local_gh/.git/
+</code></pre>
+<p>Para comprobar lo que se ha añadido al <code>staging area</code> para subir escribo:</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git status
+</code></pre>
+<p>Los archivos que aparecen en verde ya están añadidos, y los archivos en rojo  son los  que faltan por añadir.</p>
+<p>Ya puedo hacer un <code>commit</code> para confirmar los cambios y enviar los archivos de la <code>zona de Index</code> al repositorio local. Lo que sale entre comillas es el comentario que va a parecer en el <code>commit</code>.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git commit -m &quot;primer commit&quot;
+[mainlab (commit-raíz) 53bdb81] primer commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+</code></pre>
+<p>Como se puede observar el nombre de la rama del mi repositorio local es <code>mainlab</code> porque he configurado git para que así sea con el comando siguiente</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git config --global init.defaultbranch mainlab
+</code></pre>
+<p>Sino por defecto el nombre sería <code>master</code>.</p>
+<p>Cambio el nombre de la rama local y lo dejo como quiero que se llame en el repositorio remoto de Github.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git branch -M maingh
+</code></pre>
+<h4 id="configurando-repositorios-remotos"><strong>Configurando repositorios remotos</strong></h4>
+<p>Lo siguiente es asignar el repositorio remoto al que quiero subir el  proyecto local. Yo en el ejemplo he optado hacerlo a través de ssh:</p>
+<p><strong>Github</strong></p>
+<pre><code class="language-bash"># Modelo mediante ssh
+usuario@mi-pc:~ $ git remote add origin git@github.com:nombre_de_usuario/nombre_del_repositorio.git
+# ejemplo
+usuario@mi-pc:~ $ git remote add origin_gh git@github.com:esaborit/proyecto_github.git
+
+# Modelo mediante https
+usuario@mi-pc:~ $ git remote add origin https://github.com/nombre_de_usuario/nombre_del_repositorio.git
+# ejemplo
+usuario@mi-pc:~ $ git remote add origin https://github.com/esaborit/proyecto_github.git
+</code></pre>
+<blockquote>
+<p>Nota:  <code>git@github.com:nombre_de_usuario/nombre_del_repositorio.git</code>, es una de las diferentes formas de especificar el acceso a un  repositorio a través de SSH; esta es la &ldquo;sintaxis de estilo scp&rdquo;  descrita en la documentación.  Que el nombre de usuario en la sintaxis  de estilo scp es <code>git</code> se debe a la forma en que GitHub trata con la identificación de  usuarios: esencialmente, ese nombre de usuario se ignora y el usuario se identifica en función del SSH key-par que solían autenticar.</p>
+<p><code>origin</code>, <code>oring_gh</code> y <code>oring_gl</code> son los nombres de las referencias de los repositorios remotos, que sirven de atajo para llamar a las <code>url</code> de los repositorios remotos, puedo usar cualquiera de los nombres en la línea de comandos en lugar de la URL entera</p>
+</blockquote>
+<p><strong>Gitlab</strong></p>
+<pre><code class="language-bash"># Modelo mediante ssh
+usuario@mi-pc:~ $ git remote add origin_gl git@gitlab.com:nombre_de_usuario/nombre_del_repositorio.git
+# ejemplo
+usuario@mi-pc:~ $ git remote add origin_gl git@gitlab.com:esaborit/proyecto_gitlab.git
+
+# Modelo mediante https
+usuario@mi-pc:~ $ git remote add origin_gl https://gitlab.com/nombre_de_usuario/nombre_del_repositorio.git
+
+</code></pre>
+<h4 id="cargando-el-contenido-del-repositorio-local-a-un-repositorio-remoto"><strong>Cargando el contenido del repositorio local a un repositorio remoto</strong></h4>
+<p>Finalmente escribo la orden para subirlo todo a mi GitHub dentro del repositorio que he creado anteriormente.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git push -u origin_gh maingh
+Enter passphrase for key '/home/Enrique/.ssh/id_rsa': 
+Enumerando objetos: 3, listo.
+Contando objetos: 100% (3/3), listo.
+Escribiendo objetos: 100% (3/3), 234 bytes | 234.00 KiB/s, listo.
+Total 3 (delta 0), reusado 0 (delta 0), pack-reusado 0
+To github.com:esaborit/proyecto_github.git
+ * [new branch]      maingh -&gt; maingh
+Rama 'maingh' configurada para hacer seguimiento a la rama remota 'maingh' de 'origin_gh'.
+</code></pre>
+<p>El código de la rama local <code>maingh</code> se va a subir en la rama remota <code>maingh</code>, que si no existe se creará automáticamente con la ejecución del comando anterior.</p>
+<p>La <code>-u</code> equivale a <code>--set-upstream</code> y se refiere al repositorio remoto principal al que haré <code>pull</code> y <code>push</code>, esta opción solo es necesario utilizarla una sola vez.</p>
+<blockquote>
+<p>Cuando se tiene mas de un repositorio remoto se puede utilizar esta  opción para configurar uno de ellos como el principal&hellip; suponiendo que  tengo un repositorio en BitBucket (bitbucket), otro en GitHub (origin_gh) y otro  en GitLab (origin_lab) y quisiera utilizar GitHub (origin_gh) como principal,  tendría que hacer <code>git push -u origin_gh &lt;branch&gt;</code> y las siguientes veces al hacer solo <code>git push</code> lo hará a GitHub sin tener que especificar el repositorio pero para los otros dos si tendría que hacerlo, ej. <code>git push bitbucket &lt;branch&gt;</code> o <code>git push origin_lab &lt;branch&gt;</code>.</p>
+<p>Si tienes un solo repositorio y quieres evitar estar escribiendo <code>git push origin &lt;branch&gt;</code> puedes utilizar esta opción y solo hacer <code>git push</code> las siguientes veces.</p>
+<p>A esta opción también se le conoce como &ldquo;argument-less git-pull/push (git-pull/push sin argumentos)&rdquo;</p>
+</blockquote>
+<p>Puedo ver como ha quedado configurada la rama remota <code>maingh</code> con el comando <code>git remote show origin_gh</code>:</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git remote show origin_gh 
+Enter passphrase for key '/home/Enrique/.ssh/id_rsa': 
+* remoto origin_gh
+  URL  para obtener: git@github.com:esaborit/proyecto_github.git
+  URL para publicar: git@github.com:esaborit/proyecto_github.git
+  Rama HEAD: maingh
+  Rama remota:
+    maingh rastreada
+  Rama local configurada para 'git pull':
+    maingh fusiona con remoto maingh
+  Referencia local configurada para 'git push':
+    maingh publica a maingh (actualizado)
+</code></pre>
+<p>Ahora si entro en GitHub y selecciono mi repositorio, podré ver todos los cambios que se han producido.</p>
+<!--![](/home/Enrique/Documentos/Articulos_para_mi_web/Git-gitlab-github/Crear-repositorio-GitHub-IV.jpg)-->
+<figure>
+    <img src="/img/post/git-github-gitlab/Crear-repositorio-GitHub-IV.jpg"/> 
+</figure>
+
+<p>Voy a añadir a mi repositorio local un segundo repositorio remoto, en este caso el creado en GitLab. Desde la consola me sitúo dentro de mi repositorio local y empiezo configurando el segundo repositorio remoto</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git remote add origin_gl git@gitlab.com:esaborit/proyecto_gitlab.git
+</code></pre>
+<p>Escribo el comando <code>push</code> para subir la rama <code>maingh</code> del repositorio local al repositorio remoto en GitLab que acabo de crear y donde se almacenará en una rama del mismo nombre <code>maingh</code>.</p>
+<pre><code class="language-bash">$ git push -u origin_gl maingh
+    Enter passphrase for key '/home/Enrique/.ssh/id_rsa': 
+    Enumerando objetos: 3, listo.
+    Contando objetos: 100% (3/3), listo.
+    Escribiendo objetos: 100% (3/3), 234 bytes | 234.00 KiB/s, listo.
+    Total 3 (delta 0), reusado 0 (delta 0), pack-reusado 0
+    To gitlab.com:esaborit/proyecto_gitlab.git
+    
+   * [new branch]      maingh -&gt; maingh
+     Rama 'maingh' configurada para hacer seguimiento a la rama remota 'maingh' de 'origin_gl'.
+</code></pre>
+<p>Ahora si entro en GitLab y selecciono mi repositorio, podré ver todos los cambios que se han producido.</p>
+<!--![](/home/Enrique/Documentos/Articulos_para_mi_web/Git-gitlab-github/Crear-proyecto-GitLab-III.jpg)-->
+<figure>
+    <img src="/img/post/git-github-gitlab/Crear-proyecto-GitLab-III.jpg"/> 
+</figure>
+
+<p>Compruebo la configuración de las ramas remotas</p>
+<pre><code class="language-bash"># Ramas en github
+$ git remote show origin_gh 
+Warning: Permanently added the ECDSA host key for IP address '140.82.121.3' to the list of known hosts.
+Enter passphrase for key '/home/Enrique/.ssh/id_rsa': 
+* remoto origin_gh
+  URL  para obtener: git@github.com:esaborit/proyecto_github.git
+  URL para publicar: git@github.com:esaborit/proyecto_github.git
+  Rama HEAD: maingh
+  Rama remota:
+    maingh rastreada
+  Referencia local configurada para 'git push':
+    maingh publica a maingh (actualizado)
+
+# Ramas en gitlab
+$ git remote show origin_gl
+Enter passphrase for key '/home/Enrique/.ssh/id_rsa': 
+* remoto origin_gl
+  URL  para obtener: git@gitlab.com:esaborit/proyecto_gitlab.git
+  URL para publicar: git@gitlab.com:esaborit/proyecto_gitlab.git
+  Rama HEAD: maingh
+  Rama remota:
+    maingh rastreada
+  Rama local configurada para 'git pull':
+    maingh fusiona con remoto maingh
+  Referencia local configurada para 'git push':
+    maingh publica a maingh (actualizado)
+</code></pre>
+<h3 id="clonar-un-repositorio-git">Clonar un repositorio Git</h3>
+<p>Cuando encuentro un repositorio que me resulta de utilidad y quiero trabajar con el en local puedo proceder de dos formas, lo puedo descargar en formato zip o lo puedo clonar. La clonación presenta algunas ventajas frente a la descarga en formato zip.</p>
+<ul>
+<li>Crea un repositorio Git en local con los cambios que el  repositorio remoto ha tenido a lo largo del tiempo.</li>
+<li>Podré luego enviar cambios al repositorio remoto, una vez los haya realizado en local.</li>
+</ul>
+<h4 id="para-clonar-un-repositorio">Para clonar un repositorio</h4>
+<p>Primero copiar la URL del respositorio remoto que deseo clonar (ver el icono &ldquo;Copy to clipboard&rdquo; en la siguiente imagen).</p>
+<!--![](/home/Enrique/Documentos/Articulos_para_mi_web/Git-gitlab-github/Clonar_repo.jpg)-->
+<figure>
+    <img src="/img/post/git-github-gitlab/Clonar_repo.jpg"/> 
+</figure>
+
+<p>Luego abro una ventana del terminal, para situarme sobre la carpeta  del proyecto que quiero clonar. Es recomendable crear ya  directamente una carpeta con el nombre del proyecto a clonar, o cualquier otro nombre que te parezca mejor para este repositorio. Me  sitúo dentro de esa carpeta y desde ella lanzo el  comando para hacer el clón, que sería algo como esto:</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git clone https://github.com/esaborit/prueba.git
+</code></pre>
+<p>El último punto me indica que el clon lo va a colocar en la carpeta  donde estoy situado. La salida de ese comando sería más o menos así:</p>
+<pre><code class="language-bash">usuario@mi-pc:~/repositorios_github/Pruebas $ git clone https://github.com/esaborit/prueba.git
+Clonando en 'prueba'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 6 (delta 0), reused 3 (delta 0), pack-reused 0
+Recibiendo objetos: 100% (6/6), listo.
+usuario@mi-pc:~/repositorios_github/Pruebas $ 
+</code></pre>
+<p><strong>Clonando para gitlab</strong></p>
+<pre><code class="language-bash"># Desde ssh
+usuario@mi-pc:~ $ git clone git@gitlab.com:esaborit/prueba.git
+# Desde https
+usuario@mi-pc:~ $ git clone https://gitlab.com/esaborit/prueba.git
+</code></pre>
+<h4 id="instalar-las-dependencias">Instalar las dependencias</h4>
+<p>Habitualmente los desarrollos de Git tienen ignoradas las dependencias mediante el archivo <code>.gitignore</code>, por ello es importante que las instalemos de nuevo en el repositorio clon, en local.</p>
+<p>Para cada tipo de proyecto, con cada lenguaje, existirán comandos para instalar las dependencias. Este comando lo tendría que conocer con anterioridad para poder aplicarlo, si es de PHP dependerá de Composer,  si es de NodeJS (o Javascript) dependerá de npm.</p>
+<h4 id="subir-cambios-realizados-por-mi-al-repositorio-remoto-clonado">Subir cambios, realizados por mi, al repositorio remoto clonado</h4>
+<p>Una vez modificado el código en local, puedo subir los cambios  al repositorio remoto. Al clonar el  repositorio en local, está asociado el origen remoto desde donde lo  traje. Sin embargo, hay que tener en cuenta:</p>
+<ul>
+<li>Las normas del propietario del repositorio para enviar cambios, como por ejemplo trabajar siempre  con ramas y enviar los cambios a una rama en concreto, que luego se puede fusionar con un <code>pull request</code>.</li>
+<li>Si no tengo permisos  por no ser mío el repositorio remoto, no puedo enviar cambios y debería haber hecho un <code>Fork</code>.</li>
+</ul>
+<p>Suponiendo que el  repositorio es mío y que puedo enviar cambios  directamente a la rama main, para enviar cambios a GitHub o cualquier otro hosting de repositorios, haría:</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git push
+</code></pre>
+<p>Con eso se envían los cambios al instante y los podré ver reflejados en el repo remoto.</p>
+<blockquote>
+<p>Nota:  para que se envíen los cambios del repositorio, local  tienen que haber sido realizadas alguna/s modificación/es en el código del  proyecto y  confirmado con el  correspondiente/s commit.</p>
+</blockquote>
+<h3 id="hacer-un-fork-de-otro-proyecto">Hacer un fork de otro proyecto</h3>
+<p>Si el repositorio que voy a modificar no es mío y pretendo continuar el desarrollo, agregando cambios que querré enviar a GitHub/GitLab, tendré &lt; que clonar el repositorio de otra manera.</p>
+<p>Primero debo crear un &ldquo;fork&rdquo;. Esto es, un repositorio que es copia de otro que ya está publicado en GitHub. Lo bueno de un fork es que el repositorio será exactamente igual, pero estará en mi cuenta de  GitHub, con mi usuario, por lo que tendré permisos para hacer lo que yo quiera con él.</p>
+<p>Hacer un fork de otro repositorio significa que lo copio hacia mi repositorio remoto en GitHub o GitLab. Esto significa que guarda los commits que se hayan hecho y sus ramas.</p>
+<p>Hacer un fork es muy fácil, busco un repositorio que me interese, entro en el y selecciono «Fork» para copiarlo a mi cuenta.</p>
+<blockquote>
+<p>Hay un botón para hacer el fork en la parte de arriba de la página del repositorio.</p>
+</blockquote>
+<p><img src="https://desarrolloweb.com/archivoimg/general/4497.png" alt="img"></p>
+<p>Una vez hecho el fork, el repositorio ya me pertenece. Puedo clonar (el fork, no el repositorio original) y realizar los cambios que quiera y podré subirlos perfectamente a mi propio repositorio (mi  fork).</p>
+<p>El resto del proceso, para descargar el repositorio, modificarlo y  enviar los cambios es exactamente igual que lo descrito anteriormente,  incluido el <code>git push</code> para enviar los cambios.</p>
+<h3 id="crear-nuevas-ramas">Crear nuevas ramas</h3>
+<p>Esta opción la realizaré desde dentro de mi repositorio remoto.  Selecciono «branch: main» y se abrirá una lista, y un lugar para  escribir. Allí escribo el nombre de la <strong>rama</strong> que quiero usar, como no la encontrará me dirá que debo crear una nueva.</p>
+<p>Si en vez de en el repositorio remoto de Github o GitLab quiero crear una nueva <strong>rama</strong> en el repositorio local de mi ordenador puedo utilizar el comando</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git branch nombre_de_la_rama_nueva
+</code></pre>
+<h4 id="comandos-para-seleccionar-la-rama">Comandos para seleccionar la rama</h4>
+<p>Un poco más atrás he creado una nueva <strong>rama</strong> ahora debo seleccionarla para trabajar en ella.</p>
+<p>Para ver que ramas tengo debo escribir lo siguiente en el terminal:</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git show-branch
+</code></pre>
+<p>Para moverme entre ramas uso el comando <code>git checkout</code> seguido del nombre de la rama que quiero que sea la activa. Para seleccionar la rama deseada escribo lo siguiente:</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git checkout nombre_de_la_rama_nueva
+</code></pre>
+<p>Esta sencilla operación tiene mucha potencia, porque cambiará  automáticamente todos los archivos del proyecto, los de todas las carpetas, para que tengan el contenido en el que se encuentren en la  correspondiente rama.</p>
+<p>De momento en el ejemplo las dos ramas tenían exactamente el mismo  contenido, pero ahora podría empezar a hacer cambios en la rama nueva y sus correspondientes commit y entonces los archivos  tendrán códigos diferentes, de modo que se pueda ver que al pasar de una  rama a otra hay cambios en los archivos.</p>
+<p>Si estando en la rama nueva hago un par de <code>commit</code>, puedo observar que al hacer el <code>show-branches</code> muestra nuevos datos.</p>
+<p>Cuando quiero crear la rama local en un repositorio remoto (agregar una rama remota) y vincularlas, la primera vez, debo usar la opción <code>-u</code>  / <code>--set-upstream</code> .  Garantiza que se construye una relación de seguimiento entre la rama local y la remota que he creado. A partir de ahora Git sabrá lo que quiero hacer cuando uso los comandos <code>git fetch</code>, <code>git pull</code> o <code>git push</code> en  el futuro. Mantiene las ramas locales y remotas actualizadas con el seguimiento y mantenimiento de los comandos <code>pull</code> y <code>push</code>.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git push --set-upstream &lt;remote&gt; &lt;branch&gt;
+usuario@mi-pc:~ $ git push -u &lt;remote&gt; &lt;branch&gt;
+# Por ejemplo
+usuario@mi-pc:~ $ git push --set-upstream origin experimental
+</code></pre>
+<p>Ahora cada vez que haga</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git push
+</code></pre>
+<p>se subirá dentro de la <strong>rama</strong> seleccionada dejando las demás tal como estaban.</p>
+<p>El comando <code>checkout</code> tiene la posibilidad de permitirme crear una rama  nueva y moverme a ella en un único paso. Para crear una nueva rama y  situarme sobre ella tendré que darle un nombre y usar el parámetro -b.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git checkout -b otra_rama
+</code></pre>
+<h3 id="fusionar-ramas">Fusionar ramas</h3>
+<p>A medida que cree ramas y cambie el estado del las carpetas o archivos, en el proyecto empezarán a divergir una rama de la otra. Llegará el momento en el que interese fusionar ramas para poder incorporar el trabajo realizado a la rama main (antes master).</p>
+<p>El proceso de fusionado se conoce como <code>&quot;merge&quot;</code> y puede llegar a ser muy simple o más complejo si se encuentran cambios que Git no pueda procesar de manera automática. Git para procesar los <code>merge</code> usa un antecesor común y comprueba los cambios que se han introducido al proyecto desde entonces, combinando el código de ambas ramas.</p>
+<p>Para hacer un <code>merge</code> me sitúo en una rama, en este caso la <code>main</code>, y decido con qué otra rama se debe fusionar el código.</p>
+<p>El siguiente comando, lanzado desde la rama <code>main</code>, permite fusionarla con la rama <code>experimental</code>.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git merge experimental
+</code></pre>
+<p>Un <code>merge</code> necesita un mensaje, igual que ocurre con los commit, por lo que al realizar ese comando, en mi caso, se abrirá el editor <code>nano</code> (o cualquier otro editor de consola que esté configurado) para poder introducir los comentarios oportunos. Esta  operativa de indicar el mensaje se puede resumir con el comando <code>-m</code>:</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git merge experimental -m 'Esto es un merge con mensaje'
+</code></pre>
+<p>En resumen una secuencia de comandos podría ser: Primero el cambio a la rama main <code>git checkout main</code>, luego el <code>git branch</code> para confirmar en qué rama nos encontramos y por último el  <code>merge</code> para fusionarla con la rama experimental.</p>
+<p>Luego puedo comprobar que la rama main tiene todo el código  nuevo de la rama experimental y podré hacer nuevos commits en main  para seguir el desarrollo del proyecto ya con la rama principal.</p>
+<h4 id="fusionar-los-cambios-de-master-en-la-rama-en-desarrollo">Fusionar los cambios de master en la rama en desarrollo</h4>
+<p>Durante tu trabajo en el desarrollo del proyecto gestionado con Git  también puede ser normal que se vayan haciendo cambios en la rama  main, o en otras ramas en desarrollo, y quieras traerlos para tu rama  actual. Por ejemplo, la rama experimental está tardando varios días o  semanas en completarse y mientras tanto han agregado nuevas features que quieras que esté disponibles también en la rama experimental.</p>
+<p>Entonces seguramente querrás traerte los cambios de la rama master.  Para ello, estando en la rama experimental, puedes lanzar el siguiente  comando.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git merge main -m 'Un mensaje del merge de main en la rama experimental'
+</code></pre>
+<p>Ya lo tienes! ahora tu rama está actualizada con todos los cambios en  main. Puedes seguir desarrollando tu rama experimental sabiendo que  tienes el proyecto actualizado.</p>
+<h3 id="subir-una-rama-a-un-repositorio-remoto">Subir una rama a un repositorio remoto</h3>
+<p>Para que las ramas que creo en mi repositorio local se publiquen en Github o Gitlsb, tengo que realizar específicamente la acción de subir la rama que deseo.</p>
+<p>Debo utilizar el comando <code>push</code>, indicando la opción <code>-u</code> y el nombre de la rama que deseo subir. Por ejemplo de esta manera:</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git push -u origin experimental
+# o tambien
+usuario@mi-pc:~ $ git push --set-upstream origin experimental
+</code></pre>
+<p>Así estoy haciendo un push, empujando hacia origin (que es el nombre que se suele dar a la URL del repositorio remoto), la rama con nombre  &ldquo;experimental&rdquo;.</p>
+<blockquote>
+<p>Nota: al subir el proyecto a Github podré ver también un  diagrama de las ramas que he ido creando y fusionando a main, en la sección Graps / Network.</p>
+</blockquote>
+<h3 id="borrar-una-rama">Borrar una rama</h3>
+<p>En ocasiones puede ser necesario eliminar una rama del repositorio, por ejemplo porque me haya equivocado en el nombre al crearla. Aquí la operativa puede ser diferente, dependiendo de si he subido ya esa  rama a remoto o si todavía solamente está en local.</p>
+<h4 id="borrado-de-la-rama-en-local">Borrado de la rama en local</h4>
+<p>Esto lo consigo con el comando <code>git branch</code>, solamente que ahora  usando la opción <code>-d</code> para indicar que quiero borrarla.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git branch -d rama_a_borrar
+</code></pre>
+<p>Sin embargo, puede que esta acción no funcione porque haya hecho cambios que no se hayan salvado en el repositorio remoto, o no se hayan fusionado con otras ramas. En el caso que quiera forzar el  borrado de la rama, para eliminarla independientemente de si se ha hecho el push o el merge, tendré que usar la opción <code>-D</code>.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git branch -D rama_a_borrar
+</code></pre>
+<p>Se debe prestar especial atención a esta opción <code>-D</code>, ya que al eliminar de este modo pueden haber cambios que ya no se puedan recuperar. Es bastante fácil de confundir con <code>-d</code>, opción más  segura, ya que no permite borrado de ramas en situaciones donde se pueda perder código.</p>
+<h4 id="eliminar-una-rama-en-remoto">Eliminar una rama en remoto</h4>
+<p>Si la rama que quiero eliminar está en el repositorio remoto, la operativa es un poco diferente. Tengo que hacer un push, indicando la  opción <code>--delete</code>, seguida de la rama que se desea borrar.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git push origin --delete rama_a_borrar
+</code></pre>
+<h3 id="descargar-una-rama-de-remoto">Descargar una rama de remoto</h3>
+<p>A veces ocurre que se generan ramas en remoto, por ejemplo cuando han sido creadas por otros usuarios y subidas a GitHub o similar, y necesito acceder a ellas en local para verificar los cambios o continuar el trabajo. En principio esas ramas en remoto creadas por otros usuarios no están disponibles para mi en local, pero las podré descargar.</p>
+<p>El proceso para obtener una rama del repositorio remoto es bien sencillo. Lo consigo con el comando fetch.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git fetch
+</code></pre>
+<p>Lanzado ese comando he podido descargar la rama git de remoto. Ahora ya puedo acceder a ella.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git checkout mi_rama_remota_descargada
+</code></pre>
+<h2 id="otros-comandos-básicos">Otros comandos básicos</h2>
+<p>Además de los comandos anteriores, existen otros comandos muy usados que son interesantes conocer.</p>
+<h3 id="operaciones-con-archivos">Operaciones con archivos</h3>
+<p>Mostraré la operativa en git con los archivos para: borrar, mover y renombrar archivos.</p>
+<h4 id="eliminar-archivos">Eliminar archivos</h4>
+<p>La forma más fácil de borrar archivos del seguimiento y eventualmente del repositorio es <code>git rm</code>.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git rm tes2.txt
+rm 'test2.txt'
+</code></pre>
+<p>Después de ejecutar este comando, el archivo <code>test2.txt</code> se elimina de la carpeta de trabajo y esta información de eliminación se ha añadido al área de preparación.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git status
+On branch master
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+	deleted:    test2.txt
+</code></pre>
+<h4 id="renombrar-archivos">Renombrar archivos</h4>
+<p>Si renombro el fichero en mi repositorio local directamente, <code>git</code> considera esta operación como dos operaciones, la primera es borrar los ficheros con el antiguo y el nuevo, y la segunda es añadir el fichero  recién nombrado a la copia de trabajo.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git status
+On branch master
+Changes not staged for commit:
+  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+	deleted:    test1.txt
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+	test1_rename.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre>
+<p>El inconveniente de tal operación es que rompe el  historial de revisiones del fichero, y no se podría obtener el historial de revisiones de este fichero recién nombrado antes de este momento de  renombramiento. No es deseable en el control de versiones.</p>
+<p>Git tiene un comando de renombrado para resolver este problema de enlazamiento roto - <code>mv</code>.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git mv test1.txt test1_rename.txt
+</code></pre>
+<p><code>mv</code> significa en realidad <code>mover</code>, pero aquí, moverse de <code>test1.txt</code> a <code>test1_rename.txt</code> también significa renombrar el fichero.</p>
+<p>Si compruebo el <code>git status</code> ahora, aparece <code>renamed</code>,</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git status
+On branch master
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+	renamed:    test1.txt -&gt; test1_rename.txt
+</code></pre>
+<h4 id="mover-archivos">Mover archivos</h4>
+<p>De manera similar a renombrar archivos, mover archivos en git también usa el comando <code>git mv</code>, pero el destino del archivo no es el mismo directorio del archivo movido.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git mv test1_rename.txt move/test1.txt
+</code></pre>
+<p>Aquí, <code>move</code> es el directorio de destino, y <code>test1.txt</code> es el nuevo nombre del archivo movido <code>test1_rename.txt</code>.</p>
+<p>Compruebo el <code>git status</code>,</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git status
+On branch master
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+	renamed:    test1_rename.txt -&gt; move/test1.txt
+</code></pre>
+<p>Como se puede ver, también es una operación <code>renamed</code>, pero con un destino diferente.</p>
+<h3 id="modificar-el-último-commit-hecho">Modificar el último commit hecho</h3>
+<p>Aveces se da el caso de necesitar modificar el último <code>commit</code> por que encontramos una errata u otros pequeños fallos en el código. Podría  revisar el código y hacer otro commit en el repositorio de nuevo.  Pero también puedo reescribir la última confirmación añadiéndoselos .</p>
+<p>La bandera <code>--amend</code> después de <code>git commit</code> le dice a <code>git</code> que esta confirmación reemplazará la anterior que ya no estará en su rama de trabajo.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git commit --amend -m &quot;new information is updated&quot;
+</code></pre>
+<blockquote>
+<p>Nota: nunca se debe modificar una confirmación que no sea la más reciente, porque otro miembro del equipo u otras ramas tienen la versión basada en esa confirmación. Después de modificar, pierden su punto de referencia y es difícil recuperarle.</p>
+</blockquote>
+<h3 id="eliminar-un-commit">Eliminar un «commit»</h3>
+<p>Sirve por si algo ha fallado o se quiere eliminar:</p>
+<pre><code class="language-BASH">usuario@mi-pc:~ $ git revert &lt;sha del decommit&gt;
+</code></pre>
+<h3 id="otros-comandos">Otros comandos</h3>
+<pre><code class="language-BASH">usuario@mi-pc:~ $ git log
+usuario@mi-pc:~ $ git log -p
+</code></pre>
+<p>Sirve para ver los commits fusionados y ver sus sha. El segundo aparte de del <code>commit</code> también me muestra los cambios.</p>
+<pre><code class="language-BASH">usuario@mi-pc:~ $ git reset --hard HEAD~1
+</code></pre>
+<p>Esto revierte el último commit que he echo antes de hacer un push y borra los cambios producidos.</p>
+<pre><code class="language-BASH">usuario@mi-pc:~ $ git reset --soft HEAD~1
+</code></pre>
+<p>Retrocede un commit, pero no borra ni pierdo los cambios, osea, que saldrá como  si estuviera pendiente de hacer el commit, bastante útil para hacer  cambios de última hora.</p>
+<p>En ambos, una vez hecho <code>push</code>, no queda mas remedio que hacer <code>revert</code>.</p>
+<h3 id="conceptos-de-main--origin-y-head">Conceptos de <code>main</code> , <code>origin</code> y <code>HEAD</code>.</h3>
+<p><strong><code>HEAD</code></strong> es un nombre que se refiere siempre al <em>commit</em> en el que tenemos posicionado el repositorio en el momento actual.  Independientemente de la rama en la que estemos, de cómo se llame la  rama principal o el repositorio principal remoto.</p>
+<p><strong><code>main</code></strong> la <strong>rama predeterminada</strong> que se crea automáticamente cuando se crea un repositorio.</p>
+<blockquote>
+<p>Nota: hasta mediados del año 2020 esta rama se llamaba &ldquo;master&rdquo; y no &ldquo;main&rdquo;.</p>
+</blockquote>
+<p>Por regla general a <em>main</em> <strong>se la considera la rama principal</strong> y la raíz de la mayoría de las demás ramas. Lo más habitual es que en <em>main</em> se encuentre el &ldquo;código definitivo&rdquo;, que luego va a producción, y es <strong>la rama en la que se mezclan todas las demás tarde o temprano</strong> para dar por finalizada una tarea e incorporarla al producto final.</p>
+<p>Esta manera de trabajar con ramas nos permite llevar en paralelo  varios desarrollos relacionados sin importar que cada uno de ellos  termine en momentos muy diferentes, ya que no interfieren, pudiendo  mezclarlos todos al final.</p>
+<p>Lo más habitual es que para poder mezclar otra rama cualquiera con <em>main</em> haya que pedir permiso y que alguien lo revise todo antes de  permitirlo. Es lo que se denomina un &ldquo;pull request&rdquo;. O simplemente que  la rama <em>main</em> se encuentre protegida de modo que solo si se pasan todos los <em>test</em> y aseguramos que el producto funciona, sea posible mezclarse con ella.  De este modo impedimos que cualquiera pueda llevar al producto final  código que no cumple unos mínimos de calidad.</p>
+<p><strong><code>origin</code></strong> es simplemente el nombre  predeterminado que recibe el repositorio remoto principal contra el que  trabajamos. Cuando clonamos un repositorio por primera vez desde GitHub o cualquier otro sistema remoto, el nombre que se le da a ese repositorio &ldquo;maestro&rdquo; es precisamente <em>origin</em></p>
+<p>Hacer un pull sin especificar cómo reconciliar las ramas es poco recomendable</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $ git config --global pull.rebase false
+</code></pre>
+<p>Inspecciono el repositorio remoto con el comando <code>$ git remote show origin</code>.</p>
+<pre><code class="language-bash">usuario@mi-pc:~ $  git remote show origin
+* remoto origin
+  URL  para obtener: https://github.com/esaborit/prueba.git
+  URL para publicar: https://github.com/esaborit/prueba.git
+  Rama HEAD: master
+  Ramas remotas:
+    experimental rastreada
+    master       rastreada
+  Ramas locales configuradas para 'git pull':
+    experimental fusiona con remoto experimental
+    master       fusiona con remoto master
+  Referencias locales configuradas para 'git push':
+    experimental publica a experimental (actualizado)
+    master       publica a master       (actualizado)
+</code></pre>
+<p>El comando lista la URL del repositorio remoto y la información del rastreo de ramas. El comando te indica claramente que si estás en la rama maestra y ejecutas el comando <code>git pull</code>, automáticamente combinará la rama maestra remota con tu rama local, luego de haber traído toda la información de ella. También lista todas las referencias remotas de las que ha traído datos.</p>
+<p>Este comando te indica a cuál rama enviarás información automáticamente cada vez que ejecutas <code>git push</code>, dependiendo de la rama en la que estés. También te muestra cuáles ramas remotas no tienes aún, cuáles ramas  remotas tienes que han sido eliminadas del servidor, y varias ramas que  serán combinadas automáticamente cuando ejecutes <code>git pul</code>.</p>
+<p>Cuando hacemos <em>git pull</em>, nos traemos los cambios del  repositorio que elijamos o tengamos configurado, y uno de los parámetros que podemos utilizar es rebase:</p>
+<pre><code>git pull --rebase
+</code></pre>
+<p><strong>¿Qué hace esto?</strong> Al realizar un pull estamos haciendo un <strong>fetch</strong> y justo después un <strong>merge</strong>, pasándole la opción <strong>rebase</strong>, git intentará traer todos los cambios y después aplicar nuestras  modificaciones encima en lugar de intentar hacer un merge desde el punto en el que estábamos, <strong>esto hará que nuestro histórico tenga mucho mejor aspecto</strong>.</p>
+<p><strong>Nota</strong>: Git no siempre va a poder hacer <code>git pull  --rebase</code>, por descontado si hay conflictos, no sobreescribe el código  sino que nos dejará editar y entonces forzará hacer un <code>merge</code> manual.</p>
+<p><strong>Fuentes</strong></p>
+<p><a href="https://www.atlassian.com/es/git/tutorials/what-is-git">https://www.atlassian.com/es/git/tutorials/what-is-git</a></p>
+<p><a href="https://git-scm.com/book/es/v2/Fundamentos-de-Git-Obteniendo-un-repositorio-Git">https://git-scm.com/book/es/v2/Fundamentos-de-Git-Obteniendo-un-repositorio-Git</a></p>
+<p><a href="https://www.w3schools.com/git/default.asp?remote=gitlab">https://www.w3schools.com/git/default.asp?remote=gitlab</a></p>
+<p><a href="https://desarrolloweb.com/articulos/trabajar-ramas-git.html">https://desarrolloweb.com/articulos/trabajar-ramas-git.html</a></p>
+<p><a href="https://desarrolloweb.com/manuales/manual-de-git.html">https://desarrolloweb.com/manuales/manual-de-git.html</a></p>
+<p><a href="https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line">https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line</a></p>
+<p><a href="https://instatecno.com/aprender-git-github-gitlab-bitbucket/">https://instatecno.com/aprender-git-github-gitlab-bitbucket/</a></p>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://esaborit.github.io/tags/git/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Git</a>
+    
+    <a href="https://esaborit.github.io/tags/github/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Github</a>
+    
+    <a href="https://esaborit.github.io/tags/gitlab/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Gitlab</a>
+    
+</div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="https://esaborit.github.io/authors/enrique_saborit/" class="w-24 h-24 md:mr-4">
+            
+            
+            <i class="fas fa-user-circle fa-6x"></i>
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="https://esaborit.github.io/authors/enrique_saborit/" class="block font-bold text-lg pb-1 mb-2 border-b">Enrique Saborit</a>
+            <span class="block pb-2">«No se puede enseñar nada a un hombre; sólo se le puede ayudar a encontrar la respuesta dentro de sí mismo». Galileo Galilei (1564 - 1642) </span>
+            
+            
+            <a href="https://github.com/esaborit" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            <a href="https://gitlab.com/esaborit" class="mr-1">
+                <i class="fab fa-gitlab"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Siguiente</span>
+        <a href="https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/" class="block">Virtualizando con KMV libvirt y virt-manager en Mx-linux</a>
+        
+    </div>
+</div>
+
+        
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+<div class="bg-secondary-bg rounded p-6">
+    <h3 class="text-lg font-semibold mb-4">Series de artículos</h3>
+    <div class="content">
+        
+        
+        <a href="https://esaborit.github.io/posts/git-github-gitlab/">Uso básico de Git con GitLab y GitHub</a>
+        <br />
+        
+        <a href="https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/">Virtualizando con KMV libvirt y virt-manager en Mx-linux</a>
+        <br />
+        
+        
+    </div>
+</div>
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">Secciones</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#creación-de-cuentas-en-githubgitlab">Creación de cuentas en GitHub/GitLab</a></li>
+    <li><a href="#asociación-de-git-con-las-cuentas-de-githubgitlab">Asociación de Git con las cuentas de GitHub/GitLab</a>
+      <ul>
+        <li><a href="#configuración-de-git">Configuración de Git</a></li>
+        <li><a href="#generar-ssh-key">Generar SSH KEY</a></li>
+        <li><a href="#añadir-una-llave-ssh-a-github-o-gitlab">Añadir una llave SSH a GitHub o GitLab</a>
+          <ul>
+            <li><a href="#funcionamiento">Funcionamiento</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#empezar-a-usar-githubgitlab">Empezar a usar GitHub/GitLab</a>
+      <ul>
+        <li><a href="#subir-un-proyecto-almacenado-en-el-ordenador-personal">Subir un proyecto almacenado en el ordenador personal.</a>
+          <ul>
+            <li><a href="#crear-un-repositorio-remoto">Crear un repositorio remoto</a>
+              <ul>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="#gitlab">GitLab</a></li>
+              </ul>
+            </li>
+            <li><a href="#creando-un-repositorio-local">Creando un repositorio local</a></li>
+            <li><a href="#configurando-repositorios-remotos"><strong>Configurando repositorios remotos</strong></a></li>
+            <li><a href="#cargando-el-contenido-del-repositorio-local-a-un-repositorio-remoto"><strong>Cargando el contenido del repositorio local a un repositorio remoto</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#clonar-un-repositorio-git">Clonar un repositorio Git</a>
+          <ul>
+            <li><a href="#para-clonar-un-repositorio">Para clonar un repositorio</a></li>
+            <li><a href="#instalar-las-dependencias">Instalar las dependencias</a></li>
+            <li><a href="#subir-cambios-realizados-por-mi-al-repositorio-remoto-clonado">Subir cambios, realizados por mi, al repositorio remoto clonado</a></li>
+          </ul>
+        </li>
+        <li><a href="#hacer-un-fork-de-otro-proyecto">Hacer un fork de otro proyecto</a></li>
+        <li><a href="#crear-nuevas-ramas">Crear nuevas ramas</a>
+          <ul>
+            <li><a href="#comandos-para-seleccionar-la-rama">Comandos para seleccionar la rama</a></li>
+          </ul>
+        </li>
+        <li><a href="#fusionar-ramas">Fusionar ramas</a>
+          <ul>
+            <li><a href="#fusionar-los-cambios-de-master-en-la-rama-en-desarrollo">Fusionar los cambios de master en la rama en desarrollo</a></li>
+          </ul>
+        </li>
+        <li><a href="#subir-una-rama-a-un-repositorio-remoto">Subir una rama a un repositorio remoto</a></li>
+        <li><a href="#borrar-una-rama">Borrar una rama</a>
+          <ul>
+            <li><a href="#borrado-de-la-rama-en-local">Borrado de la rama en local</a></li>
+            <li><a href="#eliminar-una-rama-en-remoto">Eliminar una rama en remoto</a></li>
+          </ul>
+        </li>
+        <li><a href="#descargar-una-rama-de-remoto">Descargar una rama de remoto</a></li>
+      </ul>
+    </li>
+    <li><a href="#otros-comandos-básicos">Otros comandos básicos</a>
+      <ul>
+        <li><a href="#operaciones-con-archivos">Operaciones con archivos</a>
+          <ul>
+            <li><a href="#eliminar-archivos">Eliminar archivos</a></li>
+            <li><a href="#renombrar-archivos">Renombrar archivos</a></li>
+            <li><a href="#mover-archivos">Mover archivos</a></li>
+          </ul>
+        </li>
+        <li><a href="#modificar-el-último-commit-hecho">Modificar el último commit hecho</a></li>
+        <li><a href="#eliminar-un-commit">Eliminar un «commit»</a></li>
+        <li><a href="#otros-comandos">Otros comandos</a></li>
+        <li><a href="#conceptos-de-main--origin-y-head">Conceptos de <code>main</code> , <code>origin</code> y <code>HEAD</code>.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">Ver también</h2>
+        <div class="content">
+            
+            <a href="https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/">Crear un proyecto laravel desde un repositorio en Github</a>
+            <br />
+            
+            <a href="https://esaborit.github.io/posts/configurando-entorno-de-desarrollo-con-laravel-en-ubuntu-server-20-04/">Configuración de un entorno de desarrollo con Laravel en Ubuntu Server 20.04</a>
+            <br />
+            
+            <a href="https://esaborit.github.io/posts/instalando-gitkraken-en-debian-buster/">Instalando GitKraken en Debian Buster</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><footer class="w-full text-center p-6 pin-b text-sm text-tertiary-text">
+    <p>&copy; 2021 Enrique Saborit Crespo &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</footer></div>
+        </div>
+    </footer>
+</body>
+
+</html>

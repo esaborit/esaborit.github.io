@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>&amp;copy; 2021 Enrique Saborit Crespo</copyright>
-    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://esaborit.github.io/docs/blog_laravel/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/docs/blog_laravel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creacion del proyecto y diseño de la base de datos del blog</title>
       <link>https://esaborit.github.io/docs/blog_laravel/creacion_proyecto_diseno_bbdd/</link>

@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>&amp;copy; 2021 Enrique Saborit Crespo</copyright>
-    <lastBuildDate>Thu, 28 Jan 2021 23:09:52 +0100</lastBuildDate>
-    
-	<atom:link href="https://esaborit.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 23 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creacion del proyecto y diseño de la base de datos del blog</title>
       <link>https://esaborit.github.io/docs/blog_laravel/creacion_proyecto_diseno_bbdd/</link>
@@ -114,6 +110,24 @@ TagController.php
       <description>Creando un crud para los post del blog Creo el controlador con los siete métodos
 enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controller Admin/PostController -r Controller created successfully.  Lo modifico para recibir objetos post y las vistas a los métodos correspondientes.
 &amp;lt;?php namespace App\Http\Controllers\Admin; use App\Http\Controllers\Controller; use App\Models\Post; use Illuminate\Http\Request; class PostController extends Controller { /** * Display a listing of the resource. * * @return \Illuminate\Http\Response */ public function index() { return view(&#39;admin.posts.index&#39;); } /** * Show the form for creating a new resource.</description>
+    </item>
+    
+    <item>
+      <title>Uso básico de Git con GitLab y GitHub</title>
+      <link>https://esaborit.github.io/posts/git-github-gitlab/</link>
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/git-github-gitlab/</guid>
+      <description>&lt;p&gt;Github y GitLab son servicios web que permiten alojar el código de proyectos utilizando  el software de control de versiones Git.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Virtualizando con KMV libvirt y virt-manager en Mx-linux</title>
+      <link>https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/</link>
+      <pubDate>Mon, 17 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/</guid>
+      <description>&lt;p&gt;Pequeño tutorial para la instalación de KMV en Mx-linux.&lt;/p&gt;</description>
     </item>
     
     <item>

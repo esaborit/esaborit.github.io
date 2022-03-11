@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang='es' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+<meta http-equiv="X-XSS-Protection"  content="1;mode=block">
+<meta http-equiv="Content-Security-Policy" content=" frame-ancestors 'self'; style-src 'self'  https://cdn.jsdelivr.net  https://use.fontawesome.com/; ">
+
+
+<title>Virtualizando con KMV libvirt y virt-manager en Mx-linux|ESC</title><link rel="stylesheet" href="https://esaborit.github.io/css/eureka.min.css">
+
+<link rel="stylesheet" type="text/css" href="https://esaborit.github.io/css/mis.css" /><script defer src="https://esaborit.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script  defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"crossorigin></script>
+  <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-add-css="false"></script>
+  <link href="https://use.fontawesome.com/releases/v5.15.2/css/svg-with-js.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],});
+  });
+</script><link rel="icon" type="image/png" sizes="32x32" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://esaborit.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png"><meta name="description"
+    content="Instalación y creación de máquinas virtuales con kmv.">
+
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+"@type": "ListItem",
+"position":  1 ,
+"name": "ESC",
+"item": "https://esaborit.github.io/"
+},{
+"@type": "ListItem",
+"position":  2 ,
+"name": "Artículos",
+"item": "https://esaborit.github.io/posts/"
+},{
+"@type": "ListItem",
+"position":  3 ,
+"name": "Virtualizando con KMV libvirt y virt-manager en Mx-linux",
+"item": "https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/"
+}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/"
+    },
+    "headline": "Virtualizando con KMV libvirt y virt-manager en Mx-linux | ESC",
+    "image": "https://esaborit.github.io/img/post/virtualizando-con-kmv-en-mx-linux/install-KVM.jpg",
+    "datePublished": "2022-01-17T00:00:00+00:00",
+    "dateModified": "2022-01-17T00:00:00+00:00",
+    "wordCount":  1824 ,
+    "author": {
+        "@type": "Person",
+        "name": ["enrique_saborit"]
+    },
+    "publisher": {
+        "@type": "Blog",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://esaborit.github.io/images/icon.png"
+        }
+        },
+    "description": "Instalación y creación de máquinas virtuales con kmv."
+}
+</script>
+<meta property="og:title" content="Virtualizando con KMV libvirt y virt-manager en Mx-linux | ESC" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://esaborit.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/" />
+
+
+
+<meta property="og:description" content="Instalación y creación de máquinas virtuales con kmv." />
+
+
+
+<meta property="og:locale" content="es" />
+
+
+
+
+<meta property="og:site_name" content="ESC" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-01-17T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2022-01-17T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="KMV" />
+
+<meta property="article:tag" content="Mx-linux" />
+
+
+
+
+
+
+
+
+
+<meta property="og:see_also" content="https://esaborit.github.io/posts/git-github-gitlab/" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="flex items-center fixed w-full min-h-16 z-50 bg-secondary-bg shadow-sm">
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    
+    if ((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    } else if (storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+    
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">ESC</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0" id="current-url"
+            currenturl="https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/">
+            
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Artículos</a>
+            
+            <a href="/docs/"
+                class="block mt-4 md:inline-block md:mt-0 hover:text-eureka mr-4 main-a">Documentos</a>
+            
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    
+                    <i class="fas fa-adjust"></i>
+                    
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+        
+    });
+
+    let currenturl = document.getElementById('current-url').getAttribute('currenturl')
+        if (currenturl.length > 1) {
+            currenturl = currenturl.substr(0, currenturl.length - 1)
+        }
+
+        sessionStorage.setItem("mainKey", currenturl)
+
+        let elements = document.getElementsByClassName('main-a');
+        for (let i in elements) {
+            if (typeof elements[i] === "object") {
+                let elementurl = elements[i].getAttribute('href')
+                if (elementurl.length > 1 && elementurl.charAt(elementurl.length - 1) == '/') {
+                    elementurl = elementurl.substr(0, elementurl.length - 1)
+                }
+                if (elementurl == sessionStorage.getItem("mainKey")) {
+                    elements[i].classList.add('text-eureka')
+                } else {
+                    elements[i].classList.remove('text-eureka')
+                }
+            }
+        }
+</script></div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16">
+        
+        <div class="container mx-auto ">
+            <div class="max-w-screen-xl lg:px-4 xl:px-8">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Virtualizando con KMV libvirt y virt-manager en Mx-linux</h1>
+        <div class="flex flex-wrap flex-row items-center my-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2022-01-17</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>9 min lectura</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://esaborit.github.io/categories/virtualizaci%C3%B3n/" class="hover:text-eureka">Virtualización</a>
+        
+        
+        <span>, </span>
+        <a href="https://esaborit.github.io/categories/linux/" class="hover:text-eureka">Linux</a>
+        
+    </div>
+    
+
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-th-list mr-1"></i>
+        
+        <a href="https://esaborit.github.io/series/mx-linux/" class="hover:text-eureka">Mx-linux</a>
+        
+    </div>
+    
+</div>
+        
+        
+        <div class="my-4">
+            <img src="https://esaborit.github.io/img/post/virtualizando-con-kmv-en-mx-linux/install-KVM.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+        <div class="content">
+            <p>Pequeño tutorial para la instalación de KMV en Mx-linux.</p>
+<h2 id="instalar-qemukvm-libvirt-y-virt-manager-en-mx-linux-para-virtualización">Instalar Qemu/KVM, libvirt y virt-manager en MX-Linux para Virtualización</h2>
+<p><a href="http://libvirt.org/">libvirt</a> está compuesto por una API de administración (de código abierto) y un demonio con el que se puede interactuar con su pila de virtualizaciónes. Es una herramienta para la administración de máquinas virtuales, soporta los siguientes hypervisores KVM/Qemu, Xen, LXC, OpenVZ, VirtualBox, Hyper-V, y de VMware soporta ESX y Workstation.</p>
+<figure>
+    <img src="/img/post/virtualizando-con-kmv-en-mx-linux/Libvirt.png"/> 
+</figure>
+
+<p><a href="http://www.linux-kvm.org/page/Main_Page">KVM</a> (Kernel based Virtual Machine) es un módulo del kernel de linux que permite utilizar las extensiones de virtualización de los procesadores. KMV está soportado en casi todos los procesadores actuales ya sean Intel (<em><strong>vmx</strong></em>) o AMD (<em><strong>svm</strong></em>), tanto para arquitectura x86 como x86_64.</p>
+<figure>
+    <img src="/img/post/virtualizando-con-kmv-en-mx-linux/virt-manager-vm-list.png"/> 
+</figure>
+
+<p><a href="https://virt-manager.org/">virt-manager</a> es una aplicación de escritorio para administrar maquinas virtuales por medio de libvirt, su principal foco es para máquinas virtuales en KVM, pero también soporta Xen y LXC, su interfaz permite ver un resumen de las máquinas y una vista rápida de los recursos utilizados, tiene un asistente para crear Máquinas Virtuales, tiene un cliente VNC y SPICE para tener acceso a la consola gráfica de las máquinas virtuales.</p>
+<h2 id="pasos-para-instalar-y-habilitar-kvm-en-mx-linux">Pasos para instalar y habilitar KVM en Mx-Linux</h2>
+<h3 id="confirmación-del-soporte-de-virtualización">Confirmación del soporte de virtualización</h3>
+<p>Lo primero que hay que realizar es verificar que el procesador del equipo soporta las extensiones de virtualización, si la máquina donde voy a probar tiene un procesador fabricado aproximadamente después del 2006 no debería tener problema, siempre y cuando no sean de la gama baja, Intel Atom, Intel Celeron.</p>
+<p>Como dije al principio, necesito un sistema con un procesador Intel o AMD que tenga habilitada la extensión de virtualización. Por lo tanto, para confirmarlo, abro el terminal de comandos y ejecuto los siguientes comandos:</p>
+<pre><code>$ egrep -c '(vmx | svm)' /proc/cpuinfo
+$ grep -E --color '(vmx | svm)' /proc/cpuinfo
+</code></pre>
+<p>La salida del <strong>primer</strong> <strong>comando</strong> debería ser mayor que cero (podría ser 1, 2, 6 u 8). Si es así, el sistema admite la virtualización.</p>
+<p>Y si no es así, primero debo reiniciar el sistema e ingresar al BIOS del sistema. Habilitar allí la virtualización y luego iniciar el sistema operativo donde nuevamente debo ejecutar el comando anterior para confirmar de nuevo que está habilitada la extensión de virtualización.</p>
+<p>Con el <strong>segundo</strong> <strong>comando</strong> , obtengo información sobre su CPU, ya sea Intel o AMD. Si el texto de salida de color rojo es <strong>VMX,</strong> entonces es <strong>Intel,</strong> mientras que <strong>SVM</strong> significa <strong>AMD</strong> .</p>
+<pre><code>Enrique@esc-pc:~
+$ egrep -c '(vmx | svm)' /proc/cpuinfo
+8
+Enrique@esc-pc:~
+$ grep -E --color '(vmx | svm)' /proc/cpuinfo
+</code></pre>
+<figure>
+    <img src="/img/post/virtualizando-con-kmv-en-mx-linux/grep-e--color.jpg"/> 
+</figure>
+
+<h3 id="actualización-del-sistema">Actualización del sistema.</h3>
+<p>Actualizo el sistema antes de continuar con la instalación.</p>
+<pre><code>$ sudo apt-get update
+$ sudo apt-get dist-upgrade
+</code></pre>
+<h3 id="instalación-de-qemu-kvm-y-libvirt-en-mx-linux">Instalación de QEMU-KVM y Libvirt en Mx-Linux</h3>
+<p>El siguiente es el comando que descargará e instalará todo lo necesario para la instalación de Qemu, el hipervisor KVM y Libvirt en Mx-Linux.</p>
+<pre><code>$ sudo apt-get install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon
+</code></pre>
+<p>Antes de continuar, debo confirmar que el demonio de virtualización,  <code>libvritd-daemon</code>, se está ejecutando. Para hacerlo, ejecuto el comando <code>service libvirtd status</code>.</p>
+<pre><code>$ service libvirtd status
+● libvirtd.service - Virtualization daemon
+     Loaded: loaded (/lib/systemd/system/libvirtd.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2022-01-16 18:57:14 CET; 2h 16min ago
+TriggeredBy: ● libvirtd.socket
+             ● libvirtd-admin.socket
+             ● libvirtd-ro.socket
+       Docs: man:libvirtd(8)
+             https://libvirt.org
+   Main PID: 1008 (libvirtd)
+      Tasks: 22 (limit: 32768)
+     Memory: 34.4M
+        CPU: 10.636s
+     CGroup: /system.slice/libvirtd.service
+             ├─1008 /usr/sbin/libvirtd
+             ├─3090 /usr/sbin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefile-ro --dhcp-script=/usr/lib&gt;
+             └─3091 /usr/sbin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefile-ro --dhcp-script=/usr/lib&gt;
+
+Warning: some journal files were not opened due to insufficient permissions.
+lines 1-18/18 (END)
+
+</code></pre>
+<p>Para verificar si los módulos KVM están cargados, ejecuto el comando <code>$ lsmod | grep -i kvm</code>:</p>
+<pre><code>$ lsmod | grep -i kvm
+kvm_intel             327680  0
+kvm                   921600  1 kvm_intel
+irqbypass              16384  1 kvm
+</code></pre>
+<p>Puede observarse la presencia del módulo kvm_intel. Este es el caso de los procesadores Intel.</p>
+<h3 id="instalación-de-la-gui-virt-manager-para-kvm">Instalación de la GUI Virt-Manager para KVM</h3>
+<p><code>Virt-Manager</code> , es la interfaz gráfica de usuario desarrollada por RedHat para crear, administrar y ejecutar máquinas virtuales usando KVM pero gráficamente. La instalo desde la línea de comandos.</p>
+<pre><code>$ sudo apt install virt-manager -y
+</code></pre>
+<h3 id="configuración-de-la-red">Configuración de la red</h3>
+<p>Para enumerar la red disponible para usar en máquinas virtuales KVM, puedo ejecutar el siguiente comando:</p>
+<pre><code>$ sudo virsh net-list --all
+ Nombre    Estado     Inicio automático   Persistente
+----------------------------------------------------------------------------
+ default    inactivo     no                     si
+</code></pre>
+<p>Una vez ejecutado el comando, veo que la red predeterminada no está activa y tampoco configurada para iniciarse automáticamente con un reinicio del sistema. Por lo tanto, para activarlo e iniciarlo automáticamente, debo ejecutar los siguientes comandos:</p>
+<pre><code>$ sudo virsh net-start default
+$ sudo virsh net-autostart default
+</code></pre>
+<p>Puedo comprobar la red de nuevo &hellip;</p>
+<pre><code>$ sudo virsh net-list --all
+ Nombre    Estado   Inicio automático   Persistente
+----------------------------------------------------------------------------
+ default    activo     si                    si
+
+</code></pre>
+<p>Aparece activa. Ahora puedo encontrarla junto a las demás.</p>
+<pre><code>$ ip ad show
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 94:c6:91:ac:df:b5 brd ff:ff:ff:ff:ff:ff
+3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 18:1d:ea:a5:f3:9d brd ff:ff:ff:ff:ff:ff
+    inet 192.168.100.3/24 brd 192.168.100.255 scope global noprefixroute wlan0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::2eee:2aa7:4f7b:c13c/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+4: virbr0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 52:54:00:89:f3:01 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
+       valid_lft forever preferred_lft forever
+
+</code></pre>
+<h3 id="agregando-un-vhost_net">Agregando un &ldquo;vhost_net&rdquo;</h3>
+<p>Para mejorar el rendimiento de la transferencia de datos en la red y reducir la carga de <code>virtio-net</code>, se puede agregar un <code>vhost_net</code> en nuestro equipo linux usando el siguiente comando:</p>
+<pre><code>$ sudo modprobe vhost_net
+</code></pre>
+<p><strong>vhost-net</strong> es el backend (lado del host) mientras que <strong>virtio-net</strong> (lado del invitado) es el frontend que se ejecuta en el espacio del kernel invitado. Para saber más sobre ellos, puedo consultar: <a href="https://www.redhat.com/en/blog/introduction-virtio-networking-and-vhost-net">Vhost-net y Virtio-networking</a></p>
+<p>Para comprobar que se ha habilitado ejecuto el comando:</p>
+<pre><code>$ lsmod | grep vhost
+</code></pre>
+<blockquote>
+<p><strong>Nota</strong> : Este paso no es necesario si no se desea.</p>
+</blockquote>
+<h3 id="creando-una-red-puente-opcional">Creando una red puente (opcional)</h3>
+<p>Aunque el KVM viene con una interfaz de red puente llamada “ <strong>virbr0 ″</strong> , sin embargo, eso no nos permitirá acceder a la máquina virtual KVM desde la PC host utilizando alguna otra computadora en la red debido al rango de IP asignado. Por lo tanto, se puede crear nuestra propia interfaz de puente completo sobre el nic físico del sistema host que tendrá el rango de IP de nuestra red.</p>
+<p>Busco la interfaz de red física adjunta a mi sistema host que desea utilizar para el puente</p>
+<pre><code>$ ip a
+</code></pre>
+<p>Veré todas las interfaces de red disponibles en mi máquina host. Anoto el que deseo utilizar para la red Bridge.</p>
+<p><strong>Por ejemplo</strong> , aquí tenemos <code>wlan0 </code>y la dirección IP es <code>192.168.100.3</code>. Por lo tanto, el rango está entre <code>192.168.100.1-192.168.100.255</code></p>
+<pre><code>$ ip ad show
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 94:c6:91:ac:df:b5 brd ff:ff:ff:ff:ff:ff
+3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 18:1d:ea:a5:f3:9d brd ff:ff:ff:ff:ff:ff
+    inet 192.168.100.3/24 brd 192.168.100.255 scope global noprefixroute wlan0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::2eee:2aa7:4f7b:c13c/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+4: virbr0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 52:54:00:89:f3:01 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
+       valid_lft forever preferred_lft forever
+</code></pre>
+<p>Ahora, edito el archivo de interfaz de red :</p>
+<pre><code>sudo nano / etc / network / interfaces
+</code></pre>
+<p>Agrego las siguientes líneas:</p>
+<blockquote>
+<p><strong>Nota</strong> : cambiar los valores según la red de cada cual.</p>
+</blockquote>
+<pre><code>#Configure bridge y dele una ip estática 
+auto virbr0 
+iface virbr0 inet static 
+        address 192.168.0.100 //cambiar
+        netmask 255.255.255.0 
+        network 192.168.0.1 //cambiar
+        broadcast 192.168.0.255 //cambiar
+        gateway 192.168.0.1 //cambiar
+        bridge_ports wlan0 
+        bridge_stp off 
+        bridge_fd 0 
+        bridge_maxwait 0 
+        dns-nameservers 8.8.8.8 4.4.2.2
+</code></pre>
+<p>Guardar el archivo pulsando <strong>Ctrl + O</strong>, y la salida usando <strong>Ctrl + X</strong> .</p>
+<p><strong>Nota</strong> : Si desea que el <strong>puente</strong> obtenga una dirección IP mediante <strong>DHCP</strong> :</p>
+<p>Luego, en lugar de la configuración anterior, use esta:</p>
+<pre><code>## DHCP ip config file for virbr0 ##
+auto virbr0
+ 
+# Bridge setup
+ iface virbr0 inet dhcp
+    bridge_ports wlan0
+</code></pre>
+<p><strong>Reinicio el administrador de red para aplicar los cambios.</strong></p>
+<pre><code>$ sudo systemctl restart networking.service
+or
+$ sudo /etc/init.d/networking restart
+</code></pre>
+<p><strong>Verifico la dirección IP</strong></p>
+<pre><code>$ ip a
+</code></pre>
+<p>Esta vez veré mi interface puente <code>virtbr0</code>  recién creada junto con otras.</p>
+<h3 id="creando-máquinas-virtuales-usando-virt-manager-gui">Creando máquinas virtuales usando Virt-Manager GUI</h3>
+<blockquote>
+<p>Nota: para realizar la <strong><a href="https://www.how2shout.com/linux/how-to-install-kvm-and-virt-manager-on-rocky-linux-8/#4_Command-line_to_create_a_KVM_virtual_machine">creación y ejecución de máquinas virtuales desde la línea de comando con Virt y KVM,</a></strong> simplemente seguiría el enlace anterior.</p>
+</blockquote>
+<p>Desde el entorno gráfico, Mx-Linux puedo utilizar Virt-Manager.</p>
+<h4 id="ejecuto-virt-manager">Ejecuto Virt-Manager</h4>
+<p>Voy al lanzador de aplicaciones, busco “Administrador de máquinas virtuales” (VVM) y lo ejecuto. Antes de que se abra, el sistema me pide que proporcione la contraseña de root. Esto me permite crear y administrar máquinas virtuales.</p>
+<h4 id="creo-una-máquina-virtual">Creo una máquina virtual:</h4>
+<p>Hago clic en el icono de la PC para crear una nueva máquina virtual en Virt-Manager usando KVM.</p>
+<h4 id="localizo-el-volumen-de-medios-iso">Localizo el volumen de medios ISO</h4>
+<p>Hago clic en el botón <strong>Examinar</strong> y luego ubico el archivo <strong>ISO</strong> que deseo usar para instalar un sistema operativo en mi máquina virtual como sistema operativo invitado.</p>
+<figure>
+    <img src="/img/post/virtualizando-con-kmv-en-mx-linux/Create-new-virtual-machine-on-KVM-Virt-Manager.png"/> 
+</figure>
+
+<p>Después de eso, <strong>desmarco</strong> la casilla &quot; <em>Detectar automáticamente desde el medio / fuente de instalación</em> &quot; y luego hago clic en el botón <strong>Adelante</strong> .</p>
+<figure>
+    <img src="/img/post/virtualizando-con-kmv-en-mx-linux/Select-ISO-file-KVM-Virt-Manager.png"/> 
+</figure>
+
+<h4 id="elijo-la-configuración-de-memoria-y-cpu">Elijo la configuración de memoria y CPU</h4>
+<p>Establezco la cantidad de memoria virtual que deseo asignar a la VM y luego la cantidad de núcleos de CPU.</p>
+<figure>
+    <img src="/img/post/virtualizando-con-kmv-en-mx-linux/Assign-RAM-virtual-memory.png"/> 
+</figure>
+
+<h4 id="crear-imagen-de-disco-virtual-qemu">Crear imagen de disco virtual Qemu</h4>
+<p>Para instalar el sistema operativo invitado de VM, necesito algo de espacio de almacenamiento y para eso, tengo que crear un archivo de imagen de disco. Simplemente indico la cantidad de espacio en el disco duro que deseo asignar y sigo adelante.</p>
+<figure>
+    <img src="/img/post/virtualizando-con-kmv-en-mx-linux/Create-Virtual-Disk-Qemu-image1.png"/> 
+</figure>
+
+<h4 id="red">Red</h4>
+<p><strong>Nombro mi máquina virtual, aquí.</strong> Además, de forma predeterminada, Virt-manager usará el <strong>NAT</strong> , sin embargo, puedo seleccionar la interfaz Bridge, ya sea la predeterminada, es decir , <strong>vibr0</strong> , o la que he creado. En caso de duda, seleccionaria la <strong>NAT</strong> predeterminada.</p>
+<figure>
+    <img src="/img/post/virtualizando-con-kmv-en-mx-linux/Virt-Manager-Configure-NAT-network.png"/> 
+</figure>
+
+<h4 id="máquina-virtual-qemu-kvm-en-mx-linux">Máquina virtual Qemu KVM en Mx-Linux</h4>
+<p>Finalmente, tengo una máquina virtual iniciada que se puede controlar como cualquier computadora física usando un teclado y un mouse.</p>
+<figure>
+    <img src="/img/post/virtualizando-con-kmv-en-mx-linux/install-KVM.jpg"/> 
+</figure>
+
+<p>Nota: para poder utilizar correctamente la consola gráfica de cada máquina virtual debo seleccionar la máquina a ejecutar y hacer clic en el botón <code>Abrir</code> del gestor de máquinas virtuales. Se abre una ventana que muestra los detalles y la consola gráfica de la máquina virtual. En ella elijo el botón (fondo azul con una letra <code>i</code> en blanco) que me permite mostrar los detalles del hardware virtual. Selecciono <code>Monitor VNC</code> y en los detalles elijo en la pestaña <code>Tipo</code> la opción <code>Servidor VCN</code>, en mi caso con la opción <code>Servidor Spice</code> no funciona la consola gráfica.</p>
+<figure>
+    <img src="/img/post/virtualizando-con-kmv-en-mx-linux/Detalles_hardware_virtual.png"/> 
+</figure>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://esaborit.github.io/tags/kmv/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#KMV</a>
+    
+    <a href="https://esaborit.github.io/tags/mx-linux/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Mx-linux</a>
+    
+</div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="https://esaborit.github.io/authors/enrique_saborit/" class="w-24 h-24 md:mr-4">
+            
+            
+            <i class="fas fa-user-circle fa-6x"></i>
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="https://esaborit.github.io/authors/enrique_saborit/" class="block font-bold text-lg pb-1 mb-2 border-b">Enrique Saborit</a>
+            <span class="block pb-2">«No se puede enseñar nada a un hombre; sólo se le puede ayudar a encontrar la respuesta dentro de sí mismo». Galileo Galilei (1564 - 1642) </span>
+            
+            
+            <a href="https://github.com/esaborit" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            <a href="https://gitlab.com/esaborit" class="mr-1">
+                <i class="fab fa-gitlab"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Anterior</span>
+        <a href="https://esaborit.github.io/posts/git-github-gitlab/" class="block">Uso básico de Git con GitLab y GitHub</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Siguiente</span>
+        <a href="https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/" class="block">Crear un proyecto laravel desde un repositorio en Github</a>
+        
+    </div>
+</div>
+
+        
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+<div class="bg-secondary-bg rounded p-6">
+    <h3 class="text-lg font-semibold mb-4">Series de artículos</h3>
+    <div class="content">
+        
+        
+        <a href="https://esaborit.github.io/posts/git-github-gitlab/">Uso básico de Git con GitLab y GitHub</a>
+        <br />
+        
+        <a href="https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/">Virtualizando con KMV libvirt y virt-manager en Mx-linux</a>
+        <br />
+        
+        
+    </div>
+</div>
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">Secciones</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#instalar-qemukvm-libvirt-y-virt-manager-en-mx-linux-para-virtualización">Instalar Qemu/KVM, libvirt y virt-manager en MX-Linux para Virtualización</a></li>
+    <li><a href="#pasos-para-instalar-y-habilitar-kvm-en-mx-linux">Pasos para instalar y habilitar KVM en Mx-Linux</a>
+      <ul>
+        <li><a href="#confirmación-del-soporte-de-virtualización">Confirmación del soporte de virtualización</a></li>
+        <li><a href="#actualización-del-sistema">Actualización del sistema.</a></li>
+        <li><a href="#instalación-de-qemu-kvm-y-libvirt-en-mx-linux">Instalación de QEMU-KVM y Libvirt en Mx-Linux</a></li>
+        <li><a href="#instalación-de-la-gui-virt-manager-para-kvm">Instalación de la GUI Virt-Manager para KVM</a></li>
+        <li><a href="#configuración-de-la-red">Configuración de la red</a></li>
+        <li><a href="#agregando-un-vhost_net">Agregando un &ldquo;vhost_net&rdquo;</a></li>
+        <li><a href="#creando-una-red-puente-opcional">Creando una red puente (opcional)</a></li>
+        <li><a href="#creando-máquinas-virtuales-usando-virt-manager-gui">Creando máquinas virtuales usando Virt-Manager GUI</a>
+          <ul>
+            <li><a href="#ejecuto-virt-manager">Ejecuto Virt-Manager</a></li>
+            <li><a href="#creo-una-máquina-virtual">Creo una máquina virtual:</a></li>
+            <li><a href="#localizo-el-volumen-de-medios-iso">Localizo el volumen de medios ISO</a></li>
+            <li><a href="#elijo-la-configuración-de-memoria-y-cpu">Elijo la configuración de memoria y CPU</a></li>
+            <li><a href="#crear-imagen-de-disco-virtual-qemu">Crear imagen de disco virtual Qemu</a></li>
+            <li><a href="#red">Red</a></li>
+            <li><a href="#máquina-virtual-qemu-kvm-en-mx-linux">Máquina virtual Qemu KVM en Mx-Linux</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container mx-auto">
+            <div class="max-w-screen-xl"><footer class="w-full text-center p-6 pin-b text-sm text-tertiary-text">
+    <p>&copy; 2021 Enrique Saborit Crespo &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</footer></div>
+        </div>
+    </footer>
+</body>
+
+</html>
