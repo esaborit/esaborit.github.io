@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Diseño web on ESC</title>
+    <link>https://esaborit.github.io/series/dise%C3%B1o-web/</link>
+    <description>Recent content in Diseño web on ESC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <copyright>&amp;copy; 2021 Enrique Saborit Crespo</copyright>
+    <lastBuildDate>Sat, 26 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/series/dise%C3%B1o-web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visualización de gráficas y tablas con javascript</title>
+      <link>https://esaborit.github.io/posts/graficas_tablas_javascript/</link>
+      <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/graficas_tablas_javascript/</guid>
+      <description>&lt;p&gt;Existen multitud de formas de representar en la web colecciones de datos visualizándolos como gráficas o como tablas.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

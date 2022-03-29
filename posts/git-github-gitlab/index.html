@@ -80,7 +80,7 @@
     "image": "https://esaborit.github.io/img/post/git-github-gitlab/git_gitlab_github.png",
     "datePublished": "2022-02-23T00:00:00+00:00",
     "dateModified": "2022-02-23T00:00:00+00:00",
-    "wordCount":  5656 ,
+    "wordCount":  5923 ,
     "author": {
         "@type": "Person",
         "name": ["enrique_saborit"]
@@ -276,7 +276,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>27 min lectura</span>
+        <span>28 min lectura</span>
     </div>
     
     
@@ -823,6 +823,55 @@ Changes to be committed:
 <p>Sirve por si algo ha fallado o se quiere eliminar:</p>
 <pre><code class="language-BASH">usuario@mi-pc:~ $ git revert &lt;sha del decommit&gt;
 </code></pre>
+<h3 id="eliminar-origen-remoto">Eliminar origen remoto</h3>
+<p>Primero debo saber la referencia a el origen a eliminar, para lo cual listo todos los que disponga en el repositorio local con el siguiente comando:</p>
+<pre><code>git remote -v
+</code></pre>
+<p>Para eliminar un origen remoto, necesito eliminar su referencia en mi repositorio local. Al eliminar un origen remoto se eliminará el origen remoto y todos sus datos del repositorio local. Ejecuto el siguiente comando.</p>
+<pre><code>git remote rm &lt;remote&gt;
+</code></pre>
+<p>Aquí <code>&lt;remote&gt;</code> es el nombre del origen remoto que quiero eliminar.</p>
+<p>Por ejemplo, para eliminar el origen remoto <code>origin</code>:</p>
+<pre><code>git remote rm origin
+</code></pre>
+<p>Después de eliminar un origen remoto, puedo volver a agregarlo a través del siguiente comando:</p>
+<pre><code>git remote add origin your_Remote_Url
+</code></pre>
+<p>luego ejecuto:</p>
+<pre><code>git push -u origin master
+</code></pre>
+<p>Con ello configuro la rama <code>master</code> para hacer seguimiento a la rama remota <code>master</code> desde la url contenida en <code>origin</code>.</p>
+<p>Un ejemplo práctico es:</p>
+<pre><code>Enrique@esc-pc:~/repositorios_github/esaborit.github.io
+$ git remote -v
+origin	https://github.com/esaborit/esaborit.github.io.git (fetch)
+origin	https://github.com/esaborit/esaborit.github.io.git (push)
+Enrique@esc-pc:~/repositorios_github/esaborit.github.io
+$ git remote rm origin
+Enrique@esc-pc:~/repositorios_github/esaborit.github.io
+$ git remote -v
+Enrique@esc-pc:~/repositorios_github/esaborit.github.io
+$ git remote add origin git@github.com:esaborit/esaborit.github.io.git
+Enrique@esc-pc:~/repositorios_github/esaborit.github.io
+$ git remote -v
+origin	git@github.com:esaborit/esaborit.github.io.git (fetch)
+origin	git@github.com:esaborit/esaborit.github.io.git (push)
+Enrique@esc-pc:~/repositorios_github/esaborit.github.io
+$ git push -u origin master
+Enter passphrase for key '/home/Enrique/.ssh/id_rsa': 
+Enumerando objetos: 328, listo.
+Contando objetos: 100% (328/328), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (213/213), listo.
+Escribiendo objetos: 100% (238/238), 10.42 MiB | 4.75 MiB/s, listo.
+Total 238 (delta 86), reusado 30 (delta 0), pack-reusado 0
+remote: Resolving deltas: 100% (86/86), completed with 45 local objects.
+To github.com:esaborit/esaborit.github.io.git
+   8607447..04c3477  master -&gt; master
+Rama 'master' configurada para hacer seguimiento a la rama remota 'master' de 'origin'.
+Enrique@esc-pc:~/repositorios_github/esaborit.github.io
+$ 
+</code></pre>
 <h3 id="otros-comandos">Otros comandos</h3>
 <pre><code class="language-BASH">usuario@mi-pc:~ $ git log
 usuario@mi-pc:~ $ git log -p
@@ -928,6 +977,9 @@ usuario@mi-pc:~ $ git log -p
 <div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
     <div>
         
+        <span class="block font-bold">Anterior</span>
+        <a href="https://esaborit.github.io/posts/graficas_tablas_javascript/" class="block">Visualización de gráficas y tablas con javascript</a>
+        
     </div>
     <div class="md:text-right mt-4 md:mt-0">
         
@@ -1031,6 +1083,7 @@ usuario@mi-pc:~ $ git log -p
         </li>
         <li><a href="#modificar-el-último-commit-hecho">Modificar el último commit hecho</a></li>
         <li><a href="#eliminar-un-commit">Eliminar un «commit»</a></li>
+        <li><a href="#eliminar-origen-remoto">Eliminar origen remoto</a></li>
         <li><a href="#otros-comandos">Otros comandos</a></li>
         <li><a href="#conceptos-de-main--origin-y-head">Conceptos de <code>main</code> , <code>origin</code> y <code>HEAD</code>.</a></li>
       </ul>
