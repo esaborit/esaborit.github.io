@@ -5,9 +5,26 @@
     <link>https://esaborit.github.io/series/</link>
     <description>Recent content in Series on ESC</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>es</language>
-    <copyright>&amp;copy; 2021 Enrique Saborit Crespo</copyright>
-    <lastBuildDate>Sat, 26 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Trámites Administración</title>
+      <link>https://esaborit.github.io/series/tr%C3%A1mites-administraci%C3%B3n/</link>
+      <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/series/tr%C3%A1mites-administraci%C3%B3n/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mi servidor local</title>
+      <link>https://esaborit.github.io/series/mi-servidor-local/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/series/mi-servidor-local/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Diseño web</title>
       <link>https://esaborit.github.io/series/dise%C3%B1o-web/</link>
@@ -27,29 +44,20 @@
     </item>
     
     <item>
+      <title>Laravel</title>
+      <link>https://esaborit.github.io/series/laravel/</link>
+      <pubDate>Wed, 03 Feb 2021 22:17:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/series/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Programando con Laravel</title>
       <link>https://esaborit.github.io/series/programando-con-laravel/</link>
       <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://esaborit.github.io/series/programando-con-laravel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mi servidor local</title>
-      <link>https://esaborit.github.io/series/mi-servidor-local/</link>
-      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://esaborit.github.io/series/mi-servidor-local/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Trámites Administración</title>
-      <link>https://esaborit.github.io/series/tr%C3%A1mites-administraci%C3%B3n/</link>
-      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://esaborit.github.io/series/tr%C3%A1mites-administraci%C3%B3n/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Larabel on ESC</title>
+    <link>https://esaborit.github.io/tags/larabel/</link>
+    <description>Recent content in Larabel on ESC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Feb 2021 22:17:33 +0100</lastBuildDate><atom:link href="https://esaborit.github.io/tags/larabel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creando el crud de posts - IX </title>
+      <link>https://esaborit.github.io/posts/crud_post/</link>
+      <pubDate>Wed, 03 Feb 2021 22:17:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/crud_post/</guid>
+      <description>Creando un crud para los post del blog Creo el controlador con los siete métodos
+1 2 enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controller Admin/PostController -r Controller created successfully. Lo modifico para recibir objetos post y las vistas a los métodos correspondientes.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 &amp;lt;?</description>
+    </item>
+    
+    <item>
+      <title>Creando el crud de etiquetas - VIII </title>
+      <link>https://esaborit.github.io/posts/crud_etiquetas/</link>
+      <pubDate>Sun, 31 Jan 2021 22:18:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/crud_etiquetas/</guid>
+      <description>Creando un crud para las etiquetas del blog Sigo los mismos pasos que para las categorias.
+Desde la consola de comandos y situado dentro del proyecto creo el controlador con sus 7 métodos para administrar las etiquetas desde el backend.
+1 2 enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controler Admin/TagController -r Controller created successfully.</description>
+    </item>
+    
+    <item>
+      <title>Creando el crud de categorías - VII </title>
+      <link>https://esaborit.github.io/posts/crud_categorias/</link>
+      <pubDate>Sat, 30 Jan 2021 22:19:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/crud_categorias/</guid>
+      <description>Creando un crud para las categorías del blog Genero en admin.php una ruta de tipo resources que me genere las rutas para el crud de las categorías. Antes creo un controlador para categorías que me genere ya los 7 métodos.
+1 2 enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controller Admin/CategoryController -r Controller created successfully.</description>
+    </item>
+    
+    <item>
+      <title>Creando el backend del blog -VI </title>
+      <link>https://esaborit.github.io/posts/adminlte_en_el_proyecto/</link>
+      <pubDate>Fri, 29 Jan 2021 22:20:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/adminlte_en_el_proyecto/</guid>
+      <description>Integrando AdminLTE en el proyecto Para la gestión de la parte administrativa voy a usar el paquete AdminLTE 3
+Voy a generar una url llamada admin que utilizaré para desarrollar la parte de administración del blog. Esta url no la voy a declarar en el fichero web.php sino que creo uno nuevo llamado routes/admin.</description>
+    </item>
+    
+    <item>
+      <title>Mostrando y filtrando posts - V</title>
+      <link>https://esaborit.github.io/posts/mostrando_y_filtrando_posts/</link>
+      <pubDate>Thu, 28 Jan 2021 22:26:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/mostrando_y_filtrando_posts/</guid>
+      <description>Mostrando el detalle de un post Creo una ruta en web.php para mostrar el detalle de un post.
+web.php
+1 Route::get(&amp;#39;posts/{post}&amp;#39;, [PostController::class, &amp;#39;show&amp;#39;])-&amp;gt;name(&amp;#39;posts.show&amp;#39;); Creo en método show en el controllador PostController.php al que le paso como parámetro un objeto post. Dentro de el recupero los post que pertenecen a la misma categoría que el en la variable $similares y se los paso junto con la variable $post a la vista posts.</description>
+    </item>
+    
+    <item>
+      <title>Crear un listado de post en la página principal - IV</title>
+      <link>https://esaborit.github.io/posts/listado_de_posts_en_la_pagina_principal/</link>
+      <pubDate>Thu, 28 Jan 2021 22:24:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/listado_de_posts_en_la_pagina_principal/</guid>
+      <description>Listado de posts Voy a mostrar un listado con los pos almacenados en la base de datos, para ello debo empezar creando un controlador en el que recogeré una variable con los post y desde donde llamar a una vista para mostrarlos. Creo un controlador llamado PostController.
+1 enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controller PostController entro en la clase app/Http/Controllers/PostController.</description>
+    </item>
+    
+    <item>
+      <title>Crear un menú responsive con Tailwind y Alpine - III</title>
+      <link>https://esaborit.github.io/posts/crear_un_menu_responsive_con_tailwind_y_alpine/</link>
+      <pubDate>Thu, 28 Jan 2021 22:22:34 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/crear_un_menu_responsive_con_tailwind_y_alpine/</guid>
+      <description>Menú responsive. El menú de navegación lo voy a incluir dentro de un componente de livewire
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:livewire navigation COMPONENT CREATED 🤙 CLASS: app/Http/Livewire/Navigation.php VIEW: resources/views/livewire/navigation.blade.php _._ / /o\ \ || () () __ |_\ /_| || || \\// /_\ \\ // || |~~ /_\ |`|`| || || \/ \\_ \^/ || || \\_ Congratulations, you&amp;#39;ve created your first Livewire component!</description>
+    </item>
+    
+    <item>
+      <title>Inserción de datos de prueba con seeders y factories - II</title>
+      <link>https://esaborit.github.io/posts/insertar_datos_de_prueba_con_seeders_y_factories/</link>
+      <pubDate>Thu, 28 Jan 2021 22:10:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/insertar_datos_de_prueba_con_seeders_y_factories/</guid>
+      <description>Inserción de datos de prueba en la base de datos Voy a crear un factory para cada una de las entidades/tablas de mi base de datos, salvo para User que ya se creo con el proyecto.
+UserFactory.php
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 &amp;lt;?</description>
+    </item>
+    
+    <item>
+      <title>Creación del proyecto y diseño de la base de datos del blog - I</title>
+      <link>https://esaborit.github.io/posts/creacion_proyecto_diseno_bbdd/</link>
+      <pubDate>Thu, 28 Jan 2021 22:09:52 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/creacion_proyecto_diseno_bbdd/</guid>
+      <description>Creación del proyecto La pieza fundamental para construir el proyecto es tener claro la estructura de la base de datos del blog.
+Diagrama EER
+Una vez que tengo planificada la base de datos para crear el proyecto con laravel debo situarme en el directorio /var/www/laravel/ dentro del cual creo todos los proyectos.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -5,9 +5,17 @@
     <link>https://esaborit.github.io/series/mi-servidor-local/</link>
     <description>Recent content in Mi servidor local on ESC</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>es</language>
-    <copyright>&amp;copy; 2021 Enrique Saborit Crespo</copyright>
-    <lastBuildDate>Wed, 14 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/series/mi-servidor-local/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/series/mi-servidor-local/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instalación de Pi-Hole en una raspberry pi</title>
+      <link>https://esaborit.github.io/posts/instalando-pi-hole/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/instalando-pi-hole/</guid>
+      <description>&lt;p&gt;Voy a instalar un bloqueador de anuncios para que todos los equipos que se conecten a mi intranet se puedan beneficiar de navegar por Internet sin la gran mayoría de anuncios, además de poder moderar los contenidos a los que acceden los niños.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Compartiendo recursos con Samba en Debian 10 Buster</title>
       <link>https://esaborit.github.io/posts/recursos-compartidos-debian-buster/</link>
@@ -18,7 +26,7 @@
     </item>
     
     <item>
-      <title>WordPress y linuxserver-letsencrypt</title>
+      <title>Red privada virtual con OPENVPN y Docker</title>
       <link>https://esaborit.github.io/posts/openvpn-as/</link>
       <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
       

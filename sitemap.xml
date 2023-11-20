@@ -1,403 +1,251 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>https://esaborit.github.io/docs/blog_laravel/creacion_proyecto_diseno_bbdd/</loc>
-    <lastmod>2021-01-28T23:09:52+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/docs/blog_laravel/insertar_datos_de_prueba_con_seeders_y_factories/</loc>
-    <lastmod>2021-01-28T22:39:33+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/docs/blog_laravel/crear_un_menu_responsive_con_tailwind_y_alpine/</loc>
+    <loc>https://esaborit.github.io/posts/crud_post/</loc>
+    <lastmod>2021-02-03T22:17:33+01:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/posts/crud_etiquetas/</loc>
+    <lastmod>2021-01-31T22:18:33+01:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/posts/crud_categorias/</loc>
+    <lastmod>2021-01-30T22:19:33+01:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/posts/adminlte_en_el_proyecto/</loc>
+    <lastmod>2021-01-29T22:20:33+01:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/posts/mostrando_y_filtrando_posts/</loc>
+    <lastmod>2021-01-28T22:26:33+01:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/posts/listado_de_posts_en_la_pagina_principal/</loc>
+    <lastmod>2021-01-28T22:24:33+01:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/posts/crear_un_menu_responsive_con_tailwind_y_alpine/</loc>
     <lastmod>2021-01-28T22:22:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/docs/blog_laravel/listado_de_posts_en_la_pagina_principal/</loc>
-    <lastmod>2021-01-28T22:22:33+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/docs/blog_laravel/mostrando_y_filtrando_posts/</loc>
-    <lastmod>2021-01-28T22:21:33+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/docs/blog_laravel/adminlte_en_el_proyecto/</loc>
-    <lastmod>2021-01-28T22:20:33+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/docs/blog_laravel/crud_categorias/</loc>
-    <lastmod>2021-01-28T22:19:33+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/docs/blog_laravel/crud_etiquetas/</loc>
-    <lastmod>2021-01-28T22:18:33+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/docs/blog_laravel/crud_post/</loc>
-    <lastmod>2021-01-28T22:17:33+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://esaborit.github.io/posts/insertar_datos_de_prueba_con_seeders_y_factories/</loc>
+    <lastmod>2021-01-28T22:10:33+01:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/posts/creacion_proyecto_diseno_bbdd/</loc>
+    <lastmod>2021-01-28T22:09:52+01:00</lastmod>
+  </url><url>
     <loc>https://esaborit.github.io/posts/</loc>
-    <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/authors/</loc>
-    <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://esaborit.github.io/categories/</loc>
-    <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/tags/debian/</loc>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/tags/dnie/</loc>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/</loc>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/tags/fnmt/</loc>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/posts/certificado_real_casa_moneda/</loc>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/series/</loc>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/tags/</loc>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/series/tr%C3%A1mites-administraci%C3%B3n/</loc>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/categories/tr%C3%A1mites-administraci%C3%B3n/</loc>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/posts/instalando-pi-hole/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/categories/linux/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/series/mi-servidor-local/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/tags/pi-hole/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/tags/raspberry-pi/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/categories/servicios-web/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://esaborit.github.io/tags/chart.js/</loc>
     <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/datatables/</loc>
     <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/series/dise%C3%B1o-web/</loc>
     <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/authors/enrique_saborit/</loc>
-    <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/</loc>
-    <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/categories/gr%C3%A1ficas-y-tablas/</loc>
     <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/jquery/</loc>
     <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/categories/linux/</loc>
-    <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/series/</loc>
-    <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/tags/</loc>
-    <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/graficas_tablas_javascript/</loc>
     <lastmod>2022-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/git/</loc>
     <lastmod>2022-02-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/github/</loc>
     <lastmod>2022-02-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/gitlab/</loc>
     <lastmod>2022-02-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/series/mx-linux/</loc>
     <lastmod>2022-02-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/categories/sistema-control-de-versiones/</loc>
     <lastmod>2022-02-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/git-github-gitlab/</loc>
     <lastmod>2022-02-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/kmv/</loc>
     <lastmod>2022-01-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/mx-linux/</loc>
     <lastmod>2022-01-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/categories/virtualizaci%C3%B3n/</loc>
     <lastmod>2022-01-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/</loc>
     <lastmod>2022-01-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/docs/</loc>
-    <lastmod>2021-01-28T23:09:52+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://esaborit.github.io/tags/blog/</loc>
+    <lastmod>2021-02-03T22:17:33+01:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/tags/larabel/</loc>
+    <lastmod>2021-02-03T22:17:33+01:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/series/laravel/</loc>
+    <lastmod>2021-02-03T22:17:33+01:00</lastmod>
+  </url><url>
+    <loc>https://esaborit.github.io/categories/proyecto-blog-laravel/</loc>
+    <lastmod>2021-02-03T22:17:33+01:00</lastmod>
+  </url><url>
     <loc>https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/</loc>
     <lastmod>2020-12-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/laravel/</loc>
     <lastmod>2020-12-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/categories/laravel/</loc>
     <lastmod>2020-12-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/categories/programaci%C3%B3n/</loc>
     <lastmod>2020-12-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/series/programando-con-laravel/</loc>
     <lastmod>2020-12-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/configurando-entorno-de-desarrollo-con-laravel-en-ubuntu-server-20-04/</loc>
     <lastmod>2020-12-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/docs/blog_laravel/</loc>
-    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/recursos-compartidos-debian-buster/</loc>
     <lastmod>2020-10-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/tags/debian/</loc>
-    <lastmod>2020-10-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/series/mi-servidor-local/</loc>
-    <lastmod>2020-10-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/samba/</loc>
     <lastmod>2020-10-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/categories/sistemas-operativos/</loc>
     <lastmod>2020-10-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/tags/dnie/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/autofirma-debian-buster/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/dnie-debian-buster/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/series/tr%C3%A1mites-administraci%C3%B3n/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/categories/tr%C3%A1mites-administraci%C3%B3n/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/docker/</loc>
     <lastmod>2020-06-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/authors/enrique-saborit/</loc>
-    <lastmod>2020-06-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/openvpn-as/</loc>
     <lastmod>2020-06-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/categories/servicios-web/</loc>
-    <lastmod>2020-06-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/openvpn-as/</loc>
     <lastmod>2020-06-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/categories/desarrollo-web/</loc>
     <lastmod>2020-06-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/lets-encrypt/</loc>
     <lastmod>2020-06-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/nextcloud/</loc>
     <lastmod>2020-06-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/ngnix/</loc>
     <lastmod>2020-06-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/wordpress-y-letsencrypt/</loc>
     <lastmod>2020-06-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/comandos-elementales-en-docker/</loc>
     <lastmod>2020-06-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/docker-en-un-servidor-casero/</loc>
     <lastmod>2020-06-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/conky-manager/</loc>
     <lastmod>2020-06-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/conky-manager-en-debian-buster/</loc>
     <lastmod>2020-06-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/instalando-gitkraken-en-debian-buster/</loc>
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/series/blog-con-hugo/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/hugo/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/categories/hugo/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/personalizando-beautifulhugo/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/categories/programacion/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/sitio-web/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/creando-un-sitio-web-con-hugo/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/posts/instalando-vscodium-en-debian-10/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/programaci%C3%B3n/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/categories/syntax/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/tags/vscodium/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://esaborit.github.io/about/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/authors/example-author/</loc>
-  </url>
-  
-  <url>
-    <loc>https://esaborit.github.io/authors/hugo-authors/</loc>
-  </url>
-  
 </urlset>

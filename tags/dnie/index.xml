@@ -5,9 +5,17 @@
     <link>https://esaborit.github.io/tags/dnie/</link>
     <description>Recent content in DNIe on ESC</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>es</language>
-    <copyright>&amp;copy; 2021 Enrique Saborit Crespo</copyright>
-    <lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/tags/dnie/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/tags/dnie/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Obtención del certificado de la Real Casa de la Moneda para persona física </title>
+      <link>https://esaborit.github.io/posts/certificado_real_casa_moneda/</link>
+      <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/certificado_real_casa_moneda/</guid>
+      <description>&lt;p&gt;Una de las formas de acreditar nuestra identidad a la hora de realizar distintos trámites con la administración pública española es utilizando el certificado de la Real Casa de la Moneda para personas físicas. En este artículo describo la secuencia de pasos que he tenido que seguir para poder obtenerlo usando mi DNIe e instalarlo en un ordenador con sistema operativo Gnu/linux.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Instalación de Autofirma en Debian 10 Buster</title>
       <link>https://esaborit.github.io/posts/autofirma-debian-buster/</link>

@@ -5,24 +5,41 @@
     <link>https://esaborit.github.io/categories/</link>
     <description>Recent content in Categories on ESC</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>es</language>
-    <copyright>&amp;copy; 2021 Enrique Saborit Crespo</copyright>
-    <lastBuildDate>Sat, 26 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Gráficas y tablas</title>
-      <link>https://esaborit.github.io/categories/gr%C3%A1ficas-y-tablas/</link>
-      <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
+      <title>Trámites Administración</title>
+      <link>https://esaborit.github.io/categories/tr%C3%A1mites-administraci%C3%B3n/</link>
+      <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://esaborit.github.io/categories/gr%C3%A1ficas-y-tablas/</guid>
+      <guid>https://esaborit.github.io/categories/tr%C3%A1mites-administraci%C3%B3n/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
       <link>https://esaborit.github.io/categories/linux/</link>
-      <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://esaborit.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Servicios web</title>
+      <link>https://esaborit.github.io/categories/servicios-web/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/categories/servicios-web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gráficas y tablas</title>
+      <link>https://esaborit.github.io/categories/gr%C3%A1ficas-y-tablas/</link>
+      <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/categories/gr%C3%A1ficas-y-tablas/</guid>
       <description></description>
     </item>
     
@@ -41,6 +58,15 @@
       <pubDate>Mon, 17 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://esaborit.github.io/categories/virtualizaci%C3%B3n/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Proyecto blog laravel</title>
+      <link>https://esaborit.github.io/categories/proyecto-blog-laravel/</link>
+      <pubDate>Wed, 03 Feb 2021 22:17:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/categories/proyecto-blog-laravel/</guid>
       <description></description>
     </item>
     
@@ -68,24 +94,6 @@
       <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://esaborit.github.io/categories/sistemas-operativos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Trámites Administración</title>
-      <link>https://esaborit.github.io/categories/tr%C3%A1mites-administraci%C3%B3n/</link>
-      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://esaborit.github.io/categories/tr%C3%A1mites-administraci%C3%B3n/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Servicios web</title>
-      <link>https://esaborit.github.io/categories/servicios-web/</link>
-      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://esaborit.github.io/categories/servicios-web/</guid>
       <description></description>
     </item>
     
