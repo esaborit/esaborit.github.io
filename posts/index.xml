@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Artículos on ESC</title>
+    <link>https://esaborit.github.io/posts/</link>
+    <description>Recent content in Artículos on ESC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://esaborit.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creando el crud de posts - IX </title>
+      <link>https://esaborit.github.io/posts/crud_post/</link>
+      <pubDate>Wed, 03 Feb 2021 22:17:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/crud_post/</guid>
+      <description>Creando un crud para los post del blog Creo el controlador con los siete métodos
+1 2 enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controller Admin/PostController -r Controller created successfully. Lo modifico para recibir objetos post y las vistas a los métodos correspondientes.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 &amp;lt;?</description>
+    </item>
+    
+    <item>
+      <title>Creando el crud de etiquetas - VIII </title>
+      <link>https://esaborit.github.io/posts/crud_etiquetas/</link>
+      <pubDate>Sun, 31 Jan 2021 22:18:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/crud_etiquetas/</guid>
+      <description>Creando un crud para las etiquetas del blog Sigo los mismos pasos que para las categorias.
+Desde la consola de comandos y situado dentro del proyecto creo el controlador con sus 7 métodos para administrar las etiquetas desde el backend.
+1 2 enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controler Admin/TagController -r Controller created successfully.</description>
+    </item>
+    
+    <item>
+      <title>Creando el crud de categorías - VII </title>
+      <link>https://esaborit.github.io/posts/crud_categorias/</link>
+      <pubDate>Sat, 30 Jan 2021 22:19:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/crud_categorias/</guid>
+      <description>Creando un crud para las categorías del blog Genero en admin.php una ruta de tipo resources que me genere las rutas para el crud de las categorías. Antes creo un controlador para categorías que me genere ya los 7 métodos.
+1 2 enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controller Admin/CategoryController -r Controller created successfully.</description>
+    </item>
+    
+    <item>
+      <title>Creando el backend del blog -VI </title>
+      <link>https://esaborit.github.io/posts/adminlte_en_el_proyecto/</link>
+      <pubDate>Fri, 29 Jan 2021 22:20:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/adminlte_en_el_proyecto/</guid>
+      <description>Integrando AdminLTE en el proyecto Para la gestión de la parte administrativa voy a usar el paquete AdminLTE 3
+Voy a generar una url llamada admin que utilizaré para desarrollar la parte de administración del blog. Esta url no la voy a declarar en el fichero web.php sino que creo uno nuevo llamado routes/admin.</description>
+    </item>
+    
+    <item>
+      <title>Mostrando y filtrando posts - V</title>
+      <link>https://esaborit.github.io/posts/mostrando_y_filtrando_posts/</link>
+      <pubDate>Thu, 28 Jan 2021 22:26:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/mostrando_y_filtrando_posts/</guid>
+      <description>Mostrando el detalle de un post Creo una ruta en web.php para mostrar el detalle de un post.
+web.php
+1 Route::get(&amp;#39;posts/{post}&amp;#39;, [PostController::class, &amp;#39;show&amp;#39;])-&amp;gt;name(&amp;#39;posts.show&amp;#39;); Creo en método show en el controllador PostController.php al que le paso como parámetro un objeto post. Dentro de el recupero los post que pertenecen a la misma categoría que el en la variable $similares y se los paso junto con la variable $post a la vista posts.</description>
+    </item>
+    
+    <item>
+      <title>Crear un listado de post en la página principal - IV</title>
+      <link>https://esaborit.github.io/posts/listado_de_posts_en_la_pagina_principal/</link>
+      <pubDate>Thu, 28 Jan 2021 22:24:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/listado_de_posts_en_la_pagina_principal/</guid>
+      <description>Listado de posts Voy a mostrar un listado con los pos almacenados en la base de datos, para ello debo empezar creando un controlador en el que recogeré una variable con los post y desde donde llamar a una vista para mostrarlos. Creo un controlador llamado PostController.
+1 enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:controller PostController entro en la clase app/Http/Controllers/PostController.</description>
+    </item>
+    
+    <item>
+      <title>Crear un menú responsive con Tailwind y Alpine - III</title>
+      <link>https://esaborit.github.io/posts/crear_un_menu_responsive_con_tailwind_y_alpine/</link>
+      <pubDate>Thu, 28 Jan 2021 22:22:34 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/crear_un_menu_responsive_con_tailwind_y_alpine/</guid>
+      <description>Menú responsive. El menú de navegación lo voy a incluir dentro de un componente de livewire
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 enrique@enrique-server:/var/www/laravel/blog_laravel$ php artisan make:livewire navigation COMPONENT CREATED 🤙 CLASS: app/Http/Livewire/Navigation.php VIEW: resources/views/livewire/navigation.blade.php _._ / /o\ \ || () () __ |_\ /_| || || \\// /_\ \\ // || |~~ /_\ |`|`| || || \/ \\_ \^/ || || \\_ Congratulations, you&amp;#39;ve created your first Livewire component!</description>
+    </item>
+    
+    <item>
+      <title>Inserción de datos de prueba con seeders y factories - II</title>
+      <link>https://esaborit.github.io/posts/insertar_datos_de_prueba_con_seeders_y_factories/</link>
+      <pubDate>Thu, 28 Jan 2021 22:10:33 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/insertar_datos_de_prueba_con_seeders_y_factories/</guid>
+      <description>Inserción de datos de prueba en la base de datos Voy a crear un factory para cada una de las entidades/tablas de mi base de datos, salvo para User que ya se creo con el proyecto.
+UserFactory.php
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 &amp;lt;?</description>
+    </item>
+    
+    <item>
+      <title>Creación del proyecto y diseño de la base de datos del blog - I</title>
+      <link>https://esaborit.github.io/posts/creacion_proyecto_diseno_bbdd/</link>
+      <pubDate>Thu, 28 Jan 2021 22:09:52 +0100</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/creacion_proyecto_diseno_bbdd/</guid>
+      <description>Creación del proyecto La pieza fundamental para construir el proyecto es tener claro la estructura de la base de datos del blog.
+Diagrama EER
+Una vez que tengo planificada la base de datos para crear el proyecto con laravel debo situarme en el directorio /var/www/laravel/ dentro del cual creo todos los proyectos.</description>
+    </item>
+    
+    <item>
+      <title>Obtención del certificado de la Real Casa de la Moneda para persona física </title>
+      <link>https://esaborit.github.io/posts/certificado_real_casa_moneda/</link>
+      <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/certificado_real_casa_moneda/</guid>
+      <description>&lt;p&gt;Una de las formas de acreditar nuestra identidad a la hora de realizar distintos trámites con la administración pública española es utilizando el certificado de la Real Casa de la Moneda para personas físicas. En este artículo describo la secuencia de pasos que he tenido que seguir para poder obtenerlo usando mi DNIe e instalarlo en un ordenador con sistema operativo Gnu/linux.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Instalación de Pi-Hole en una raspberry pi</title>
+      <link>https://esaborit.github.io/posts/instalando-pi-hole/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/instalando-pi-hole/</guid>
+      <description>&lt;p&gt;Voy a instalar un bloqueador de anuncios para que todos los equipos que se conecten a mi intranet se puedan beneficiar de navegar por Internet sin la gran mayoría de anuncios, además de poder moderar los contenidos a los que acceden los niños.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Visualización de gráficas y tablas con javascript</title>
+      <link>https://esaborit.github.io/posts/graficas_tablas_javascript/</link>
+      <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/graficas_tablas_javascript/</guid>
+      <description>&lt;p&gt;Existen multitud de formas de representar en la web colecciones de datos visualizándolos como gráficas o como tablas.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Uso básico de Git con GitLab y GitHub</title>
+      <link>https://esaborit.github.io/posts/git-github-gitlab/</link>
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/git-github-gitlab/</guid>
+      <description>&lt;p&gt;Github y GitLab son servicios web que permiten alojar el código de proyectos utilizando  el software de control de versiones Git.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Virtualizando con KMV libvirt y virt-manager en Mx-linux</title>
+      <link>https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/</link>
+      <pubDate>Mon, 17 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/virtualizando-con-kmv-en-mx-linux/</guid>
+      <description>&lt;p&gt;Pequeño tutorial para la instalación de KMV en Mx-linux.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Crear un proyecto laravel desde un repositorio en Github</title>
+      <link>https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/clonar-proyecto-laravel-desde-github/</guid>
+      <description>&lt;p&gt;Voy a crear un proyecto con laravel a partir de otro alojado en un repositorio de Github.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Configuración de un entorno de desarrollo con Laravel en Ubuntu Server 20.04</title>
+      <link>https://esaborit.github.io/posts/configurando-entorno-de-desarrollo-con-laravel-en-ubuntu-server-20-04/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/configurando-entorno-de-desarrollo-con-laravel-en-ubuntu-server-20-04/</guid>
+      <description>&lt;p&gt;Voy a crear una máquina virtual con Ubuntu Server 20.04 en VirtualBox donde instalaré todas las herramientas y servicios necesarios para el entorno de desarrollo con Laravel.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Compartiendo recursos con Samba en Debian 10 Buster</title>
+      <link>https://esaborit.github.io/posts/recursos-compartidos-debian-buster/</link>
+      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/recursos-compartidos-debian-buster/</guid>
+      <description>&lt;p&gt;Ya que tengo un pequeño servidor casero lo voy a aprovechar para conectar a el los discos duros donde guardamos copias simples de los datos de los ordenadores de casa y las copias de seguridad.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Instalación de Autofirma en Debian 10 Buster</title>
+      <link>https://esaborit.github.io/posts/autofirma-debian-buster/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/autofirma-debian-buster/</guid>
+      <description>&lt;p&gt;Otra herramienta útil  en la tramitación de documentación de manera telemática ante la administración es Autofirma.
+Según nos indican en la sede electrónicoa del gobierno de España.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Instalación de DNI electrónico (DNIe) en Debian 10 Buster</title>
+      <link>https://esaborit.github.io/posts/dnie-debian-buster/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/dnie-debian-buster/</guid>
+      <description>&lt;p&gt;Para facilitar algunos de mis trámites con la administración pública, tanto local como estatal, voy a instalar un lector de DNIe en mi máquina con Debian Buster y los certificados de dicho documento en el navegador web Firefox 68.12.0esr (64-bit).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Red privada virtual con OPENVPN y Docker</title>
+      <link>https://esaborit.github.io/posts/openvpn-as/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/openvpn-as/</guid>
+      <description>&lt;p&gt;Otra utilidad que quería darle a mi servidor casero era la de poder acceder a Internet de manera segura desde mi teléfono o desde mi portátil cuando estoy conectado a una red de la que no me fío, como la red wifi de un hotel o una cafetería. Por ello voy a crear una red privada virtual (VPN) que me permita navegar por redes no confiables de manera privada y segura, como si estuviera en mi red privada.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>WordPress y linuxserver-letsencrypt</title>
+      <link>https://esaborit.github.io/posts/wordpress-y-letsencrypt/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/wordpress-y-letsencrypt/</guid>
+      <description>&lt;p&gt;Después de instalar mi servidor web y el proxy inverso voy a crear un &lt;code&gt;Server Blocks&lt;/code&gt; (virtualhost en Apache) en el servidor web Ngnix. En el alojaré un sitio web creado con WordPress al que accederé desde internet con el subominio de pruebas &lt;code&gt;pruebas.misubdominio.duckdns.org&lt;/code&gt; que he creado.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Comandos Elementales en Docker</title>
+      <link>https://esaborit.github.io/posts/comandos-elementales-en-docker/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/comandos-elementales-en-docker/</guid>
+      <description>&lt;p&gt;Recojo en este breve post un pequeño listado de comandos docker para trabajar con imágenes y contenedores.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker en un servidor casero</title>
+      <link>https://esaborit.github.io/posts/docker-en-un-servidor-casero/</link>
+      <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/docker-en-un-servidor-casero/</guid>
+      <description>&lt;p&gt;Tengo un pequeño ordenador con varios servidores (Web, SQL, VPN, Nextcloud) al que voy a cambiar el disco duro. Después de barajar las distintas opciones disponibles, he decidido instalar Debian 10 server en el que por facilidad de mantenimiento quiero virtualizar todos estos servicios.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Instalando Conky System Monitor y Conky Manager en Debian Buster</title>
+      <link>https://esaborit.github.io/posts/conky-manager-en-debian-buster/</link>
+      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/conky-manager-en-debian-buster/</guid>
+      <description>&lt;p&gt;Proceso de instalación del monitor de sistemas Conky  y la interface gráfica Conky Manager para manejar de una forma mas cómoda Conky.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Instalando GitKraken en Debian Buster</title>
+      <link>https://esaborit.github.io/posts/instalando-gitkraken-en-debian-buster/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/instalando-gitkraken-en-debian-buster/</guid>
+      <description>&lt;p&gt;Instalo GitKraken siguiendo los pasos de la &lt;a href=&#34;https://support.gitkraken.com/how-to-install/&#34;&gt;página de soporte&lt;/a&gt; del sitio web de &lt;strong&gt;Gitkraken&lt;/strong&gt;. Entre otras razones para su instalación esta que no se requieren herramientas Git para GitKraken, por lo que una vez instalado, se puede abrir la aplicación y comenzar a trabajar con el.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Personalizando el tema beautifulhugo</title>
+      <link>https://esaborit.github.io/posts/personalizando-beautifulhugo/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/personalizando-beautifulhugo/</guid>
+      <description>&lt;p&gt;Para empezar a personalizar el tema que he instalado en mi sitio web, lo primero que debo de hacer es modificar el fichero &lt;code&gt;config.toml&lt;/code&gt; que he copiado en el directorio raíz de mi sitio desde la carpeta llamada &amp;ldquo;exampleSite&amp;rdquo; de dicho tema.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Creando Un Sitio Web Con Hugo</title>
+      <link>https://esaborit.github.io/posts/creando-un-sitio-web-con-hugo/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/creando-un-sitio-web-con-hugo/</guid>
+      <description>&lt;p&gt;Creo este post para acordarme de como voy a instalar este blog utilizando Hugo. Mi entorno de desarrollo está compuesto de un ordenador con Debian 10 como SO, donde instalaré Hugo, VSCodium como editor de código y Github como hosting y repositorio del sitio web del blog.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Instalando VSCodium en Debian 10</title>
+      <link>https://esaborit.github.io/posts/instalando-vscodium-en-debian-10/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://esaborit.github.io/posts/instalando-vscodium-en-debian-10/</guid>
+      <description>&lt;p&gt;VSCodium es una una bifurcación del código de Visual Studio de Microsoft creada para que los desarrolladores no tengan que lidiar con la telemetría/rastreadores que tiene Visual Studio Code.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
